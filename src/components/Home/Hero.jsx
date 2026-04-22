@@ -16,7 +16,6 @@ export default function Hero() {
         .anim-3 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.38s both; }
         .anim-4 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.52s both; }
 
-        /* Exact gradient from image: hot pink → violet → orange/amber */
         .hero-gradient-text {
           background: linear-gradient(90deg, #ff3dac 0%, #d970ff 25%, #7b6cff 50%, #ff8c42 75%, #ffb347 100%);
           -webkit-background-clip: text;
@@ -25,7 +24,6 @@ export default function Hero() {
           color: transparent;
         }
 
-        /* Hero CTA: purple-left to amber-right, matching the image button */
         .hero-cta {
           background: linear-gradient(90deg, #7b5cff 0%, #9d4edd 35%, #d97706 80%, #f59e0b 100%);
           transition: box-shadow 0.2s ease, transform 0.15s ease;
@@ -36,7 +34,6 @@ export default function Hero() {
           transform: translateY(-2px) scale(1.015);
         }
 
-        /* Radial background glow matching the very subtle purple tint in image */
         .hero-bg-glow {
           position: absolute;
           top: -60px;
@@ -69,7 +66,7 @@ export default function Hero() {
           <h1
             className="anim-1 font-normal "
             style={{
-              fontSize: "clamp(2rem, 5.8vw, 64px)",
+              fontSize: "clamp(2rem, 5.3vw, 64px)",
               lineHeight: 1.2,
               letterSpacing: "-0.025em",
               color: "#1c1c1c",
@@ -78,7 +75,7 @@ export default function Hero() {
             Outpace everyone with
             <br />
             <span className="inline">the </span>
-            <span className="hero-gradient-text">best Coaching Business platform</span>
+            <span className="hero-gradient-text">best platform for coaches</span>
           </h1>
 
           {/* ── Sub-headline ── */}
@@ -98,19 +95,20 @@ export default function Hero() {
            and messages in one platform built to scale.
           </p>
 
-          {/* ── CTA Button ── */}
-          <div className="anim-3" style={{ marginTop: "clamp(2rem, 4vw, 3rem)" }}>
-            <button
-              className="hero-cta text-white font-semibold rounded-full"
-              style={{
-                fontSize: "clamp(1rem, 1.8vw, 1.125rem)",
-                padding: "clamp(0.8rem, 1.8vw, 1rem) clamp(2.5rem, 5vw, 3.5rem)",
-                letterSpacing: "0.01em",
-              }}
-            >
-              Get Started →
-            </button>
-          </div>
+        {/* ── CTA Button ── */}
+<div className="anim-3 mt-8 sm:mt-10">
+  <button
+    className="hero-cta text-white font-semibold rounded-full transition-all duration-300 hover:scale-[1.02]"
+    style={{
+      fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
+      padding: "clamp(0.55rem, 1.2vw, 0.75rem) clamp(1.4rem, 3vw, 2rem)",
+      letterSpacing: "0.01em",
+      minHeight: "44px",
+    }}
+  >
+    Get Started →
+  </button>
+</div>
 
           {/* ── Trust line ── */}
           <p
@@ -119,16 +117,16 @@ export default function Hero() {
               marginTop: "1rem",
               fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
               color: "#9699a6",
-              fontWeight: 400,
+              fontWeight: 100,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               gap: "0.4rem",
             }}
           >
-            No credit card needed
+            Trusted by 10,000+ coaches worldwide
             <span style={{ color: "#c5c7d4", fontSize: "1rem" }}>✦</span>
-            Unlimited time on Free plan
+            Scale faster with less effort
           </p>
 
         </div>
