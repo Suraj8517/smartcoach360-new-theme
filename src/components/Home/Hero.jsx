@@ -17,16 +17,14 @@ export default function Hero() {
         .anim-4 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.52s both; }
 
         .hero-gradient-text {
-          background: linear-gradient(90deg, #ff3dac 0%, #d970ff 25%, #7b6cff 50%, #ff8c42 75%, #ffb347 100%);
-          -webkit-background-clip: text;
+background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9 75%, #5b21b6 100%);          -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
           color: transparent;
         }
 
         .hero-cta {
-          background: linear-gradient(90deg, #7b5cff 0%, #9d4edd 35%, #d97706 80%, #f59e0b 100%);
-          transition: box-shadow 0.2s ease, transform 0.15s ease;
+          background: linear-gradient(90deg, #7c3aed 0%, #8b5cf6 35%, #6d28d9 80%, #5b21b6 100%); transition: box-shadow 0.2s ease, transform 0.15s ease;
           box-shadow: 0 4px 20px rgba(123,92,255,0.28);
         }
         .hero-cta:hover {
@@ -51,9 +49,9 @@ export default function Hero() {
         className="hero-root relative w-full overflow-hidden flex flex-col items-center justify-center text-center"
         style={{
           background: "#FFFFFF",
-          minHeight: "calc(100vh - 64px)",
+          minHeight: "calc(80vh - 64px)",
           paddingTop: "clamp(4rem, 9vw, 8rem)",
-          paddingBottom: "clamp(4rem, 9vw, 8rem)",
+          paddingBottom: "clamp(4rem, 9vw, 3rem)",
           paddingLeft: "1rem",
           paddingRight: "1rem",
         }}

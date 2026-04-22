@@ -4,26 +4,26 @@ import {
   Bot, Wrench, Zap, Calendar, Phone, Image, ChevronRight,
   Check, ChevronLeft
 } from "lucide-react";
-
+import chat from "../../assets/crm/chat.png"
 const FEATURES = [
   {
     id: 0,
-    key: "projects",
-    label: "Projects &\nTasks",
+    key: "Program Management",
+    label: "Program\nManagement",
     Icon: LayoutGrid,
     agentName: "Meeting Scheduler Agent",
     agentStat: "24 meetings scheduled",
     AgentStatIcon: Calendar,
     agentColor: "from-violet-300 to-indigo-400",
     agentEmoji: "🤖",
-    screenshotImage: "/screenshots/hero-projects.avif",
-    screenshotImageMobile: "/screenshots/hero-projects-mobile.avif",
+    screenshotImage: chat,
+    screenshotImageMobile: chat,
     floatingLabels: ["RSVP Agent", "Copy for ads"],
   },
   {
     id: 1,
-    key: "marketing",
-    label: "Marketing",
+    key: "Nutrition & Activity",
+    label: "Nutrition & Activity",
     Icon: Megaphone,
     agentName: "Asset Generator Agent",
     agentStat: "30 assets generated",
@@ -242,7 +242,7 @@ const ExplorePanel = ({ active, onSelect }) => (
     <button
       className="w-[50%] rounded-full py-3 text-[13.5px] font-semibold text-white flex items-center justify-center gap-2 transition-all duration-200 group hover:opacity-90 active:scale-95"
       style={{
-        background: "linear-gradient(90deg,#5b5ef4,#4a4de8)",
+        background: "linear-gradient(90deg, #7c3aed, #6d28d9)",
         boxShadow: "0 4px 18px rgba(97,97,255,0.35)",
       }}
     >
@@ -303,12 +303,12 @@ export default function FeatureShowcase() {
       `}</style>
 
       <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10">
-        <div className="2xl:max-w-6xl max-w-4xl  mx-auto">
+        <div className="2xl:max-w-5xl max-w-4xl  mx-auto">
 
 
           {/* ══ DESKTOP ══════════════════════════════════════════════ */}
           <div className="hidden lg:block">
-            <div className="relative" style={{ minHeight: "560px" }}>
+            <div className="relative" style={{ minHeight: "660px" }}>
 
               <div
                 className="absolute top-[72px] left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100"
