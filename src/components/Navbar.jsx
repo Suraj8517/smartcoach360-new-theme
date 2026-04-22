@@ -144,10 +144,10 @@ export default function Navbar() {
               <button className="text-[14px] font-thin text-[#323338] hover:text-[#6161ff] transition-colors px-2 py-1 whitespace-nowrap">
                 Compare
               </button>
-              <button className="contact-sales-nav rounded-full px-5 py-[7px] text-[12px] font-thin whitespace-nowrap">
+              <button className="contact-sales-nav rounded-full px-[16px] py-[12px] text-[12px] font-thin whitespace-nowrap">
                 Contact Us
               </button>
-             <button className="get-started-nav rounded-full px-5 py-[9px] text-[12px] font-thin text-white whitespace-nowrap group">
+             <button className="get-started-nav rounded-full px-[16px] py-[12px] text-[12px] font-thin text-white whitespace-nowrap group">
   Book a Demo{" "}
   <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
     →
