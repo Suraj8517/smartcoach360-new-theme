@@ -49,9 +49,9 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
         className="hero-root relative w-full overflow-hidden flex flex-col items-center justify-center text-center"
         style={{
           background: "#FFFFFF",
-          minHeight: "calc(80vh - 64px)",
+          minHeight: "calc(60vh - 64px)",
           paddingTop: "clamp(4rem, 9vw, 8rem)",
-          paddingBottom: "clamp(4rem, 9vw, 3rem)",
+          paddingBottom: "clamp(4rem, 6vw, 3rem)",
           paddingLeft: "1rem",
           paddingRight: "1rem",
         }}

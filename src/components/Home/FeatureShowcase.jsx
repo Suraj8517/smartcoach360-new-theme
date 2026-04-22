@@ -308,7 +308,7 @@ export default function FeatureShowcase() {
 
           {/* ══ DESKTOP ══════════════════════════════════════════════ */}
           <div className="hidden lg:block">
-            <div className="relative" style={{ minHeight: "660px" }}>
+            <div className="relative" style={{ minHeight: "600px" }}>
 
               <div
                 className="absolute top-[72px] left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100"
