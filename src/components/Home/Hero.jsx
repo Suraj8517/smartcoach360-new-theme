@@ -1,0 +1,138 @@
+export default function Hero() {
+  return (
+    <>
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        .hero-root * { font-family: 'Poppins', sans-serif; box-sizing: border-box; }
+        .hero-root { font-family: 'Poppins', sans-serif; }
+
+        @keyframes fadeUp {
+          from { opacity: 0; transform: translateY(24px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        .anim-1 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.05s both; }
+        .anim-2 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.22s both; }
+        .anim-3 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.38s both; }
+        .anim-4 { animation: fadeUp 0.7s cubic-bezier(.22,1,.36,1) 0.52s both; }
+
+        /* Exact gradient from image: hot pink → violet → orange/amber */
+        .hero-gradient-text {
+          background: linear-gradient(90deg, #ff3dac 0%, #d970ff 25%, #7b6cff 50%, #ff8c42 75%, #ffb347 100%);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+        }
+
+        /* Hero CTA: purple-left to amber-right, matching the image button */
+        .hero-cta {
+          background: linear-gradient(90deg, #7b5cff 0%, #9d4edd 35%, #d97706 80%, #f59e0b 100%);
+          transition: box-shadow 0.2s ease, transform 0.15s ease;
+          box-shadow: 0 4px 20px rgba(123,92,255,0.28);
+        }
+        .hero-cta:hover {
+          box-shadow: 0 8px 32px rgba(123,92,255,0.42);
+          transform: translateY(-2px) scale(1.015);
+        }
+
+        /* Radial background glow matching the very subtle purple tint in image */
+        .hero-bg-glow {
+          position: absolute;
+          top: -60px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: min(1000px, 140vw);
+          height: min(700px, 90vw);
+          background: radial-gradient(ellipse at 50% 10%, rgba(224,210,255,0.28) 0%, transparent 65%);
+          pointer-events: none;
+          z-index: 0;
+        }
+      `}</style>
+
+      <section
+        className="hero-root relative w-full overflow-hidden flex flex-col items-center justify-center text-center"
+        style={{
+          background: "#FFFFFF",
+          minHeight: "calc(100vh - 64px)",
+          paddingTop: "clamp(4rem, 9vw, 8rem)",
+          paddingBottom: "clamp(4rem, 9vw, 8rem)",
+          paddingLeft: "1rem",
+          paddingRight: "1rem",
+        }}
+      >
+      
+
+        <div className="relative z-10 w-full max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] mx-auto">
+
+          {/* ── Headline ── */}
+          <h1
+            className="anim-1 font-normal "
+            style={{
+              fontSize: "clamp(2rem, 5.8vw, 64px)",
+              lineHeight: 1.2,
+              letterSpacing: "-0.025em",
+              color: "#1c1c1c",
+            }}
+          >
+            Outpace everyone with
+            <br />
+            <span className="inline">the </span>
+            <span className="hero-gradient-text">best Coaching Business platform</span>
+          </h1>
+
+          {/* ── Sub-headline ── */}
+          <p
+            className="anim-2 mx-auto"
+            style={{
+              marginTop: "clamp(1.25rem, 3vw, 2rem)",
+              fontSize: "clamp(1rem, 1.8vw, 1.1rem)",
+              fontWeight: 400,
+              color: "#676879",
+              lineHeight: 1.7,
+              maxWidth: "560px",
+            }}
+          >
+            Stop juggling apps. Manage clients, programs, payments,
+            <br className="hidden sm:block" />
+           and messages in one platform built to scale.
+          </p>
+
+          {/* ── CTA Button ── */}
+          <div className="anim-3" style={{ marginTop: "clamp(2rem, 4vw, 3rem)" }}>
+            <button
+              className="hero-cta text-white font-semibold rounded-full"
+              style={{
+                fontSize: "clamp(1rem, 1.8vw, 1.125rem)",
+                padding: "clamp(0.8rem, 1.8vw, 1rem) clamp(2.5rem, 5vw, 3.5rem)",
+                letterSpacing: "0.01em",
+              }}
+            >
+              Get Started →
+            </button>
+          </div>
+
+          {/* ── Trust line ── */}
+          <p
+            className="anim-4"
+            style={{
+              marginTop: "1rem",
+              fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
+              color: "#9699a6",
+              fontWeight: 400,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "0.4rem",
+            }}
+          >
+            No credit card needed
+            <span style={{ color: "#c5c7d4", fontSize: "1rem" }}>✦</span>
+            Unlimited time on Free plan
+          </p>
+
+        </div>
+      </section>
+    </>
+  );
+}
