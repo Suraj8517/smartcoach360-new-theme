@@ -1093,74 +1093,116 @@ export default function FeatureShowcase() {
           </div>
 
           {/* ══ MOBILE ═══════════════════════════════════════════════ */}
-          <div className="lg:hidden flex flex-col gap-4">
-            <div
-              className="w-full rounded-2xl relative"
-              style={{
-                boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                minHeight: "340px",
-                background: "#f5f5ff",
-              }}
-            >
-              <img
-                key={`mob-${mobIndex}`}
-                src={
-                  mobFeature.screenshotImageMobile || mobFeature.screenshotImage
-                }
-                alt={mobFeature.label}
-                className="img-anim w-full object-contain object-top block"
-                style={{ minHeight: "340px" }}
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                }}
-              />
-              <div className="absolute inset-0 -z-10">
-                <SkeletonScreen />
-              </div>
-              {typeof MobSkeletonComp === "function" && (
-                <MobSkeletonComp feature={mobFeature} />
-              )}
+          {/* ══ MOBILE ═══════════════════════════════════════════════ */}
+<div className="lg:hidden flex flex-col gap-5">
+  
+  {/* Feature label pills — horizontal scroll */}
+  <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4">
+    {FEATURES.map((f, i) => (
+      <button
+        key={i}
+        onClick={() => setMobIndex(i)}
+        className="shrink-0 text-[10px] font-semibold rounded-full px-3 py-1.5 transition-all"
+        style={{
+          background: mobIndex === i ? "#5b5ef4" : "#f3f4f6",
+          color: mobIndex === i ? "#fff" : "#6b7280",
+        }}
+      >
+        {f.label}
+      </button>
+    ))}
+  </div>
 
-              <div className="absolute bottom-3 -left-3 z-20">
-                <AgentBadge feature={mobFeature} animKey={mobIndex} />
-              </div>
+  {/* Image card — tap to go next */}
+  <div
+    className="w-full rounded-2xl relative overflow-hidden cursor-pointer select-none"
+    style={{
+      boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
+      minHeight: "300px",
+      background: "#f5f5ff",
+    }}
+    onClick={mobNext}
+  >
+    {/* Skeleton fallback behind image */}
+    <div className="absolute inset-0 -z-10">
+      <SkeletonScreen />
+    </div>
 
-              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex gap-1.5 items-center">
-                {FEATURES.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setMobIndex(i)}
-                    className="rounded-full transition-all duration-200"
-                    style={{
-                      width: i === mobIndex ? "20px" : "6px",
-                      height: "6px",
-                      background:
-                        i === mobIndex ? "#6161ff" : "rgba(150,150,200,0.5)",
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+    <img
+      key={`mob-${mobIndex}`}
+      src={mobFeature.screenshotImageMobile || mobFeature.screenshotImage}
+      alt={mobFeature.label}
+      className="img-anim w-full h-full object-cover object-top block"
+      style={{ minHeight: "300px", maxHeight: "360px" }}
+      onError={(e) => { e.currentTarget.style.display = "none"; }}
+    />
 
-            <div className="text-center">
-              <p
-                className="text-[12px] font-bold uppercase tracking-widest"
-                style={{ color: "#6161ff" }}
-              >
-                {mobFeature.label.replace("\n", " ")}
-              </p>
-            </div>
+    {/* Skeleton overlay — top right */}
+    {typeof MobSkeletonComp === "function" && (
+      <MobSkeletonComp feature={mobFeature} />
+    )}
 
-            <button
-              className="w-full rounded-full py-3.5 text-[14px] font-semibold text-white flex items-center justify-center gap-2"
-              style={{
-                background: "linear-gradient(90deg,#5b5ef4,#4a4de8)",
-                boxShadow: "0 4px 18px rgba(97,97,255,0.35)",
-              }}
-            >
-              Get Started <ChevronRight size={16} />
-            </button>
-          </div>
+    {/* Tap hint — fades in */}
+    <div
+      className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 rounded-full px-3 py-1"
+      style={{ background: "rgba(0,0,0,0.35)", backdropFilter: "blur(6px)" }}
+    >
+      <span className="text-white text-[9px] font-medium">Tap to explore</span>
+      <ChevronRight size={9} color="white" />
+    </div>
+
+    {/* Dot indicators */}
+    <div className="absolute bottom-3 right-3 flex gap-1">
+      {FEATURES.map((_, i) => (
+        <div
+          key={i}
+          onClick={(e) => { e.stopPropagation(); setMobIndex(i); }}
+          className="rounded-full transition-all"
+          style={{
+            width: mobIndex === i ? 16 : 5,
+            height: 5,
+            background: mobIndex === i ? "#fff" : "rgba(255,255,255,0.45)",
+          }}
+        />
+      ))}
+    </div>
+  </div>
+
+  {/* Feature info row */}
+  <div className="flex items-center gap-3 px-1">
+    <div
+      className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+      style={{ background: mobFeature.color + "18" }}
+    >
+      {mobFeature.icon && (
+        <mobFeature.icon size={16} style={{ color: mobFeature.color }} />
+      )}
+    </div>
+    <div className="flex-1 min-w-0">
+      <div className="text-[13px] font-bold text-gray-800 truncate">
+        {mobFeature.label}
+      </div>
+      <div className="text-[11px] text-gray-400 truncate">
+        {mobFeature.description?.slice(0, 48)}…
+      </div>
+    </div>
+    {/* Small agent badge */}
+    <div style={{ transform: "scale(0.62)", transformOrigin: "right center" }}>
+      <AgentBadge feature={mobFeature} animKey={mobIndex} />
+    </div>
+  </div>
+
+  {/* CTA */}
+  <button
+    className="w-full rounded-full py-3.5 text-[14px] font-semibold text-white flex items-center justify-center gap-2"
+    style={{
+      background: "linear-gradient(90deg,#5b5ef4,#4a4de8)",
+      boxShadow: "0 4px 18px rgba(97,97,255,0.35)",
+    }}
+  >
+    Get Started <ChevronRight size={16} />
+  </button>
+</div>
         </div>
       </section>
     </>
