@@ -40,524 +40,15 @@ import {
   DollarSign,
   Heart,
   UserCheck,
-  Lock,
-  Smartphone,
-  Bell,
-  PieChart,
-  FileText,
-  Award,
-  Cpu,
-  Database,
-  BarChart,
-  CreditCard,
-  Users2,
-  ChartBar,
-  Briefcase,
-  Mail,
-  Settings,
+  Lock,Smartphone,Bell,PieChart,FileText,Award, Cpu,Database,BarChart,CreditCard,Users2,ChartBar,Briefcase,Mail,Settings,
 } from "lucide-react";
-
-import exercise from "../../assets/crm/exercise-library.png";
-import nutrition from "../../assets/crm/nutrition.png";
-
-const FEATURES = [
-  {
-    id: 0,
-    key: "Program Management",
-    label: "Program\nManagement",
-    Icon: LayoutGrid,
-    agentName: "Sprint Planner AI",
-    agentStat: "47 tasks auto-prioritized today",
-    AgentStatIcon: Target,
-    agentColor: "from-violet-400 to-indigo-500",
-    agentEmoji: "🗂️",
-    screenshotImage: exercise,
-    screenshotImageMobile: exercise,
-    floatingLabels: ["Auto-schedule tasks", "Sprint velocity +32%"],
-  },
-  {
-    id: 1,
-    key: "Nutrition & Activity",
-    label: "Nutrition & Activity",
-    Icon: Megaphone,
-    agentName: "NutriCoach AI",
-    agentStat: "1,240 meal plans generated",
-    AgentStatIcon: Flame,
-    agentColor: "from-rose-400 to-orange-400",
-    agentEmoji: "🥗",
-    screenshotImage: "/screenshots/hero-nutrition.avif",
-    screenshotImageMobile: "/screenshots/hero-nutrition-mobile.avif",
-    floatingLabels: ["Daily macro tracker", "86% goal completion"],
-  },
-  {
-    id: 2,
-    key: "Dashboards & Reports",
-    label: "Dashboards & Reports",
-    Icon: BarChart2,
-    agentName: "Insight Engine AI",
-    agentStat: "12 live reports refreshed",
-    AgentStatIcon: Activity,
-    agentColor: "from-blue-400 to-cyan-400",
-    agentEmoji: "📊",
-    screenshotImage: "/screenshots/hero-reports.avif",
-    screenshotImageMobile: "/screenshots/hero-reports-mobile.avif",
-    floatingLabels: ["Real-time analytics", "Export to PDF/CSV"],
-  },
-  {
-    id: 3,
-    key: "payment",
-    label: "Payments & Revenue",
-    Icon: CreditCard,
-    agentName: "Revenue Bot AI",
-    agentStat: "₹4.2M processed this month",
-    AgentStatIcon: TrendingUp,
-    agentColor: "from-emerald-400 to-teal-500",
-    agentEmoji: "💳",
-    screenshotImage: "/screenshots/hero-payments.avif",
-    screenshotImageMobile: "/screenshots/hero-payments-mobile.avif",
-    floatingLabels: ["Auto-reconcile invoices", "0.1% failure rate"],
-  },
-  {
-    id: 4,
-    key: "Client Engagement",
-    label: "Client Engagement",
-    Icon: Heart,
-    agentName: "Client Flow AI",
-    agentStat: "2,340 active clients managed",
-    AgentStatIcon: UserCheck,
-    agentColor: "from-pink-400 to-rose-500",
-    agentEmoji: "🤝",
-    screenshotImage: "/screenshots/hero-clients.avif",
-    screenshotImageMobile: "/screenshots/hero-clients-mobile.avif",
-    floatingLabels: ["Smart follow-up nudges", "NPS score: 94"],
-  },
-  {
-    id: 5,
-    key: "team_management",
-    label: "Team & Organisation Management",
-    Icon: Users2,
-    agentName: "OrgChart AI",
-    agentStat: "38 team members synced",
-    AgentStatIcon: Briefcase,
-    agentColor: "from-amber-400 to-yellow-400",
-    agentEmoji: "🏢",
-    screenshotImage: "/screenshots/hero-team.avif",
-    screenshotImageMobile: "/screenshots/hero-team-mobile.avif",
-    floatingLabels: ["Role-based permissions", "1-click org restructure"],
-  },
-  {
-    id: 6,
-    key: "app",
-    label: "Mobile App iOS & Android",
-    Icon: Smartphone,
-    agentName: "AppSync AI",
-    agentStat: "99.98% uptime across devices",
-    AgentStatIcon: Wifi,
-    agentColor: "from-indigo-400 to-purple-500",
-    agentEmoji: "📱",
-    screenshotImage: "/screenshots/hero-app.avif",
-    screenshotImageMobile: "/screenshots/hero-app-mobile.avif",
-    floatingLabels: ["Push notifications live", "Offline mode enabled"],
-  },
-  {
-    id: 7,
-    key: "security",
-    label: "Security & Compliance",
-    Icon: Shield,
-    agentName: "SecureWatch AI",
-    agentStat: "0 breaches · 100% audit ready",
-    AgentStatIcon: Lock,
-    agentColor: "from-red-400 to-rose-500",
-    agentEmoji: "🔐",
-    screenshotImage: "/screenshots/hero-security.avif",
-    screenshotImageMobile: "/screenshots/hero-security-mobile.avif",
-    floatingLabels: ["GDPR · HIPAA compliant", "Threat scan: all clear"],
-  },
-  {
-    id: 8,
-    key: "workflows",
-    label: "Business Automation",
-    Icon: Zap,
-    agentName: "FlowForge AI",
-    agentStat: "127 automations saved 340 hrs",
-    AgentStatIcon: Clock,
-    agentColor: "from-cyan-400 to-blue-500",
-    agentEmoji: "⚡",
-    screenshotImage: "/screenshots/hero-workflows.avif",
-    screenshotImageMobile: "/screenshots/hero-workflows-mobile.avif",
-    floatingLabels: ["Zero-code automation", "Trigger → Action → Done"],
-  },
-];
-
-// ── Gradient shimmer ─────────────────────────────────────────
-const Shimmer = ({ w, h, rounded = "rounded-md", className = "" }) => (
-  <div
-    className={`${rounded} ${className} shrink-0 overflow-x-hidden relative`}
-    style={{ width: w, height: h, background: "#f0f0f8" }}
-  >
-    <div
-      className="absolute inset-0"
-      style={{
-        background:
-          "linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.8) 50%, transparent 100%)",
-        backgroundSize: "200% 100%",
-        animation: "shimmerSlide 1.5s infinite",
-      }}
-    />
-  </div>
-);
-
-// ── Skeleton 0: Program Management — Gantt + Sprint board ────
-const SkeletonProgramManagement = () => (
-  <>
-    {/* Gantt chart — left floating */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 90,
-        left: -250,
-        width: 230,
-        boxShadow: "0 10px 40px rgba(99,69,255,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <div className="w-5 h-5 rounded-md bg-violet-100 flex items-center justify-center">
-          <LayoutGrid size={11} className="text-violet-500" />
-        </div>
-        <span className="text-[11px] font-bold text-gray-700">
-          {" "}
-          <Shimmer w={80} h={8} rounded="rounded-full" />
-        </span>
-        <span className="ml-auto text-[9px] font-semibold text-violet-500 bg-violet-50 rounded-full px-2 py-0.5">
-          Live
-        </span>
-      </div>
-      {[
-        ["In Progress", "#7c3aed", "60%"],
-        ["Review", "#f59e0b", "35%"],
-        ["Done", "#22c55e", "90%"],
-        ["Backlog", "#94a3b8", "20%"],
-      ].map(([label, color, w], i) => (
-        <div key={i} className="flex items-center gap-2 mb-2">
-          <span className="text-[9px] text-gray-500 w-16 shrink-0">
-            {" "}
-            <Shimmer w={65} h={8} rounded="rounded-full" />
-          </span>
-          <div className="flex-1 h-2.5 rounded-full bg-gray-100 overflow-hidden">
-            <div
-              className="h-full rounded-full transition-all"
-              style={{ width: w, background: color, opacity: 0.8 }}
-            />
-          </div>
-          <span className="text-[9px] font-bold text-gray-500">{w}</span>
-        </div>
-      ))}
-    </div>
-
-    {/* Calendar — bottom right */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: -60,
-        right: -40,
-        width: 185,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <Calendar size={11} className="text-violet-400" />
-        <span className="text-[11px] font-bold text-gray-700">Milestones</span>
-      </div>
-      <div className="grid grid-cols-7 gap-0.5">
-        {Array.from({ length: 28 }, (_, i) => (
-          <div
-            key={i}
-            className="w-5 h-5 rounded flex items-center justify-center text-[8px]"
-            style={{
-              background: [4, 11, 18, 24].includes(i)
-                ? "#7c3aed"
-                : [7, 14, 21].includes(i)
-                  ? "#ede9fe"
-                  : "#f9fafb",
-              color: [4, 11, 18, 24].includes(i) ? "#fff" : "#9ca3af",
-            }}
-          >
-            {i + 1}
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Velocity badge — top right */}
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 px-3 py-2.5"
-      style={{
-        top: 35,
-        right: -180,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <TrendingUp size={11} className="text-violet-400" />
-        <span className="text-[10px] font-bold text-gray-700">Velocity</span>
-      </div>
-      <div className="text-[26px] font-black text-gray-800 leading-none">
-        +32%
-      </div>
-      <div className="text-[9px] text-emerald-500 font-semibold mt-0.5">
-        vs last sprint
-      </div>
-    </div>
-  </>
-);
-
-// ── Skeleton 1: Nutrition — macro rings + meal log ───────────
-const SkeletonNutrition = () => (
-  <>
-    {/* Macro ring — center-left */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 70,
-        left: -155,
-        width: 210,
-        boxShadow: "0 10px 40px rgba(251,113,133,0.15)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <Flame size={12} className="text-rose-400" />
-        <span className="text-[11px] font-bold text-gray-700">
-          Today's Macros
-        </span>
-      </div>
-      <div className="flex items-center gap-3">
-        <svg width="58" height="58" viewBox="0 0 58 58">
-          <circle
-            cx="29"
-            cy="29"
-            r="22"
-            fill="none"
-            stroke="#f3f4f6"
-            strokeWidth="8"
-          />
-          <circle
-            cx="29"
-            cy="29"
-            r="22"
-            fill="none"
-            stroke="#fb7185"
-            strokeWidth="8"
-            strokeDasharray="90 48"
-            strokeLinecap="round"
-            strokeDashoffset="28"
-            transform="rotate(-90 29 29)"
-          />
-          <text
-            x="29"
-            y="33"
-            textAnchor="middle"
-            fontSize="11"
-            fontWeight="800"
-            fill="#374151"
-          >
-            64%
-          </text>
-        </svg>
-        <div className="flex flex-col gap-2 flex-1">
-          {[
-            ["Protein", "#fb7185", "82g"],
-            ["Carbs", "#f97316", "210g"],
-            ["Fat", "#a78bfa", "44g"],
-          ].map(([l, c, v], i) => (
-            <div key={i} className="flex items-center gap-1.5">
-              <div
-                className="w-2 h-2 rounded-full flex-shrink-0"
-                style={{ background: c }}
-              />
-              <span className="text-[9px] text-gray-500 flex-1">{l}</span>
-              <span className="text-[9px] font-bold text-gray-700">{v}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-
-    {/* Meal log — bottom, diagonal offset */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: 100,
-        left: -60,
-        width: 200,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2.5">
-        <span className="text-[13px]">🍽️</span>
-        <span className="text-[11px] font-bold text-gray-700">Meal Log</span>
-      </div>
-      {[
-        ["Breakfast", "Oats + Berries", "340 kcal", "#dcfce7"],
-        ["Lunch", "Grilled Chicken", "520 kcal", "#fef9c3"],
-        ["Snack", "Protein Bar", "180 kcal", "#ffe4e6"],
-      ].map(([meal, desc, cal, bg], i) => (
-        <div
-          key={i}
-          className="flex items-center gap-2 mb-1.5 rounded-lg p-1.5"
-          style={{ background: bg }}
-        >
-          <div className="flex flex-col flex-1">
-            <span className="text-[9px] font-bold text-gray-700">{meal}</span>
-            <span className="text-[8px] text-gray-400">{desc}</span>
-          </div>
-          <span className="text-[9px] font-semibold text-gray-600">{cal}</span>
-        </div>
-      ))}
-    </div>
-
-    {/* Steps widget — top right */}
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        top: 45,
-        right: -165,
-        width: 155,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.22s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <Activity size={11} className="text-rose-400" />
-        <span className="text-[10px] font-bold text-gray-700">Steps Today</span>
-      </div>
-      <div className="text-[24px] font-black text-gray-800 leading-none">
-        8,420
-      </div>
-      <div className="text-[9px] text-gray-400 mb-2">Goal: 10,000</div>
-      <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
-        <div
-          className="h-full rounded-full bg-gradient-to-r from-rose-400 to-orange-400"
-          style={{ width: "84%" }}
-        />
-      </div>
-    </div>
-  </>
-);
-
-const SkeletonDashboards = () => (
-  <>
-    {/* Main KPI grid — left, stacked */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 60,
-        left: -160,
-        width: 240,
-        boxShadow: "0 10px 40px rgba(59,130,246,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <BarChart2 size={12} className="text-blue-400" />
-        <span className="text-[11px] font-bold text-gray-700">Live KPIs</span>
-        <div className="ml-auto w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-      </div>
-      <div className="grid grid-cols-2 gap-2">
-        {[
-          ["Revenue", "₹84.2K", "+14%", "#dbeafe", "#1d4ed8"],
-          ["Users", "2,840", "+8%", "#dcfce7", "#15803d"],
-          ["Retention", "91%", "+3%", "#f3e8ff", "#7c3aed"],
-          ["Churn", "2.1%", "-0.4%", "#fef9c3", "#92400e"],
-        ].map(([l, v, d, bg, c], i) => (
-          <div key={i} className="rounded-xl p-2.5" style={{ background: bg }}>
-            <div className="text-[8px] text-gray-500 mb-0.5">{l}</div>
-            <div className="text-[15px] font-black" style={{ color: c }}>
-              {v}
-            </div>
-            <div className="text-[8px] font-semibold text-emerald-600">{d}</div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    {/* Area chart — bottom center */}
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: 95,
-        left: "50%",
-        transform: "translateX(-50%)",
-        width: 200,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <TrendingUp size={11} className="text-blue-400" />
-        <span className="text-[10px] font-bold text-gray-700">
-          Revenue Trend
-        </span>
-      </div>
-      <svg width="174" height="40" viewBox="0 0 174 40">
-        <defs>
-          <linearGradient id="areaBlue" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.3" />
-            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.02" />
-          </linearGradient>
-        </defs>
-        <path
-          d="M0,35 L25,28 L50,30 L75,18 L100,22 L125,10 L150,14 L174,6 L174,40 L0,40 Z"
-          fill="url(#areaBlue)"
-        />
-        <path
-          d="M0,35 L25,28 L50,30 L75,18 L100,22 L125,10 L150,14 L174,6"
-          fill="none"
-          stroke="#3b82f6"
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      </svg>
-    </div>
-
-    {/* Export badge — top right */}
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        top: 40,
-        right: -165,
-        width: 155,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <FileText size={11} className="text-blue-400" />
-        <span className="text-[10px] font-bold text-gray-700">
-          Reports Ready
-        </span>
-      </div>
-      {[
-        ["Q1 Summary", "PDF"],
-        ["User Report", "CSV"],
-        ["Forecast", "Excel"],
-      ].map(([n, t], i) => (
-        <div key={i} className="flex items-center gap-2 mb-1.5">
-          <CheckCircle2 size={10} className="text-emerald-400" />
-          <span className="text-[9px] text-gray-600 flex-1">{n}</span>
-          <span className="text-[8px] bg-blue-50 text-blue-600 font-bold rounded px-1.5">
-            {t}
-          </span>
-        </div>
-      ))}
-    </div>
-  </>
-);
-
+import { FEATURES } from "./featureShowcase/constants/features";
+import { Shimmer } from "../UI/Shimmer";
+import { ExplorePanel } from "./featureShowcase/Explorepanel";
+import { SkeletonProgramManagement } from "./featureShowcase/skeletons/SkeletonProgramManagement";
+import { SkeletonNutrition } from "./featureShowcase/skeletons/SkeletonNutrition";
+import { SkeletonDashboards } from "./featureShowcase/skeletons/SkeletonDashboard";
+import {AgentBadge} from '../UI/AgentBadge'
 // ── Skeleton 3: Payments — card + transactions ───────────────
 const SkeletonPayments = () => (
   <>
@@ -1248,7 +739,7 @@ const SkeletonDefault = () => (
       }}
     >
       <Shimmer w={100} h={10} rounded="rounded-full" className="mb-3" />
-      {[80, 65, 90, 50].map((w, i) => (
+      {[70, 65, 70, 50].map((w, i) => (
         <div key={i} className="flex items-center gap-2 mb-2">
           <Shimmer w={40} h={8} rounded="rounded-full" />
           <Shimmer w={`${w}%`} h={6} rounded="rounded-full" />
@@ -1374,35 +865,6 @@ const MOBILE_SKELETON_MAP = {
   ),
 };
 
-// ── Agent Badge ──────────────────────────────────────────────
-const AgentBadge = ({ feature, animKey }) => {
-  const { AgentStatIcon } = feature;
-  return (
-    <div
-      key={`badge-${animKey}`}
-      className="inline-flex items-center gap-3 bg-white rounded-2xl border border-gray-100 p-2.5 pr-4"
-      style={{
-        boxShadow: "0 4px 24px rgba(0,0,0,0.13)",
-        animation: "slideUp 0.38s cubic-bezier(.22,1,.36,1) 0.1s both",
-      }}
-    >
-      <div
-        className={`w-[52px] h-[52px] rounded-xl flex-shrink-0 bg-gradient-to-br ${feature.agentColor} flex items-center justify-center text-xl`}
-      >
-        {feature.agentEmoji}
-      </div>
-      <div>
-        <p className="text-[13px] font-bold text-gray-900 mb-1">
-          {feature.agentName}
-        </p>
-        <div className="flex items-center gap-1.5">
-          <AgentStatIcon size={13} className="text-gray-400 flex-shrink-0" />
-          <span className="text-[11px] text-gray-500">{feature.agentStat}</span>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 // ── Skeleton screen placeholder ──────────────────────────────
 const SkeletonScreen = () => (
@@ -1440,77 +902,6 @@ const SkeletonScreen = () => (
           />
         </div>
       ))}
-    </div>
-  </div>
-);
-
-// ── Explore Panel ────────────────────────────────────────────
-const ExplorePanel = ({ active, onSelect }) => (
-  <div
-    className="bg-[#F6F7FB] rounded-xl border border-gray-100 py-8 px-4"
-    style={{ boxShadow: "0 16px 60px rgba(0,0,0,0.12)", width: "370px" }}
-  >
-    <h3 className="text-[15px] font-medium text-gray-900 text-center mb-4 leading-snug">
-      What would you like to <span style={{ color: "#6E0ACE" }}>explore?</span>
-    </h3>
-
-    <div className="grid grid-cols-3 gap-1 mb-4 mt-6">
-      {FEATURES.map((f) => {
-        const isActive = active === f.id;
-        const { Icon } = f;
-        return (
-          <button
-            key={f.id}
-            onClick={() => onSelect(f.id)}
-            className="relative flex flex-col items-center justify-center gap-1.5 rounded-lg border p-3 transition-all duration-150 cursor-pointer"
-            style={{
-              minHeight: "110px",
-              minWidth: "98px",
-              borderColor: isActive ? "#6E0ACE" : "#e5e7eb",
-              background: "#fff",
-            }}
-          >
-            <div
-              className="absolute top-1.5 left-1.5 w-3.5 h-3.5 rounded-sm flex items-center justify-center transition-all"
-              style={{
-                border: isActive ? "none" : "1.5px solid #6E0ACE",
-                background: isActive ? "#6E0ACE" : "transparent",
-              }}
-            >
-              {isActive && (
-                <Check size={9} strokeWidth={3} className="text-white" />
-              )}
-            </div>
-            <Icon
-              size={22}
-              strokeWidth={1.7}
-              style={{ color: isActive ? "#6E0ACE" : "#6b7280" }}
-            />
-            <span
-              className="text-[10px] font-light text-center leading-tight whitespace-pre-line"
-              style={{ color: "#374151" }}
-            >
-              {f.label}
-            </span>
-          </button>
-        );
-      })}
-    </div>
-    <div className="flex justify-center">
-      <button
-        className="w-[50%] rounded-full py-3 text-[13.5px] font-semibold text-white flex items-center justify-center gap-2 transition-all duration-200 group hover:opacity-90 active:scale-95"
-        style={{
-          background: "linear-gradient(90deg, #7c3aed, #6d28d9)",
-          boxShadow: "0 4px 18px rgba(97,97,255,0.35)",
-        }}
-      >
-        Get Started
-        <ChevronRight
-          size={16}
-          strokeWidth={2.5}
-          className="group-hover:translate-x-1 transition-transform duration-200"
-        />
-      </button>
     </div>
   </div>
 );
@@ -1583,17 +974,46 @@ export default function FeatureShowcase() {
           z-index: 0;
         }
         /* white vignette fades on all 4 sides */
-        .fs-grid-bg::after {
-          content: '';
-          position: absolute;
-          inset: 0;
-          background:
-            radial-gradient(ellipse 80% 50% at 50% 0%,   rgba(255,255,255,0.95) 0%, transparent 70%),
-            radial-gradient(ellipse 80% 50% at 50% 100%, rgba(255,255,255,0.95) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 100% at 0%   50%, rgba(255,255,255,0.95) 0%, transparent 70%),
-            radial-gradient(ellipse 40% 100% at 100% 50%, rgba(255,255,255,0.95) 0%, transparent 70%);
-          pointer-events: none;
-        }
+     .fs-grid-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+
+  background:
+    /* Top blur - full width */
+    radial-gradient(
+      ellipse 120% 60% at 50% 0%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.75) 35%,
+      transparent 75%
+    ),
+
+    /* Bottom blur - full width */
+    radial-gradient(
+      ellipse 120% 60% at 50% 100%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.75) 35%,
+      transparent 75%
+    ),
+
+    /* Left blur - full height */
+    radial-gradient(
+      ellipse 55% 140% at 0% 50%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.75) 35%,
+      transparent 75%
+    ),
+
+    /* Right blur - full height */
+    radial-gradient(
+      ellipse 55% 140% at 100% 50%,
+      rgba(255,255,255,0.95) 0%,
+      rgba(255,255,255,0.75) 35%,
+      transparent 75%
+    );
+}
       `}</style>
 
       <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden pt-20 pb-40">
@@ -1606,7 +1026,7 @@ export default function FeatureShowcase() {
             <div className="relative" style={{ minHeight: "600px" }}>
               {/* Main screenshot */}
               <div
-                className="absolute top-[72px] left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100"
+                className="absolute left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100"
                 style={{
                   width: "100%",
                   boxShadow: "0 16px 60px rgba(0,0,0,0.10)",
@@ -1654,7 +1074,7 @@ export default function FeatureShowcase() {
               <div
                 className="absolute z-20 transition-all duration-300"
                 style={{
-                  bottom: "0px",
+                  bottom: "-30px",
                   left: "-60px",
                   opacity: isBlurred ? 0.35 : 1,
                   filter: isBlurred ? "blur(4px)" : "none",
@@ -1662,10 +1082,11 @@ export default function FeatureShowcase() {
                 }}
               >
                 <AgentBadge feature={displayFeature} animKey={animKey} />
+                
               </div>
 
               {/* Explore panel */}
-              <div className="absolute top-0 -right-20 z-30">
+              <div className="absolute -top-14 -right-20 z-30">
                 <ExplorePanel active={active} onSelect={handleSelect} />
               </div>
             </div>
@@ -1674,7 +1095,7 @@ export default function FeatureShowcase() {
           {/* ══ MOBILE ═══════════════════════════════════════════════ */}
           <div className="lg:hidden flex flex-col gap-4">
             <div
-              className="w-full rounded-2xl overflow-hidden relative"
+              className="w-full rounded-2xl relative"
               style={{
                 boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
                 minHeight: "340px",
@@ -1687,7 +1108,7 @@ export default function FeatureShowcase() {
                   mobFeature.screenshotImageMobile || mobFeature.screenshotImage
                 }
                 alt={mobFeature.label}
-                className="img-anim w-full object-cover object-top block"
+                className="img-anim w-full object-contain object-top block"
                 style={{ minHeight: "340px" }}
                 onError={(e) => {
                   e.currentTarget.style.display = "none";
@@ -1700,20 +1121,7 @@ export default function FeatureShowcase() {
                 <MobSkeletonComp feature={mobFeature} />
               )}
 
-              <button
-                onClick={mobPrev}
-                className="absolute left-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md active:scale-90 transition-transform"
-              >
-                <ChevronLeft size={18} className="text-gray-700" />
-              </button>
-              <button
-                onClick={mobNext}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 z-30 w-9 h-9 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-md active:scale-90 transition-transform"
-              >
-                <ChevronRight size={18} className="text-gray-700" />
-              </button>
-
-              <div className="absolute bottom-10 left-3 z-20">
+              <div className="absolute bottom-3 -left-3 z-20">
                 <AgentBadge feature={mobFeature} animKey={mobIndex} />
               </div>
 
