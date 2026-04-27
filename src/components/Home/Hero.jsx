@@ -109,23 +109,22 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
 </div>
 
           {/* ── Trust line ── */}
-          <p
-            className="anim-4"
-            style={{
-              marginTop: "1rem",
-              fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
-              color: "#9699a6",
-              fontWeight: 100,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              gap: "0.4rem",
-            }}
-          >
-            Trusted by 10,000+ coaches worldwide
-            <span style={{ color: "#c5c7d4", fontSize: "1rem" }}>✦</span>
-            Scale faster with less effort
-          </p>
+         <p
+  className="hidden md:flex anim-4 mt-6 text-gray-500"
+  style={{
+    marginTop: "1rem",
+    fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
+    color: "#9699a6",
+    fontWeight: 100,
+    alignItems: "center",
+    justifyContent: "center",
+    gap: "0.4rem",
+  }}
+>
+  Trusted by 10,000+ coaches worldwide
+  <span style={{ color: "#c5c7d4", fontSize: "1rem" }}>✦</span>
+  Scale faster with less effort
+</p>
 
         </div>
       </section>

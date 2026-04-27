@@ -29,6 +29,8 @@ import team from "../../../../assets/crm/team.png";
 import programavatar from "../../../../assets/crm/avatar/avatar1.png";
 import nutritionavatar from "../../../../assets/crm/avatar/avatar6.png";
 import dashboardavatar from "../../../../assets/crm/avatar/avatar5.png";
+import payavatar from "../../../../assets/crm/avatar/avatar2.png";
+
 
 
 
@@ -84,10 +86,11 @@ export const FEATURES = [
     key: "payment",
     label: "Payments & Revenue",
     Icon: CreditCard,
-    agentName: "Revenue Bot AI",
-    agentStat: "₹4.2M processed this month",
+    agentName: "SmartCoach360 Payments",
+     agentImage: payavatar,
+    agentStat: "Payment Received",
     AgentStatIcon: TrendingUp,
-    agentColor: "from-emerald-400 to-teal-500",
+    agentColor: "from-purple-400 to-purple-100",
     agentEmoji: "💳",
     screenshotImage: payments,
     screenshotImageMobile: payments,

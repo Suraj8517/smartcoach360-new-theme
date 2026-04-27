@@ -1,5 +1,5 @@
 import { useState,useEffect } from "react";
-
+import logo from "../assets/smartcoach360.svg";
 const NavItem = ({ label, hasIcon = false }) => (
   <button className="flex items-center gap-[3px] text-[14px] font-thin text-[#323338] hover:text-[#6161ff] transition-colors duration-150 px-2 py-1 group whitespace-nowrap">
     {hasIcon && (
@@ -112,12 +112,21 @@ export default function Navbar() {
           <div className="flex items-center justify-between h-[64px]">
 
             {/* ── Logo ── */}
-            <div className="flex-shrink-0 flex items-center">
+            <div className="flex-shrink-0 flex items-center gap-2">
               <img
-                src="/your-logo.png"
+                src={logo}
                 alt="Logo"
-                className="h-8 w-auto object-contain"
+                className="h-6 w-auto object-contain"
               />
+              <div className="flex items-baseline">
+  <span className="text-[24px] font-extrabold text-gray-900 tracking-[-0.5px] leading-none">
+    smartcoach360
+  </span>
+
+  <span className="text-[16px] font-normal text-gray-500 ml-[2px] leading-none">
+    .ai
+  </span>
+</div>
             </div>
 
             {/* ── Center Nav Links ── */}
