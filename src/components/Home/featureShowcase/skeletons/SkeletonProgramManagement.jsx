@@ -1,6 +1,6 @@
 import { LayoutGrid, TrendingUp, Zap } from "lucide-react";
 import { Shimmer, GradientShimmer, CustomShimmer } from "../../../UI/Shimmer";
-import avatar1 from "../../../../assets/crm/avatar/avatar4.png";
+import avatar1 from "../../../../assets/crm/avatar/avatar7.png";
 import avatar2 from "../../../../assets/crm/avatar/avatar2.png";
 import avatar3 from "../../../../assets/crm/avatar/avatar3.png";
 

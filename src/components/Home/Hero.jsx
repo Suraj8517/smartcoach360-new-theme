@@ -112,8 +112,8 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
          <p
   className="hidden md:flex anim-4 mt-6 text-gray-500"
   style={{
-    marginTop: "1rem",
-    fontSize: "clamp(0.8rem, 1.4vw, 0.9rem)",
+    marginTop: "0.8rem",
+    fontSize: "clamp(0.8rem, 1.2vw, 0.7rem)",
     color: "#9699a6",
     fontWeight: 100,
     alignItems: "center",

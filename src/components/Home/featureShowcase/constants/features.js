@@ -14,7 +14,7 @@ import {
   TrendingUp,
   UserCheck,
   Briefcase,
-  Wifi,
+  Dumbbell,
   Lock,
   Clock
 } from "lucide-react";
@@ -25,16 +25,16 @@ import dashboard from "../../../../assets/crm/dashboard.webp";
 import payments from "../../../../assets/crm/payments.png";
 import chat from "../../../../assets/crm/chat.png";
 import team from "../../../../assets/crm/team.png";
+import app from "../../../../assets/crm/app.png"
+import security from "../../../../assets/crm/security.png"
 
 import programavatar from "../../../../assets/crm/avatar/avatar1.png";
 import nutritionavatar from "../../../../assets/crm/avatar/avatar6.png";
 import dashboardavatar from "../../../../assets/crm/avatar/avatar5.png";
 import payavatar from "../../../../assets/crm/avatar/avatar2.png";
-
-
-
-
-
+import clientavatar from "../../../../assets/crm/avatar/avatar3.png";
+import teamavatar from "../../../../assets/crm/avatar/avatar9.png";
+import appavatar from "../../../../assets/crm/avatar/avatar7.png";
 export const FEATURES = [
   {
     id: 0,
@@ -101,10 +101,11 @@ export const FEATURES = [
     key: "Client Engagement",
     label: "Client Engagement",
     Icon: Heart,
-    agentName: "Client Flow AI",
+    agentName: "SmartCoach360",
+         agentImage: clientavatar,
     agentStat: "2,340 active clients managed",
     AgentStatIcon: UserCheck,
-    agentColor: "from-pink-400 to-rose-500",
+    agentColor: "from-purple-400 to-blue-500",
     agentEmoji: "🤝",
     screenshotImage: chat,
     screenshotImageMobile: chat,
@@ -115,10 +116,11 @@ export const FEATURES = [
     key: "team_management",
     label: "Team & Organisation Management",
     Icon: Users2,
-    agentName: "OrgChart AI",
-    agentStat: "38 team members synced",
+    agentName: "SmartCoach360",
+    agentImage: teamavatar,
+    agentStat: "Hot leads ready to convert",
     AgentStatIcon: Briefcase,
-    agentColor: "from-amber-400 to-yellow-400",
+    agentColor: "from-blue-400 to-purple-400",
     agentEmoji: "🏢",
     screenshotImage: team,
     screenshotImageMobile: team,
@@ -129,13 +131,14 @@ export const FEATURES = [
     key: "app",
     label: "Mobile App iOS & Android",
     Icon: Smartphone,
-    agentName: "AppSync AI",
-    agentStat: "99.98% uptime across devices",
-    AgentStatIcon: Wifi,
+    agentName: "SmartCoach360 App",
+        agentImage: appavatar,
+agentStat: "Weekly goal 82% complete",
+    AgentStatIcon: Dumbbell,
     agentColor: "from-indigo-400 to-purple-500",
     agentEmoji: "📱",
-    screenshotImage: "/screenshots/hero-app.avif",
-    screenshotImageMobile: "/screenshots/hero-app-mobile.avif",
+    screenshotImage: app,
+    screenshotImageMobile: app,
     floatingLabels: ["Push notifications live", "Offline mode enabled"],
   },
   {
@@ -148,8 +151,8 @@ export const FEATURES = [
     AgentStatIcon: Lock,
     agentColor: "from-red-400 to-rose-500",
     agentEmoji: "🔐",
-    screenshotImage: "/screenshots/hero-security.avif",
-    screenshotImageMobile: "/screenshots/hero-security-mobile.avif",
+    screenshotImage: security,
+    screenshotImageMobile: security,
     floatingLabels: ["GDPR · HIPAA compliant", "Threat scan: all clear"],
   },
   {

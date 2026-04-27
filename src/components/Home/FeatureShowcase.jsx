@@ -25,7 +25,7 @@ import {
   Bell,
   Award,
   Users2,
-
+Smartphone
 } from "lucide-react";
 import { FEATURES } from "./featureShowcase/constants/features";
 import { Shimmer } from "../UI/Shimmer";
@@ -36,244 +36,10 @@ import { SkeletonDashboards } from "./featureShowcase/skeletons/SkeletonDashboar
 import { SkeletonPayments } from "./featureShowcase/skeletons/SkeletonPayments";
 import { AgentBadge } from "../UI/AgentBadge";
 import {SkeletonClientEngagement} from "./featureShowcase/skeletons/SkeletonClientengagement";
+import { SkeletonTeamManagement } from "./featureShowcase/skeletons/SkeletonTeamManagement";
+import {SkeletonMobileApp} from "./featureShowcase/skeletons/SkeletonApp";
+import { SkeletonSecurity } from "./featureShowcase/skeletons/SkeletonSecurity";
 
-
-
-// ── Skeleton 5: Team Management ──────────────────────────────
-const SkeletonTeamManagement = () => (
-  <>
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 70, left: -155, width: 225,
-        boxShadow: "0 10px 40px rgba(245,158,11,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <Users2 size={12} className="text-amber-500" />
-        <span className="text-[11px] font-bold text-gray-700">Org Structure</span>
-        <span className="ml-auto text-[9px] font-bold text-amber-500 bg-amber-50 rounded-full px-2 py-0.5">
-          38 members
-        </span>
-      </div>
-      <div className="flex justify-center mb-1.5">
-        <div className="bg-amber-50 border border-amber-200 rounded-lg px-3 py-1.5 text-center">
-          <div className="text-[10px] font-black text-amber-700">CEO</div>
-          <Shimmer w={60} h={7} rounded="rounded-full" className="mt-1 mx-auto" />
-        </div>
-      </div>
-      <div className="flex justify-center h-3">
-        <div className="w-px bg-gray-200" />
-      </div>
-      <div className="flex gap-2 justify-center">
-        {["CTO","COO","CMO"].map((role,i) => (
-          <div key={i} className="bg-gray-50 border border-gray-200 rounded-lg px-2 py-1.5 text-center">
-            <div className="text-[9px] font-bold text-gray-600">{role}</div>
-            <Shimmer w={38} h={6} rounded="rounded-full" className="mt-1 mx-auto" />
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: 100, right: -30, width: 195,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <Lock size={11} className="text-amber-500" />
-        <span className="text-[11px] font-bold text-gray-700">Role Permissions</span>
-      </div>
-      {[
-        ["Admin","Full Access","#dcfce7","#15803d"],
-        ["Manager","Edit + View","#dbeafe","#1d4ed8"],
-        ["Member","View Only","#fef9c3","#92400e"],
-      ].map(([role,access,bg,c],i) => (
-        <div key={i} className="flex items-center gap-2 mb-1.5">
-          <div className="w-7 h-7 rounded-full bg-gray-100 flex items-center justify-center text-[11px]">
-            {["👑","🧑‍💼","👤"][i]}
-          </div>
-          <div className="flex-1">
-            <div className="text-[9px] font-bold text-gray-700">{role}</div>
-            <div className="text-[8px] text-gray-400">{access}</div>
-          </div>
-          <span className="text-[8px] font-bold rounded-full px-2 py-0.5" style={{ background: bg, color: c }}>
-            Active
-          </span>
-        </div>
-      ))}
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        top: 35, right: -165, width: 155,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <UserCheck size={11} className="text-amber-500" />
-        <span className="text-[10px] font-bold text-gray-700">Team Health</span>
-      </div>
-      <div className="text-[26px] font-black text-gray-800 leading-none">94%</div>
-      <div className="text-[9px] text-gray-400 mb-2">Engagement rate</div>
-      <div className="h-2 rounded-full bg-gray-100 overflow-hidden">
-        <div className="h-full rounded-full bg-gradient-to-r from-amber-400 to-yellow-400" style={{ width: "94%" }} />
-      </div>
-    </div>
-  </>
-);
-
-// ── Skeleton 6: Mobile App ───────────────────────────────────
-const SkeletonMobileApp = () => (
-  <>
-    <div
-      className="absolute z-10 rounded-2xl overflow-hidden"
-      style={{
-        top: 65, left: -140, width: 115, height: 210,
-        background: "#1e1b4b",
-        boxShadow: "0 16px 48px rgba(99,102,241,0.35)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-        border: "3px solid #312e81",
-      }}
-    >
-      <div className="bg-indigo-900 px-3 pt-3 pb-2">
-        <Shimmer w="70%" h={8} rounded="rounded-full" className="mb-1.5 opacity-40" />
-        <Shimmer w="50%" h={6} rounded="rounded-full" className="opacity-30" />
-      </div>
-      <div className="px-2 py-2 flex flex-col gap-1.5">
-        {[60,85,45,75].map((w,i) => (
-          <div key={i} className="rounded-lg bg-indigo-800/60 p-1.5">
-            <Shimmer w={`${w}%`} h={7} rounded="rounded-full" className="opacity-40" />
-          </div>
-        ))}
-        <div className="mt-1 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-500 p-2 text-center">
-          <span className="text-[9px] font-bold text-white">Open App →</span>
-        </div>
-      </div>
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        top: 55, right: -165, width: 195,
-        boxShadow: "0 10px 40px rgba(99,102,241,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-2">
-        <div className="w-7 h-7 rounded-xl bg-indigo-100 flex items-center justify-center text-[13px]">📱</div>
-        <div>
-          <div className="text-[10px] font-bold text-gray-800">Push Notification</div>
-          <div className="text-[8px] text-gray-400">Just delivered</div>
-        </div>
-        <div className="ml-auto w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" />
-      </div>
-      <div className="bg-indigo-50 rounded-xl p-2">
-        <div className="text-[9px] font-semibold text-indigo-800">🎯 Goal reached!</div>
-        <div className="text-[8px] text-indigo-600 mt-0.5">You hit 10,000 steps today. Keep it up!</div>
-      </div>
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        bottom: 95, right: -155, width: 150,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <Wifi size={11} className="text-indigo-400" />
-        <span className="text-[10px] font-bold text-gray-700">App Uptime</span>
-      </div>
-      <div className="text-[26px] font-black text-gray-800 leading-none">99.98%</div>
-      <div className="flex gap-0.5 mt-2">
-        {Array.from({ length: 20 }, (_, i) => (
-          <div key={i} className="flex-1 h-3 rounded-sm"
-            style={{ background: i === 11 ? "#c7d2fe" : "#818cf8" }} />
-        ))}
-      </div>
-    </div>
-  </>
-);
-
-// ── Skeleton 7: Security ─────────────────────────────────────
-const SkeletonSecurity = () => (
-  <>
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 80, left: -155, width: 220,
-        boxShadow: "0 10px 40px rgba(239,68,68,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <Shield size={12} className="text-red-400" />
-        <span className="text-[11px] font-bold text-gray-700">Threat Monitor</span>
-        <div className="ml-auto flex items-center gap-1">
-          <div className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          <span className="text-[8px] text-emerald-500 font-bold">SECURE</span>
-        </div>
-      </div>
-      {[
-        ["Firewall","Active","#dcfce7","#15803d"],
-        ["Encryption","AES-256","#dbeafe","#1d4ed8"],
-        ["2FA","Enforced","#f3e8ff","#7c3aed"],
-        ["Last Scan","2m ago","#fef9c3","#92400e"],
-      ].map(([l,v,bg,c],i) => (
-        <div key={i} className="flex items-center gap-2 mb-2 rounded-lg p-2" style={{ background: bg }}>
-          <span className="text-[9px] text-gray-500 flex-1">{l}</span>
-          <span className="text-[9px] font-bold" style={{ color: c }}>{v}</span>
-        </div>
-      ))}
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: 90, left: "40%", transform: "translateX(-40%)", width: 210,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2.5">
-        <Award size={11} className="text-red-400" />
-        <span className="text-[11px] font-bold text-gray-700">Compliance Status</span>
-      </div>
-      <div className="flex gap-2 flex-wrap">
-        {["GDPR ✅","HIPAA ✅","SOC2 ✅","ISO 27001 ✅"].map((badge,i) => (
-          <span key={i} className="text-[9px] font-bold rounded-full px-2.5 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200">
-            {badge}
-          </span>
-        ))}
-      </div>
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        top: 40, right: -165, width: 155,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <Lock size={11} className="text-red-400" />
-        <span className="text-[10px] font-bold text-gray-700">Breach Record</span>
-      </div>
-      <div className="text-[30px] font-black text-gray-800 leading-none">0</div>
-      <div className="text-[9px] text-emerald-500 font-bold">Incidents ever recorded</div>
-      <div className="text-[8px] text-gray-400 mt-0.5">100% audit ready</div>
-    </div>
-  </>
-);
 
 // ── Skeleton 8: Workflows ────────────────────────────────────
 const SkeletonWorkflows = () => (
@@ -375,9 +141,9 @@ const SkeletonDefault = () => (
     <div
       className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3.5"
       style={{
-        top: 90, left: -130, width: 200,
+        top: 90, left: -150, width: 200,
         boxShadow: "0 8px 32px rgba(0,0,0,0.10)",
-        filter: "blur(3px)", opacity: 0.5,
+        filter: "blur(3px)", opacity: 0.9,
       }}
     >
       <Shimmer w={100} h={10} rounded="rounded-full" className="mb-3" />
@@ -391,7 +157,7 @@ const SkeletonDefault = () => (
     <div
       className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
       style={{
-        top: 40, right: -155, width: 145,
+        top: 40, right: -235, width: 145,
         boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
         filter: "blur(3px)", opacity: 0.5,
       }}

@@ -2,7 +2,7 @@ import { Flame, Activity, TrendingUp, Zap } from "lucide-react";
 import { Shimmer, GradientShimmer, CustomShimmer } from "../../../UI/Shimmer";
 import avatar1 from "../../../../assets/crm/avatar/avatar1.png";
 import avatar2 from "../../../../assets/crm/avatar/avatar5.png";
-import avatar3 from "../../../../assets/crm/avatar/avatar4.png";
+import avatar3 from "../../../../assets/crm/avatar/avatar9.png";
 
 const programFeatures = [
   {

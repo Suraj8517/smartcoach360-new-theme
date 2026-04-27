@@ -11,8 +11,46 @@ import {
   Zap,
   TrendingUp,
 } from "lucide-react";
-import { Shimmer } from "../../../UI/Shimmer";
-
+ 
+import { Shimmer, CustomShimmer } from "../../../UI/Shimmer";
+import avatar1 from "../../../../assets/crm/avatar/avatar1.png";
+import avatar2 from "../../../../assets/crm/avatar/avatar2.png";
+import avatar3 from "../../../../assets/crm/avatar/avatar5.png";
+const programFeatures = [
+  {
+    avatar: avatar1,
+    top: 400,
+    left: -220,
+    barColor: "linear-gradient(90deg, #7c3aed 0%, #a855f7 100%)",
+    barBg: "#f3e8ff",
+    barWidth: "72%",
+    accentColor: "#7c3aed",
+    accentLight: "#f3e8ff",
+    blur: true,
+  },
+  {
+    avatar: avatar2,
+    right: "-400%",
+    bottom: -280,
+    barColor: "linear-gradient(90deg, #8b5cf6 0%, #c084fc 100%)",
+    barBg: "#f5f3ff",
+    barWidth: "58%",
+    accentColor: "#8b5cf6",
+    accentLight: "#f5f3ff",
+    blur: false,
+  },
+  {
+    avatar: avatar3,
+    bottom: "-100%",
+    left: 350,
+    barColor: "linear-gradient(90deg, #9333ea 0%, #d8b4fe 100%)",
+    barBg: "#faf5ff",
+    barWidth: "85%",
+    accentColor: "#9333ea",
+    accentLight: "#faf5ff",
+    blur: true,
+  },
+];
 export const SkeletonClientEngagement = () => (
   <>
 
@@ -59,43 +97,11 @@ export const SkeletonClientEngagement = () => (
     <div
       className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
       style={{
-        bottom: -120, right: -145, width: 165,
+        bottom: 100, right: -255, width: 165,
         boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
       }}
     >
-      {/* NPS */}
-      <div className="flex items-center gap-1.5 mb-1.5">
-        <div className="w-4 h-4 rounded-md bg-rose-50 flex items-center justify-center">
-          <Star size={9} color="#fb7185" />
-        </div>
-        <span className="text-[10px] font-bold text-gray-700">Client NPS</span>
-      </div>
-
-      <div
-        className="text-[28px] font-black leading-none mb-0.5"
-        style={{ color: "#fb7185" }}
-      >
-        94
-      </div>
-      <div className="text-[9px] text-emerald-500 font-semibold mb-2">
-        World-class score
-      </div>
-
-      {/* Star row */}
-      <div className="flex items-center gap-0.5 mb-3">
-        {[5,5,5,4,5,5,5,5,4,5].map((s, i) => (
-          <Star
-            key={i}
-            size={9}
-            fill={s === 5 ? "#fb7185" : "#fecdd3"}
-            color="transparent"
-          />
-        ))}
-      </div>
-
-      {/* Divider */}
-      <div className="h-px bg-gray-100 mb-2.5" />
 
       {/* Live sessions */}
       <div className="flex items-center gap-1.5 mb-2">
@@ -128,14 +134,86 @@ export const SkeletonClientEngagement = () => (
 
       {/* Engagement spark */}
       <div
-        className="mt-2 rounded-lg p-1.5 flex items-center gap-1.5"
-        style={{ background: "#f0fdf4" }}
+        className="mt-2 rounded-lg p-1.5 flex items-center gap-1.5 bg-purple-100/60"
+        
       >
-        <TrendingUp size={9} color="#16a34a" />
-        <span className="text-[8px] font-semibold text-emerald-600">
+        <TrendingUp size={9} className="text-purple-900" />
+        <span className="text-[8px] font-semibold text-purple-900">
           Engagement up 12% this week
         </span>
       </div>
     </div>
+    <div className="relative" style={{ width: 240, height: 320 }}>
+              {programFeatures.map((item, i) => (
+                <div
+                  key={i}
+                  className="absolute"
+                  style={{
+                   top: item.top,
+              left: item.left,
+              right: item.right,
+              bottom: item.bottom,
+                    animation: `floatIn 0.45s cubic-bezier(.22,1,.36,1) ${0.1 + i * 0.1}s both`,
+                  }}
+                >
+                  <div
+                    className="inline-flex items-center gap-3  p-2.5 pr-4"
+                    style={{
+                      minWidth: 180,
+                    }}
+                  >
+                    {/* Avatar with colored ring */}
+                    <div
+                      className="w-[42px] h-[42px] rounded-xl overflow-hidden border-.5"
+                      style={{
+                        borderColor: item.accentColor,
+                        background: item.accentLight,
+                      }}
+                    >
+                      <img
+                        src={item.avatar}
+                        alt="avatar"
+                        className="w-full h-full object-cover"
+                      />
+                    </div>
+        
+                    {/* Shimmer bars */}
+                    <div className="flex flex-col gap-2 flex-1">
+                      <CustomShimmer
+                        w={70}
+                        h={6}
+                        color={item.accentColor}
+                        lightColor={item.accentLight}
+                      />
+        
+                      {/* Progress bar */}
+                      <div
+                        className="h-[5px] rounded-full overflow-hidden w-full"
+                        style={{ background: item.barBg }}
+                      >
+                        <div
+                          className="h-full rounded-full"
+                          style={{
+                            width: item.barWidth,
+                            background: item.barColor,
+                          }}
+                        />
+                      </div>
+        
+                      <CustomShimmer
+                        w={45}
+                        h={5}
+                        color={item.accentColor}
+                        lightColor={item.accentLight}
+                      />
+                    </div>
+                    {item.blur && (
+      <div className="absolute inset-0 backdrop-blur-[2px] bg-white/5 z-20 pointer-events-none" />
+    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+            
   </>
 );
