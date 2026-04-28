@@ -27,6 +27,7 @@ import chat from "../../../../assets/crm/chat.png";
 import team from "../../../../assets/crm/team.png";
 import app from "../../../../assets/crm/app.png"
 import security from "../../../../assets/crm/security.png"
+import workflow from "../../../../assets/crm/workflow.png"
 
 import programavatar from "../../../../assets/crm/avatar/avatar1.png";
 import nutritionavatar from "../../../../assets/crm/avatar/avatar6.png";
@@ -35,6 +36,10 @@ import payavatar from "../../../../assets/crm/avatar/avatar2.png";
 import clientavatar from "../../../../assets/crm/avatar/avatar3.png";
 import teamavatar from "../../../../assets/crm/avatar/avatar9.png";
 import appavatar from "../../../../assets/crm/avatar/avatar7.png";
+import securityavatar from "../../../../assets/crm/avatar/avatar8.png";
+import workflowavatar from "../../../../assets/crm/avatar/avatar4.png";
+
+
 export const FEATURES = [
   {
     id: 0,
@@ -147,9 +152,10 @@ agentStat: "Weekly goal 82% complete",
     label: "Security & Compliance",
     Icon: Shield,
     agentName: "SecureWatch AI",
+    agentImage: securityavatar,
     agentStat: "0 breaches · 100% audit ready",
     AgentStatIcon: Lock,
-    agentColor: "from-red-400 to-rose-500",
+    agentColor: "from-purple-400 to-blue-500",
     agentEmoji: "🔐",
     screenshotImage: security,
     screenshotImageMobile: security,
@@ -160,13 +166,14 @@ agentStat: "Weekly goal 82% complete",
     key: "workflows",
     label: "Business Automation",
     Icon: Zap,
-    agentName: "FlowForge AI",
-    agentStat: "127 automations saved 340 hrs",
+    agentName: "SmartCoach360",
+    agentImage:workflowavatar,
+    agentStat: "Lead Allocation Automated",
     AgentStatIcon: Clock,
     agentColor: "from-cyan-400 to-blue-500",
     agentEmoji: "⚡",
-    screenshotImage: "/screenshots/hero-workflows.avif",
-    screenshotImageMobile: "/screenshots/hero-workflows-mobile.avif",
+    screenshotImage: workflow,
+    screenshotImageMobile: workflow,
     floatingLabels: ["Zero-code automation", "Trigger → Action → Done"],
   },
 ];

@@ -39,102 +39,7 @@ import {SkeletonClientEngagement} from "./featureShowcase/skeletons/SkeletonClie
 import { SkeletonTeamManagement } from "./featureShowcase/skeletons/SkeletonTeamManagement";
 import {SkeletonMobileApp} from "./featureShowcase/skeletons/SkeletonApp";
 import { SkeletonSecurity } from "./featureShowcase/skeletons/SkeletonSecurity";
-
-
-// ── Skeleton 8: Workflows ────────────────────────────────────
-const SkeletonWorkflows = () => (
-  <>
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
-      style={{
-        top: 65, left: -160, width: 235,
-        boxShadow: "0 10px 40px rgba(6,182,212,0.12)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
-      }}
-    >
-      <div className="flex items-center gap-2 mb-3">
-        <Zap size={12} className="text-cyan-400" />
-        <span className="text-[11px] font-bold text-gray-700">Automation Flow</span>
-        <span className="ml-auto text-[9px] bg-cyan-50 text-cyan-600 font-bold rounded-full px-2 py-0.5">Running</span>
-      </div>
-      {[
-        ["⚡","Trigger","New lead submitted","#dbeafe","#3b82f6"],
-        ["🔍","Filter","Score ≥ 70 only","#fef9c3","#f59e0b"],
-        ["📧","Action","Send welcome email","#dcfce7","#22c55e"],
-        ["💬","Notify","Slack → Sales team","#f3e8ff","#a855f7"],
-      ].map(([icon,type,label,bg,c],i,arr) => (
-        <div key={i}>
-          <div className="flex items-center gap-2 rounded-xl p-2.5" style={{ background: bg }}>
-            <span className="text-[12px]">{icon}</span>
-            <div>
-              <div className="text-[8px] font-black uppercase tracking-wide" style={{ color: c }}>{type}</div>
-              <div className="text-[9px] text-gray-600">{label}</div>
-            </div>
-          </div>
-          {i < arr.length - 1 && (
-            <div className="flex justify-center py-0.5">
-              <div className="w-px h-3 bg-gray-200" />
-            </div>
-          )}
-        </div>
-      ))}
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
-      style={{
-        bottom: 90, right: -25, width: 190,
-        boxShadow: "0 8px 32px rgba(0,0,0,0.09)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <Clock size={11} className="text-cyan-400" />
-        <span className="text-[11px] font-bold text-gray-700">Time Saved</span>
-      </div>
-      <div className="flex gap-3">
-        {[["127","Flows","#06b6d4"],["340h","Saved","#22c55e"],["99%","Success","#a855f7"]].map(([n,l,c],i) => (
-          <div key={i} className="flex flex-col items-center flex-1">
-            <span className="text-[17px] font-black" style={{ color: c }}>{n}</span>
-            <span className="text-[8px] text-gray-400">{l}</span>
-          </div>
-        ))}
-      </div>
-      <div className="flex items-end gap-1 h-8 mt-2">
-        {[50,70,45,90,65,80,95].map((h,i) => (
-          <div key={i} className="flex-1 rounded-sm"
-            style={{ height: `${h}%`, background: i===6?"#06b6d4":"#cffafe" }} />
-        ))}
-      </div>
-    </div>
-
-    <div
-      className="absolute z-10 bg-white rounded-xl border border-gray-100 p-3"
-      style={{
-        top: 40, right: -170, width: 160,
-        boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
-        animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
-      }}
-    >
-      <div className="flex items-center gap-1.5 mb-2">
-        <AlertCircle size={11} className="text-cyan-400" />
-        <span className="text-[10px] font-bold text-gray-700">Last Triggers</span>
-      </div>
-      {[
-        ["New form submit","2s ago"],
-        ["Lead scored 85","1m ago"],
-        ["Email dispatched","4m ago"],
-      ].map(([t,time],i) => (
-        <div key={i} className="flex items-center gap-2 mb-1.5">
-          <div className="w-1.5 h-1.5 rounded-full bg-cyan-400 flex-shrink-0" />
-          <span className="text-[9px] text-gray-600 flex-1">{t}</span>
-          <span className="text-[8px] text-gray-400">{time}</span>
-        </div>
-      ))}
-    </div>
-  </>
-);
-
+import { SkeletonWorkflows } from "./featureShowcase/skeletons/SkeletonWorkflow";
 // ── Skeleton Default ─────────────────────────────────────────
 const SkeletonDefault = () => (
   <>
@@ -495,7 +400,7 @@ export default function FeatureShowcase() {
         }
       `}</style>
 
-      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden pt-20 pb-40">
+      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden pt-30 pb-40">
         <div className="fs-grid-bg" />
 
         <div className="2xl:max-w-5xl max-w-4xl mx-auto relative z-10">
