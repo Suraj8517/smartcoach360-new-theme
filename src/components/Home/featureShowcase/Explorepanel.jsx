@@ -19,6 +19,7 @@ export const ExplorePanel = ({ active, onSelect }) => (
           <button
             key={f.id}
             onClick={() => onSelect(f.id)}
+            onMouseEnter={() => onSelect(f.id)}
             className="relative flex flex-col items-center justify-center gap-1.5 p-3 transition-all duration-150 cursor-pointer"
             style={{
               minHeight: 100,
@@ -57,7 +58,7 @@ export const ExplorePanel = ({ active, onSelect }) => (
         className="rounded-full py-2.5 px-7 text-[13.5px] font-medium text-white flex items-center gap-1.5 transition-all duration-150 hover:opacity-90 active:scale-95 group"
         style={{ background: "#6E0ACE" }}
       >
-        Get Started
+        Book a Demo
         <ChevronRight
           size={15}
           strokeWidth={2.5}
