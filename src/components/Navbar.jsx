@@ -105,7 +105,7 @@ export default function Navbar() {
         }
       `}</style>
 
-      <nav className={`fixed left-0 right-0 nav-root z-50 w-full bg-white h-18 ${
+      <nav className={`fixed left-0 right-0 nav-root z-200 w-full bg-white h-18 ${
           scrolled ? "top-0 shadow-[0_2px_20px_rgba(0,0,0,0.12)]" : "top-0"
         }`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-10 2xl:px-14">

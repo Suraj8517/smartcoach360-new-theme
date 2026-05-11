@@ -400,7 +400,7 @@ export default function FeatureShowcase() {
         }
       `}</style>
 
-      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden pt-30 pb-40">
+      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden mt:pt-30 mt:pb-40">
         <div className="fs-grid-bg" />
 
         <div className="2xl:max-w-5xl max-w-4xl mx-auto relative z-10">
@@ -486,121 +486,133 @@ export default function FeatureShowcase() {
           </div>
 
           {/* ══ MOBILE ═══════════════════════════════════════════════ */}
-          <div className="lg:hidden flex flex-col gap-5">
+          {/* ══ MOBILE ═══════════════════════════════════════════════ */}
+<div className="lg:hidden flex flex-col gap-3">
 
-            {/* Feature pills */}
-            <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-hide -mx-4 px-4">
-              {FEATURES.map((f, i) => (
-                <button
-                  key={i}
-                  onClick={() => setMobIndex(i)}
-                  className="shrink-0 text-[10px] font-semibold rounded-full px-3 py-1.5 mob-pill"
-                  style={{
-                    background: mobIndex === i ? "#6E0ACE" : "#f3f4f6",
-                    color: mobIndex === i ? "#fff" : "#6b7280",
-                    animationDelay: `${i * 0.045}s`,
-                    transition: "background 0.25s ease, color 0.25s ease, transform 0.2s ease, box-shadow 0.2s ease",
-                    transform: mobIndex === i ? "scale(1.07)" : "scale(1)",
-                  }}
-                >
-                  {f.label}
-                </button>
-              ))}
-            </div>
+  {/* ── Image card ── */}
+  <div
+    className="w-full rounded-2xl relative overflow-hidden cursor-pointer select-none mob-card"
+    style={{ background: "#f5f5ff", boxShadow: "0 6px 24px rgba(0,0,0,0.09)" }}
+    onClick={mobNext}
+  >
+    {/* Skeleton bg */}
+    <div className="absolute inset-0 -z-10">
+      <SkeletonScreen />
+    </div>
 
-            {/* Image card */}
-            <div
-              className="w-full rounded-2xl relative overflow-hidden cursor-pointer select-none mob-card"
-              style={{
-                boxShadow: "0 8px 32px rgba(0,0,0,0.12)",
-                minHeight: "300px",
-                background: "#f5f5ff",
-              }}
-              onClick={mobNext}
-            >
-              <div className="absolute inset-0 -z-10">
-                <SkeletonScreen />
-              </div>
+    {/* Tap sweep shimmer */}
+    <div key={`sweep-${mobIndex}`} className="mob-tap-sweep absolute inset-0 z-30 pointer-events-none" />
 
-              {/* Tap sweep shimmer */}
-              <div key={`sweep-${mobIndex}`} className="mob-tap-sweep absolute inset-0 z-30 pointer-events-none" />
+    {/* Screenshot */}
+    <img
+      key={`mob-${mobIndex}`}
+      src={mobFeature.screenshotImageMobile || mobFeature.screenshotImage}
+      alt={mobFeature.label}
+      className="mob-img w-full object-cover object-top block"
+      style={{ height: 220, maxHeight: 220 }}
+      onError={(e) => { e.currentTarget.style.display = "none"; }}
+    />
 
-              <img
-                key={`mob-${mobIndex}`}
-                src={mobFeature.screenshotImageMobile || mobFeature.screenshotImage}
-                alt={mobFeature.label}
-                className="mob-img w-full object-cover object-top block"
-                style={{ minHeight: "300px", maxHeight: "360px" }}
-                onError={(e) => { e.currentTarget.style.display = "none"; }}
-              />
+    {/* Skeleton overlay */}
+    {typeof MobSkeletonComp === "function" && (
+      <div key={`mob-sk-${mobIndex}`} className="mob-overlay-in">
+        <MobSkeletonComp feature={mobFeature} />
+      </div>
+    )}
 
-              {/* Skeleton overlay */}
-              {typeof MobSkeletonComp === "function" && (
-                <div key={`mob-sk-${mobIndex}`} className="mob-overlay-in">
-                  <MobSkeletonComp feature={mobFeature} />
-                </div>
-              )}
+    {/* Bottom fade */}
+    <div className="absolute bottom-0 left-0 right-0 h-14 pointer-events-none bg-gradient-to-t from-black/30 to-transparent" />
 
-              {/* Bottom gradient */}
-              <div
-                className="absolute bottom-0 left-0 right-0 h-16 pointer-events-none"
-                style={{ background: "linear-gradient(to top, rgba(0,0,0,0.28) 0%, transparent 100%)" }}
-              />
+    {/* Feature name badge — bottom left */}
+    <div className="absolute bottom-3 left-3 z-20">
+      <span className="text-[11px] font-semibold text-white/90 tracking-wide">
+        {mobFeature.label}
+      </span>
+    </div>
 
-             
+    {/* Dot indicators — bottom right */}
+    <div className="absolute bottom-3.5 right-3 flex gap-1 items-center">
+      {FEATURES.map((_, i) => (
+        <div
+          key={i}
+          onClick={(e) => { e.stopPropagation(); setMobIndex(i); }}
+          className="rounded-full cursor-pointer"
+          style={{
+            width: mobIndex === i ? 14 : 4,
+            height: 4,
+            background: mobIndex === i ? "#fff" : "rgba(255,255,255,0.35)",
+            transition: "width 0.3s cubic-bezier(.22,1,.36,1), background 0.25s ease",
+          }}
+        />
+      ))}
+    </div>
+  </div>
 
-              {/* Dot indicators */}
-              <div className="absolute bottom-3 right-3 flex gap-1 items-center">
-                {FEATURES.map((_, i) => (
-                  <div
-                    key={i}
-                    onClick={(e) => { e.stopPropagation(); setMobIndex(i); }}
-                    className="rounded-full"
-                    style={{
-                      width: mobIndex === i ? 16 : 5,
-                      height: 5,
-                      background: mobIndex === i ? "#fff" : "rgba(255,255,255,0.4)",
-                      transition: "width 0.3s cubic-bezier(.22,1,.36,1), background 0.25s ease",
-                    }}
-                  />
-                ))}
-              </div>
-            </div>
+  {/* ── Feature tabs ── */}
+  <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide -mx-4 px-4">
+    {FEATURES.map((f, i) => (
+      <button
+        key={i}
+        onClick={() => setMobIndex(i)}
+        className="shrink-0 text-[10px] font-semibold rounded-lg px-3 py-1.5 mob-pill whitespace-nowrap"
+        style={{
+          animationDelay: `${i * 0.04}s`,
+          background: mobIndex === i ? "#6E0ACE" : "rgba(110,10,206,0.07)",
+          color: mobIndex === i ? "#fff" : "#7c3aed",
+          transition: "background 0.2s ease, color 0.2s ease, transform 0.15s ease",
+          transform: mobIndex === i ? "scale(1.04)" : "scale(1)",
+        }}
+      >
+        {f.label}
+      </button>
+    ))}
+  </div>
 
-            {/* Feature info row */}
-            <div
-              key={`info-${mobIndex}`}
-              className="flex items-center gap-3 px-1 mob-info-row"
-            >
-
-              <div
-      className="absolute -left-30 top-2/3 -translate-y-1/3"
-      style={{
-        transform: "translateY(-50%) scale(0.62)",
-        transformOrigin: "right center",
-      }}
-    >
+  {/* ── Info row: label + AgentBadge ── */}
+  <div
+    key={`info-${mobIndex}`}
+    className="flex items-center justify-between px-1 mob-info-row"
+  >
+    <div className="flex flex-col gap-0.5">
+      <span className="text-[13px] font-semibold text-gray-800 leading-tight">
+        {mobFeature.label}
+      </span>
+      {mobFeature.description && (
+        <span className="text-[11px] text-gray-400 leading-snug max-w-[200px]">
+          {mobFeature.description}
+        </span>
+      )}
+    </div>
+    <div style={{ transform: "scale(0.7)", transformOrigin: "right center", flexShrink: 0 }}>
       <AgentBadge feature={mobFeature} animKey={mobIndex} />
     </div>
-            </div>
-<div className="flex items-center justify-center mt-2">
-<button
-              className="w-[50%] rounded-full py-3.5 text-[14px] font-semibold text-white flex items-center justify-center gap-2 mob-cta"
-              style={{
-background: "linear-gradient(90deg, #7c3aed 0%, #a855f7 100%)",
-                boxShadow: "0 4px 18px rgba(97,97,255,0.35)",
-                transition: "transform 0.15s ease, box-shadow 0.15s ease",
-              }}
-              onPointerDown={e => e.currentTarget.style.transform = "scale(0.97)"}
-              onPointerUp={e => e.currentTarget.style.transform = "scale(1)"}
-              onPointerLeave={e => e.currentTarget.style.transform = "scale(1)"}
-            >
-              Get Started <ChevronRight size={16} />
-            </button>
+  </div>
+
+  {/* ── CTA ── */}
+  <button
+    className="w-full rounded-xl py-3.5 text-[13px] font-semibold text-white flex items-center justify-center gap-2 mob-cta"
+    style={{
+      background: "linear-gradient(90deg, #7c3aed 0%, #a855f7 100%)",
+      boxShadow: "0 4px 16px rgba(124,58,237,0.28)",
+      transition: "transform 0.12s ease, box-shadow 0.12s ease",
+    }}
+    onPointerDown={e => {
+      e.currentTarget.style.transform = "scale(0.97)";
+      e.currentTarget.style.boxShadow = "0 2px 8px rgba(124,58,237,0.2)";
+    }}
+    onPointerUp={e => {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 16px rgba(124,58,237,0.28)";
+    }}
+    onPointerLeave={e => {
+      e.currentTarget.style.transform = "scale(1)";
+      e.currentTarget.style.boxShadow = "0 4px 16px rgba(124,58,237,0.28)";
+    }}
+  >
+    Get Started <ChevronRight size={15} />
+  </button>
+
 </div>
-            {/* CTA */}
-            
-          </div>
 
         </div>
       </section>
