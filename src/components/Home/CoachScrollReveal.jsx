@@ -7,7 +7,7 @@ import avatar1 from "../../assets/crm/avatar/avatar5.png";
 import avatar2 from "../../assets/crm/avatar/avatar3.png";
 import avatar3 from "../../assets/crm/avatar/avatar8.png";
 import { motion } from "framer-motion";
-
+import DetailedFeatures from "../DetailedFeature";
 const OUTLINE_IMG = outline;
 const COLOR_IMG   = loaded;
 const LEFT_IMG    = leftImg;
@@ -212,7 +212,7 @@ const MarqueeText = ({ progress }) => {
           color: "transparent",
           WebkitTextStroke: "1.5px rgba(255,255,255,0.88)",
         }}>
-          #1 Platform for Coaches
+          #1 Platform for Coaches 
         </p>
       </div>
     </>
@@ -427,6 +427,8 @@ const SCROLL_LENGTH = 4;
   };
 
   return (
+    <>
+    <DetailedFeatures/>
     <div ref={containerRef} className="relative bg-black pt-16"  style={{ height: `${SCROLL_LENGTH * 150}vh` }}>
 
       {/* ── Hero text ── */}
@@ -564,5 +566,6 @@ const SCROLL_LENGTH = 4;
       </div>
 
     </div>
+    </>
   );
 }
