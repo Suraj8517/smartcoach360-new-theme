@@ -61,8 +61,8 @@ export default function ProblemSection() {
         }
       `}</style>
 
-      <section className="font-poppins bg-white w-full py-14 px-5 sm:px-10 lg:px-20">
-        <div className="max-w-5xl mx-auto">
+      <section className="font-poppins bg-white w-full py-32 px-5 sm:px-10 lg:px-20">
+        <div className="max-w-7xl mx-auto">
 
           {/* ── Header ── */}
           <div className="flex flex-col lg:flex-row lg:gap-10 lg:mt-16 lg:mb-20 mb-10">
@@ -79,9 +79,9 @@ export default function ProblemSection() {
           </div>
 
           {/* ── Desktop Grid (unchanged) ── */}
-          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10">
+          <div className="hidden sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-14">
             {problems.map((p, i) => (
-              <div key={i}>
+              <div className="w-75" key={i}>
                 <div className="text-violet-600 mb-3">{p.icon}</div>
                 <h3 className="font-semibold text-gray-900 text-[16px] mb-2">{p.title}</h3>
                 <p className="text-slate-500 text-[16px] leading-relaxed font-normal">{p.text}</p>

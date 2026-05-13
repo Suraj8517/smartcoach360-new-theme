@@ -4,6 +4,7 @@ import FeatureShowcase from '../components/Home/FeatureShowcase'
 import { TrustedBy } from '../components/Home/ClientSection'
 import CoachScrollReveal from '../components/Home/CoachScrollReveal'
 import ProblemSection from '../components/Home/ProblemSection'
+import ForWhomCarousel from '../components/Home/ForWhom'
 export default function Home() {
   return (
     <>
@@ -12,6 +13,7 @@ export default function Home() {
      <TrustedBy/>
      <CoachScrollReveal/>
 <ProblemSection/>
+<ForWhomCarousel/>
     </>
   )
 }

@@ -400,7 +400,7 @@ export default function FeatureShowcase() {
         }
       `}</style>
 
-      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden mt:pt-30 mt:pb-40">
+      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden md:pt-30 md:pb-40">
         <div className="fs-grid-bg" />
 
         <div className="2xl:max-w-5xl max-w-4xl mx-auto relative z-10">

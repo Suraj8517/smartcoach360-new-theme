@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
 import outline from '../../assets/coach/outlinenew.avif';
 import loaded from '../../assets/coach/loadednew.avif';
+import leftImg from '../../assets/coach/left.png';
+import rightImg from '../../assets/coach/right.png';
 import avatar1 from "../../assets/crm/avatar/avatar5.png";
 import avatar2 from "../../assets/crm/avatar/avatar3.png";
 import avatar3 from "../../assets/crm/avatar/avatar8.png";
@@ -8,6 +10,8 @@ import { motion } from "framer-motion";
 
 const OUTLINE_IMG = outline;
 const COLOR_IMG   = loaded;
+const LEFT_IMG    = leftImg;
+const RIGHT_IMG   = rightImg;
 const AVATARS = [avatar1, avatar2, avatar3];
 
 // ── Shared card shell ─────────────────────────────────────────────
@@ -159,6 +163,13 @@ const ConversationsContent = () => (
 const PHASE1_END = 0.15;   // outline fully visible
 const PHASE2_END = 0.88;   // cards fully centered, start to fade
 
+// ── Flanking images appear after COLOR_IMG is fully visible ──────
+// COLOR_IMG reaches full opacity around progress ~0.5 (colorOpacity = clamp(phaseP(PHASE1_END,1)*3))
+// phaseP(0.15, 1) * 3 >= 1  →  phaseP >= 1/3  →  progress >= 0.15 + (1/3)*(1-0.15) ≈ 0.43
+// We start the flanking fade slightly after that, at FLANK_START, full by FLANK_END
+const FLANK_START = 0.50;  // start fading in side images (loaded image is fully visible by ~0.43)
+const FLANK_END   = 0.80;  // side images fully opaque
+
 // ── Marquee ticker (Anton font, slides in from right, stays centered) ─
 const MarqueeText = ({ progress }) => {
   const clamp01 = (v) => Math.min(1, Math.max(0, v));
@@ -178,7 +189,7 @@ const MarqueeText = ({ progress }) => {
           bottom: "5%",
           left: 0,
           right: 0,
-          zIndex: 70,
+          zIndex: 350,
           pointerEvents: "none",
           opacity,
           textAlign: "center",
@@ -374,21 +385,35 @@ export default function CoachScrollReveal() {
   const outlineBase = clamp01(p1 * 2.5);
 
   // Phase 2: cards animate to center (ONLY starts after Phase 1 completes)
-  // Cards should NOT move before outline is fully visible
   const p2 = phaseP(PHASE1_END, PHASE2_END);
 
   // cardProgress only starts ramping after outline is fully visible
   const cardProgress = Math.min(p2, 0.6);
 
   // Cards fade out in the second half of phase 2
-  const cardOpacity  = clamp01(1 - (p2 - 0.2) * 6);       // fades from p2=0.5 → p2=1
+  const cardOpacity  = clamp01(1 - (p2 - 0.2) * 6);
   const cardScale    = 1 - Math.min(p2, 0.6) * 0.12;
 
   // Phase 3: final reveal (color fully shows, outline fades)
   const p3             = phaseP(PHASE2_END, 1);
   const colorOpacity   = clamp01(phaseP(PHASE1_END, 1) * 3);
   const outlineOpacity = outlineBase * (1 - clamp01(p3 * 2.5));
-const SCROLL_LENGTH = 5; 
+
+  // ── Flanking images: fade in only after loaded image is fully visible ──
+  // colorOpacity reaches 1 when phaseP(PHASE1_END,1) >= 1/3, i.e. progress ≈ 0.43
+  // We start fading flanking images in at FLANK_START (0.50) for a clear sequence
+  const flankRaw     = clamp01((progress - FLANK_START) / (FLANK_END - FLANK_START));
+  const flankEased   = 1 - Math.pow(1 - flankRaw, 2);   // ease-out quad
+  const flankOpacity = flankEased;
+
+  // Slide in from the sides: left image slides in from left, right from right
+  const LEFT_SLIDE_START  = -8;   // vw offset when hidden
+  const RIGHT_SLIDE_START =  8;   // vw offset when hidden
+  const leftTranslateX  = `${LEFT_SLIDE_START  * (1 - flankEased)}vw`;
+  const rightTranslateX = `${RIGHT_SLIDE_START * (1 - flankEased)}vw`;
+
+const SCROLL_LENGTH = 4;
+
   const getXTranslate = (pos, cardW) => {
     if (pos.left)  return `calc(${cardProgress} * (50vw - ${pos.left} - ${cardW / 2}px))`;
     if (pos.right) return `calc(${-cardProgress} * (50vw - ${pos.right} - ${cardW / 2}px))`;
@@ -410,7 +435,7 @@ const SCROLL_LENGTH = 5;
           className="text-white font-medium tracking-[-0.04em] leading-[0.92] text-center lg:text-left"
           style={{ fontSize: "clamp(5rem, 10vw, 9rem)" }}
         >
-          All In One<br /><span className="tracking-[0.03em] ">Platform</span>
+          All In One<br /><span className="tracking-[0.01em] ">Platform</span>
         </h1>
         <div className="flex flex-col items-center mt-6 lg:items-start lg:mt-0 lg:max-w-[36%] lg:pt-4 xl:pt-14 2xl:pl-16">
          <p className=" text-white font-normal leading-[1.6] tracking-[.04rem] text-center mb-3 text-[13px] lg:text-left lg:text-[14px] xl:text-[1rem]">
@@ -457,27 +482,66 @@ const SCROLL_LENGTH = 5;
           >
             <MarqueeText progress={progress} />
 
-            {/* Color image */}
+            {/* ── LEFT flanking image (left-facing group) ── */}
+            <img
+              src={LEFT_IMG}
+              alt="coach group left"
+              className="absolute bottom-0 pointer-events-none"
+              style={{
+                height: "82vh",
+                width: "auto",
+                opacity: flankOpacity,
+                right: "calc(53%)",
+                willChange: "opacity",
+                zIndex: 3,
+                objectFit: "contain",
+                objectPosition: "right bottom",
+              }}
+            />
+
+            {/* ── RIGHT flanking image (right-facing group) ── */}
+            <img
+              src={RIGHT_IMG}
+              alt="coach group right"
+              className="absolute bottom-0 pointer-events-none"
+              style={{
+                height: "82vh",
+                width: "auto",
+                opacity: flankOpacity,
+                left: "calc(52%)",
+                willChange: "opacity",
+                zIndex: 3,
+                objectFit: "contain",
+                objectPosition: "left bottom",
+              }}
+            />
+
+            {/* Color image (center) */}
             <img
               src={COLOR_IMG}
               alt="coach colored"
-              className="absolute inset-0 w-full h-full object-contain object-top"
+              className="absolute left-1/2 bottom-0 object-contain pointer-events-none"
               style={{
+                height: "88vh",
+                width: "auto",
                 opacity: colorOpacity,
-                transform: `scale(${charScale})`,
+                transform: `translateX(-50%) scale(${charScale})`,
                 transformOrigin: "center bottom",
                 willChange: "opacity, transform",
-                zIndex: 2,
+                zIndex: 4,
               }}
             />
-            {/* Outline image */}
+
+            {/* Outline image (center) */}
             <img
               src={OUTLINE_IMG}
               alt="coach outline"
-              className="absolute inset-0 w-full h-full object-contain object-top"
+              className="absolute left-1/2 bottom-0 object-contain pointer-events-none"
               style={{
+                height: "88vh",
+                width: "auto",
                 opacity: outlineOpacity,
-                transform: `scale(${charScale})`,
+                transform: `translateX(-50%) scale(${charScale})`,
                 transformOrigin: "center bottom",
                 willChange: "opacity, transform",
                 zIndex: 1,
@@ -486,6 +550,17 @@ const SCROLL_LENGTH = 5;
           </div>
 
         </div>
+
+        {/* ── Bottom black fade overlay ── */}
+        <div
+          className="absolute bottom-0 left-0 w-full pointer-events-none"
+          style={{
+            height: "320px",
+            zIndex: 50,
+            background:
+              "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.75) 70%, #000 100%)",
+          }}
+        />
       </div>
 
     </div>

@@ -119,7 +119,7 @@ export default function Navbar() {
                 className="h-6 w-auto object-contain"
               />
               <div className="flex items-baseline">
-  <span className="text-[24px] font-extrabold text-gray-900 tracking-[-0.5px] leading-none">
+  <span className="text-[22px] font-extrabold text-gray-900 tracking-[-0.5px] leading-none">
     smartcoach360
   </span>
 

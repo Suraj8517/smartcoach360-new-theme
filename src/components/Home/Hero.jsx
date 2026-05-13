@@ -58,7 +58,7 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
       >
       
 
-        <div className="relative z-10 w-full max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] mx-auto">
+        <div className="relative z-10 w-full max-w-[900px] xl:max-w-[1000px] 2xl:max-w-[1100px] mx-auto mt-20 md:mt-5">
 
           {/* ── Headline ── */}
           <h1
