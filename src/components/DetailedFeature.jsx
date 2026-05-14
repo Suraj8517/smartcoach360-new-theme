@@ -1,13 +1,17 @@
 import { useEffect, useRef, useState } from "react";
-
-// Illustrated avatars via DiceBear (free, open-source)
+import avatar1 from "../assets/crm/avatar/avatar1.png";
+import avatar2 from "../assets/crm/avatar/avatar2.png";
+import avatar3 from "../assets/crm/avatar/avatar3.png";
+import avatar4 from "../assets/crm/avatar/avatar4.png";
+import avatar5 from "../assets/crm/avatar/avatar5.png";
+import avatar6 from "../assets/crm/avatar/avatar6.png";
 const avatars = [
-  { id: 1, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Zara&backgroundColor=b6e3f4", bg: "#b6e3f4" },
-  { id: 2, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Felix&backgroundColor=c0aede", bg: "#c0aede" },
-  { id: 3, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Maya&backgroundColor=ffdfbf", bg: "#ffdfbf" },
-  { id: 4, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Leo&backgroundColor=d1d4f9", bg: "#d1d4f9" },
-  { id: 5, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Nora&backgroundColor=ffd5dc", bg: "#ffd5dc" },
-  { id: 6, url: "https://api.dicebear.com/7.x/adventurer/svg?seed=Kai&backgroundColor=c0e8c0", bg: "#c0e8c0" },
+  { id: 1, url: avatar1, bg: "#b6e3f4" },
+  { id: 2, url: avatar2, bg: "#c0aede" },
+  { id: 3, url: avatar3, bg: "#ffdfbf" },
+  { id: 4, url: avatar4, bg: "#d1d4f9" },
+  { id: 5, url: avatar3, bg: "#ffd5dc" },
+  { id: 6, url: avatar6, bg: "#c0e8c0" },
 ];
 
 const categories = ["PMO & Ops", "Marketing", "IT", "Product", "Sales", "HR", "Create any agent"];
@@ -29,7 +33,7 @@ function Segment({ avs }) {
   return (
     <span className=" inline-flex items-center flex-shrink-0" style={{ paddingRight: 64 }}>
       {/* Left avatar cluster */}
-      <span className="inline-flex items-end gap-2 flex-shrink-0 mx-6">
+      <span className="inline-flex items-end gap-2 flex-shrink-0 px-8">
         <Avatar av={avs[0]} size={54} />
         <Avatar av={avs[1]} size={72} />
         <Avatar av={avs[2]} size={58} />
@@ -144,7 +148,7 @@ export default function DetailedFeatures() {
         <h2
           className="text-white font-bold leading-[1.15] mb-10"
           style={{
-            fontSize: "clamp(26px, 3.8vw, 46px)",
+            fontSize: "clamp(26px, 3.8vw, 52px)",
             letterSpacing: "-0.02em",
           }}
         >
@@ -165,11 +169,8 @@ export default function DetailedFeatures() {
                   "rounded-full px-4 py-[7px] text-[13px] font-medium transition-all duration-200 border outline-none cursor-pointer",
                   isActive
                     ? "bg-violet-600 border-violet-600 text-white"
-                    : isCreate
-                    ? "bg-transparent border-white/20 text-white/60 hover:border-white/40 hover:text-white/90"
-                    : "bg-transparent border-white/15 text-white/55 hover:border-white/35 hover:text-white/85",
-                ].join(" ")}
-                style={{ fontFamily: "'Helvetica Neue', Arial, sans-serif" }}
+                    :  "bg-[#323338] border-white/20 text-white/60 hover:border-white/40 hover:text-white/90"
+                    ].join(" ")}
               >
                 {cat}
               </button>

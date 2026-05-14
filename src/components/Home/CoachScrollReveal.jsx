@@ -476,13 +476,13 @@ const SCROLL_LENGTH = 4;
               </div>
             );
           })}
-
+<MarqueeText progress={progress} />
           {/* ── Character image stack (full screen) ── */}
           <div
-            className="absolute inset-0 w-full h-full"
-            style={{ zIndex: 50 }}
+            className="absolute inset-0 w-full h-full z-50"
+            
           >
-            <MarqueeText progress={progress} />
+            
 
             {/* ── LEFT flanking image (left-facing group) ── */}
             <img
@@ -557,7 +557,7 @@ const SCROLL_LENGTH = 4;
         <div
           className="absolute bottom-0 left-0 w-full pointer-events-none"
           style={{
-            height: "320px",
+            height: "420px",
             zIndex: 50,
             background:
               "linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.35) 35%, rgba(0,0,0,0.75) 70%, #000 100%)",

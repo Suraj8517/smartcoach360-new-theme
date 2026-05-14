@@ -4,7 +4,10 @@ import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-
+import trainer from '../../assets/for whom/trainer.avif'
+import gym from '../../assets/for whom/gym.avif'
+import wellness from '../../assets/for whom/wellness.avif'
+import owner from '../../assets/for whom/owner.avif'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const cards = [
@@ -12,7 +15,7 @@ const cards = [
     author: "Personal Trainers",
     quote: "Stop juggling apps and admin. SmartCoach360 keeps clients, programmes, nutrition, and payments in one place, so you can scale stress-free.",
     highlight: ["SmartCoach360", "so you can scale stress-free"],
-    image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80",
+    image: trainer,
     bg: "bg-[#0d0d14]",
     authorColor: "text-violet-400",
     highlightColor: "text-violet-400",
@@ -24,7 +27,7 @@ const cards = [
     author: "Gym Owners & Studios",
     quote: "One platform to manage your team, your classes, your client allocations, and your revenue—whether you’re running one location or five.",
     highlight: ["platform", "you’re running one location or five."],
-    image: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80",
+    image: owner,
     bg: "bg-[#F4CDFF]",
     authorColor: "text-black",
     highlightColor: "text-fuchsia-700",
@@ -36,7 +39,7 @@ const cards = [
     author: "Nutrition & Wellness Coaches ",
     quote: "Deliver truly personalised nutrition plans at scale, track macro compliance in real time, and keep your clients accountable without spending your whole day manually following up. ",
     highlight: ["personalised nutrition plans", "without spending your whole day manually following up. "],
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
+    image: wellness,
     bg: "bg-[#DED4FC]",
     authorColor: "text-black",
     highlightColor: "text-[#594889]",
@@ -48,7 +51,7 @@ const cards = [
     author: "Large Fitness Organisations ",
     quote: "Enterprise tools for multi-branch management, SSO, bulk data uploads, and a dedicated Customer Success Manager to help you get the most out of the platform. ",
     highlight: ["multi-branch management, SSO, bulk data uploads", "Customer Success Manager"],
-    image: "https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&q=80",
+    image: gym,
     bg: "bg-[#0f0a1e]",
     authorColor: "text-purple-400",
     highlightColor: "text-purple-400",
@@ -82,7 +85,7 @@ function highlightText(text, highlights) {
 function TestimonialCard({ card }) {
   return (
     <div
-  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[380px] 2xl:h-[400px]`}
+  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[400px] `}
 >
       {/* Subtle radial glow in top-left */}
       <div className="absolute top-0 left-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"
@@ -121,16 +124,22 @@ function TestimonialCard({ card }) {
         </a>
       </div>
 
-      <div className="shrink-0 md:my-3 md:mr-3 relative rounded-2xl overflow-hidden md:w-[46%] w-full h-56 md:h-auto">
-        {/* Dark overlay for consistency */}
-        <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent z-10" />
-        <img
-          src={card.image}
-          alt={card.author}
-          className="w-full h-full object-cover object-center pointer-events-none"
-          draggable={false}
-        />
-      </div>
+      <div className="shrink-0 relative overflow-hidden rounded-2xl mx-4 mb-4 md:mx-0 md:mb-0 md:my-3 md:mr-3 md:w-[46%] w-auto h-[220px] sm:h-[260px] md:h-[94%]">
+  
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 " />
+
+  <img
+  src={card.image}
+  alt={card.author}
+  className={`w-full h-full object-cover ${
+    card.author === "Personal Trainers"
+      ? "object-top"
+      : "object-center"
+  } pointer-events-none`}
+  draggable={false}
+/>
+</div>
     </div>
   );
 }
