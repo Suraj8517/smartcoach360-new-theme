@@ -40,6 +40,7 @@ const features = [
     icon: <ClipboardList size={18} />,
     img: IMAGES.coaching,
     title: "Program",
+    subtitle:"Program Management",
     desc: "Build your master library once. Assign fully customised plans to individual clients in seconds. Clients get workouts on the app — no PDFs, no confusion.",
     tags: ["Master Programs", "Video Library", "Auto Notifications", "Custom Exercises"],
   },
@@ -48,6 +49,7 @@ const features = [
     icon: <Salad size={18} />,
     img: IMAGES.nutri,
     title: "Nutrition",
+    subtitle: "Nutrition & Activity",
     desc: "Create personalised meal plans, set macro targets, track daily compliance. Includes a dedicated female health and hormonal cycle tracker.",
     tags: ["Meal Tracking", "Macro Goals", "Compliance Monitor", "Female Health"],
   },
@@ -56,6 +58,7 @@ const features = [
     icon: <Bolt size={18} />,
     img: IMAGES.workflow,
     title: "Automation",
+    subtitle: "Business Automation",
     desc: "Lead allocation, client onboarding, payment flows, and communication sequences — completely automated and running in the background.",
     tags: ["Lead Allocation", "Auto Onboarding", "Payment Flows", "Message Sequences"],
   },
@@ -64,6 +67,7 @@ const features = [
     icon: <MessageSquare size={18} />,
     img: IMAGES.engage,
     title: "Clients",
+    subtitle:"Client Engagement",
     desc: "Automated check-ins, in-app messaging, video calls, group challenges, and digital high-fives. Keep every client engaged between sessions.",
     tags: ["In-App Messaging", "Video Calls", "Group Challenges", "Auto Check-ins"],
   },
@@ -72,6 +76,7 @@ const features = [
     icon: <CreditCard size={18} />,
     img: IMAGES.payments,
     title: "Payments",
+    subtitle:"Payments & Revenue",
     desc: "No more chasing. Accept online payments, set up recurring session packs, configure discounts, and handle partial payments — all built in.",
     tags: ["Online Payments", "Session Packs", "Discount Codes", "Instalments"],
   },
@@ -80,6 +85,7 @@ const features = [
     icon: <BarChart size={18} />,
     img: IMAGES.dashboards,
     title: "Dashboards",
+    subtitle:"Dashboards & Reports",
     desc: "Real-time view of client compliance, progress, and business health. Custom surveys, pre-assessment forms, performance dashboards.",
     tags: ["Live Reports", "Business Insights", "Custom Surveys", "Health Intake"],
   },
@@ -88,6 +94,7 @@ const features = [
     icon: <Users size={18} />,
     img: IMAGES.teamcrm,
     title: "Team",
+    subtitle:"Team & Organisation Management",
     desc: "Whether you are a solo coach or managing a multi-branch fitness organisation, scale effortlessly. Control teams, assign roles, and oversee operations from one central dashboard.",
     tags: ["Team & Branch Management", "Role-Based Access", "Coach Allocation Limits", "Bulk Upload Tools"],
   },
@@ -96,6 +103,7 @@ const features = [
     icon: <Smartphone size={18} />,
     img: IMAGES.crmapp,
     title: "App",
+    subtitle:"Mobile App iOS & Android",
     desc: "Run your entire coaching business from your pocket. Coaches and clients get a seamless mobile experience with real-time updates and integrated health tracking.",
     tags: ["iOS & Android Apps", "Client Self-Service", "Push Notifications", "Health Data Sync"],
   },
@@ -104,6 +112,7 @@ const features = [
     icon: <ShieldCheck size={18} />,
     img: IMAGES.crmsecurity,
     title: "Security",
+    subtitle:"Security & Compliance",
     desc: "Enterprise-grade security built into every plan. Protect sensitive client data with advanced authentication, secure payments, and compliance tools.",
     tags: ["SSO Support", "Access Control", "PCI-DSS Payments", "GDPR Tools"],
   },
@@ -120,6 +129,26 @@ const bannerAvatars = [
 ];
 
 // ── Sub-components ────────────────────────────────────────────────────────────
+function FeatureImageSection({ feature }) {
+  return (
+    <div
+      className="flex-1 overflow-hidden p-2"
+      style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}
+    >
+      <img
+        className="w-full h-full rounded-2xl object-cover"
+        src={feature.img}
+        alt={feature.title}
+        style={{
+          objectPosition: "top left",
+          display: "block",
+          transition: "opacity 0.3s ease",
+        }}
+      />
+    </div>
+  );
+}
+
 
 function BannerAvatar({ av, size }) {
   return (
@@ -351,7 +380,7 @@ export default function DetailedFeatures() {
               
                 <div>
                   <p className="text-white font-semibold text-base" style={{ fontFamily: "'Poppins', sans-serif" }}>
-                    {feature.title}
+                    {feature.subtitle}
                   </p>
                 </div>
               </div>
@@ -386,22 +415,13 @@ export default function DetailedFeatures() {
                 </div>
               </div>
 */}
-              {/* Right — single image filling the panel */}
-              <div className="flex-1 overflow-hidden p-2" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
-                <img className="w-full h-full rounded-2xl object-cover "
-                  src={feature.img}
-                  alt={feature.title}
-                  style={{
-                    objectPosition: "top left",
-                    display: "block",
-                    transition: "opacity 0.3s ease",
-                  }}
-                />
+        
+              <FeatureImageSection feature={feature}/>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    
   );
 }
