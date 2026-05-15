@@ -120,7 +120,15 @@ function TestimonialCard({ card }) {
           className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold ${card.authorColor} hover:opacity-80 transition-opacity duration-150 self-start group`}
         >
           View more details
-          <span className="inline-block group-hover:translate-x-1 transition-transform duration-150">→</span>
+          <span className="inline-block group-hover:translate-x-1 transition-transform duration-150">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#b291e0"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
         </a>
       </div>
 
@@ -225,8 +233,8 @@ export default function CustomersSection() {
           </h2>
         </div>
         <div className="flex sm:items-center sm:pt-6">
-          <button className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
-            Contact sales <span className="text-lg leading-none">→</span>
+          <button className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+            Contact sales <span className="text-lg leading-none transition-transform duration-150  group-hover:translate-x-1">→</span>
           </button>
         </div>
       </div>

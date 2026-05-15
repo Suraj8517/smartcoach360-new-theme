@@ -1,4 +1,10 @@
 import { useEffect, useRef, useState } from "react";
+import demobook from '../../assets/howitworks/demobook.avif'
+import setup from '../../assets/howitworks/setup.avif'
+import onboard from '../../assets/howitworks/onboarding.avif'
+import growth from '../../assets/howitworks/growth.avif'
+
+
 
 const steps = [
   {
@@ -6,7 +12,7 @@ const steps = [
     title: "Book a Demo",
     description:
       "A free 20-minute walkthrough tailored to your business. See exactly how the platform fits your coaching model before committing to anything.",
-    image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=1200&q=80",
+    image: demobook,
     accent: "#A78BFA",
     tag: "Discovery",
   },
@@ -15,7 +21,7 @@ const steps = [
     title: "Set Up Your Platform",
     description:
       "Hands-on onboarding — branding, programs, and payments configured. We make sure everything is live and looking like you before your first client arrives.",
-    image: "https://images.unsplash.com/photo-1551434678-e076c223a692?w=1200&q=80",
+    image: setup,
     accent: "#A78BFA",
     tag: "Onboarding",
   },
@@ -24,7 +30,7 @@ const steps = [
     title: "Onboard Your Clients",
     description:
       "Invite clients, assign programmes, and start delivering from day one. A seamless experience that makes you look professional from the very first login.",
-    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=1200&q=80",
+    image: onboard,
     accent: "#A78BFA",
     tag: "Launch",
   },
@@ -33,7 +39,7 @@ const steps = [
     title: "Grow Your Business",
     description:
       "Automations handle the ops while you stay focused on what you do best — coaching. Scale without the chaos of manual work holding you back.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&q=80",
+    image: growth,
     accent: "#A78BFA",
     tag: "Scale",
   },
@@ -115,12 +121,19 @@ export default function HowItWorksSection() {
                 From your first demo to automated operations — here's exactly
                 how it happens, with hands-on support the whole way.
               </p>
-              <button
-                className="inline-flex items-center gap-2 px-6 py-3.5 rounded-full text-sm font-bold border-none cursor-pointer tracking-tight transition-all"
-                style={{ background: "#F5F5F5", color: "#0A0A0A" }}
-              >
-                Get Started →
-              </button>
+             <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2]  active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
+            Book a Demo
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#111111"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
+          </button>
             </div>
           </div>
 
@@ -225,9 +238,18 @@ export default function HowItWorksSection() {
                       {step.description}
                     </p>
                     <button
-                className="inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full text-sm font-normal border-none cursor-pointer  transition-all text-purple-300"
+                className="inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full text-sm font-normal border-none cursor-pointer  transition-all text-purple-300 group"
               >
-                Get Started →
+                Get Started<span className="group-hover:translate-x-1 inline-block transition-transform text-purple-300 duration-300"> 
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#b291e0"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg> </span>
               </button>
                     
                   </div>
@@ -250,11 +272,7 @@ export default function HowItWorksSection() {
                         background: "linear-gradient(to top, #141414cc, transparent)",
                       }}
                     />
-                    {/* Accent glow dot */}
-                    <div
-                      className="absolute top-4 right-4 w-2 h-2 rounded-full"
-                      style={{ background: step.accent, boxShadow: `0 0 8px ${step.accent}` }}
-                    />
+
                   </div>
                 </div>
               </div>

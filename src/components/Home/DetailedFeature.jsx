@@ -12,22 +12,22 @@ import {
 } from "lucide-react";
 
 // ── Avatar imports ────────────────────────────────────────────────────────────
-import avatar1 from "../assets/crm/avatar/avatar1.png";
-import avatar2 from "../assets/crm/avatar/avatar2.png";
-import avatar3 from "../assets/crm/avatar/avatar3.png";
-import avatar4 from "../assets/crm/avatar/avatar4.png";
-import avatar5 from "../assets/crm/avatar/avatar5.png";
-import avatar6 from "../assets/crm/avatar/avatar6.png";
+import avatar1 from "../../assets/crm/avatar/avatar1.png";
+import avatar2 from "../../assets/crm/avatar/avatar2.png";
+import avatar3 from "../../assets/crm/avatar/avatar3.png";
+import avatar4 from "../../assets/crm/avatar/avatar4.png";
+import avatar5 from "../../assets/crm/avatar/avatar5.png";
+import avatar6 from "../../assets/crm/avatar/avatar6.png";
 
-import coaching   from "../assets/crm/exercise-library.png";
-import nutri      from "../assets/crm/nutrition.png";
-import workflow   from "../assets/crm/workflow.png";
-import engage     from "../assets/crm/chat.png";
-import payments   from "../assets/crm/payments.png";
-import dashboards from "../assets/crm/dashboard.webp";
-import teamcrm    from "../assets/crm/team.png";
-import crmapp     from "../assets/crm/app.png";
-import crmsecurity from "../assets/crm/security.png";
+import coaching   from "../../assets/crm/exercise-library.png";
+import nutri      from "../../assets/crm/nutrition.png";
+import workflow   from "../../assets/crm/workflow.png";
+import engage     from "../../assets/crm/chat.png";
+import payments   from "../../assets/crm/payments.png";
+import dashboards from "../../assets/crm/dashboard.webp";
+import teamcrm    from "../../assets/crm/team.png";
+import crmapp     from "../../assets/crm/app.png";
+import crmsecurity from "../../assets/crm/security.png";
 
 const IMAGES = {
   coaching, nutri, workflow, engage, payments, dashboards, teamcrm, crmapp, crmsecurity,
@@ -355,8 +355,9 @@ export default function DetailedFeatures() {
                   </p>
                 </div>
               </div>
-              <button className="flex items-center gap-2 bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/90 transition-all">
-                Get Started →
+              <button className="flex items-center gap-2 bg-white text-black text-sm font-semibold px-5 py-2.5 rounded-full hover:bg-white/90 transition-all group">
+                Book a Demo  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+ →</span>
               </button>
             </div>
 
@@ -386,14 +387,11 @@ export default function DetailedFeatures() {
               </div>
 */}
               {/* Right — single image filling the panel */}
-              <div className="flex-1 overflow-hidden" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
-                <img
+              <div className="flex-1 overflow-hidden p-2" style={{ borderLeft: "1px solid rgba(255,255,255,0.06)" }}>
+                <img className="w-full h-full rounded-2xl object-cover "
                   src={feature.img}
                   alt={feature.title}
                   style={{
-                    width: "100%",
-                    height: "100%",
-                    objectFit: "cover",
                     objectPosition: "top left",
                     display: "block",
                     transition: "opacity 0.3s ease",

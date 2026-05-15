@@ -7,7 +7,7 @@ import avatar1 from "../../assets/crm/avatar/avatar5.png";
 import avatar2 from "../../assets/crm/avatar/avatar3.png";
 import avatar3 from "../../assets/crm/avatar/avatar8.png";
 import { motion } from "framer-motion";
-import DetailedFeatures from "../DetailedFeature";
+import DetailedFeatures from "./DetailedFeature";
 const OUTLINE_IMG = outline;
 const COLOR_IMG   = loaded;
 const LEFT_IMG    = leftImg;
@@ -443,9 +443,10 @@ const SCROLL_LENGTH = 4;
          <p className=" text-white font-normal leading-[1.6] tracking-[.04rem] text-center mb-3 text-[13px] lg:text-left lg:text-[14px] xl:text-[1rem]">
   Stop juggling apps. Manage clients, programmes, nutrition, payments, and messages, all in one place built for coaches who want to scale.
 </p>
-           <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2] hover:scale-[1.02] active:scale-95 lg:text-[14px] lg:px-6 lg:py-3">
-            Get Started
-            <span className="text-base">→</span>
+           <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2]  active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
+            Book a Demo
+              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+→</span>
           </button>
         </div>
       </div>

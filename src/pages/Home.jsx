@@ -6,6 +6,8 @@ import CoachScrollReveal from '../components/Home/CoachScrollReveal'
 import ProblemSection from '../components/Home/ProblemSection'
 import ForWhomCarousel from '../components/Home/ForWhom'
 import HowItWorksSection from '../components/Home/HowItWorks'
+import CTASection from '../components/Home/CTASection'
+import Footer from '../components/Footer'
 export default function Home() {
   return (
     <>
@@ -16,6 +18,8 @@ export default function Home() {
 <ProblemSection/>
 <ForWhomCarousel/>
 <HowItWorksSection/>
+<CTASection/>
+<Footer/>
     </>
   )
 }

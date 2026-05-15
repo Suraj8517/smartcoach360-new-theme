@@ -29,7 +29,7 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
         }
         .hero-cta:hover {
           box-shadow: 0 8px 32px rgba(123,92,255,0.42);
-          transform: translateY(-2px) scale(1.015);
+          
         }
 
         .hero-bg-glow {
@@ -96,7 +96,7 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
         {/* ── CTA Button ── */}
 <div className="anim-3 mt-8 sm:mt-10">
   <button
-    className="hero-cta text-white font-semibold rounded-full transition-all duration-300 hover:scale-[1.02]"
+    className="hero-cta text-white font-semibold rounded-full group transition-all duration-300 "
     style={{
       fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
       padding: "clamp(0.55rem, 1.2vw, 0.75rem) clamp(1.4rem, 3vw, 2rem)",
@@ -104,7 +104,8 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
       minHeight: "44px",
     }}
   >
-    Get Started →
+    Book a Demo  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
+ → </span>
   </button>
 </div>
 
