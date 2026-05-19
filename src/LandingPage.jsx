@@ -3,9 +3,9 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import NotFound from './pages/404'
-import Aboutus from './pages/Aboutus'
 import AboutUs from './pages/Aboutus';
 import Footer from './components/Footer';
+import SolutionSection from './components/Solutions/Solutions';
 export default function LandingPage() {
   return (
     <>
@@ -16,6 +16,7 @@ export default function LandingPage() {
         <Route path="/" element={<Home/>}/>
         <Route path="*" element={<NotFound/>}/>
         <Route path="about-us" element={<AboutUs/>}/>
+        <Route path="solutions" element={<SolutionSection/>}/>
     </Routes>
     </main>
     <Footer/>

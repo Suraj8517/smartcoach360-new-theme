@@ -217,8 +217,8 @@ export default function DetailedFeatures() {
         </p>
 
         <h2
-          className="text-white font-bold leading-[1.15] mb-10 text-center"
-          style={{ fontSize: "clamp(26px, 3.8vw, 52px)", letterSpacing: "-0.02em" }}
+          className="text-white font-medium leading-[1.15] mb-10 text-center"
+          style={{ fontSize: "clamp(26px, 3.8vw, 60px)", letterSpacing: "-0.02em" }}
         >
           Everything You Need to Coach, <br />
           Grow &amp; Automate
@@ -231,7 +231,7 @@ export default function DetailedFeatures() {
               key={f.num}
               onClick={() => goTo(i)}
               className={[
-                "rounded-full px-4 py-[7px] text-[12px] font-medium transition-all duration-200 border outline-none cursor-pointer",
+                "rounded-full px-4 py-[7px] text-[14px] font-medium transition-all duration-200 border outline-none cursor-pointer",
                 i === activeIdx
                   ? "bg-violet-600 border-violet-600 text-white"
                   : "bg-[#1a1a1a] border-white/20 text-white/60 hover:border-white/40 hover:text-white/90",
@@ -251,6 +251,7 @@ export default function DetailedFeatures() {
             onSlideChange={(sw) => setActiveIdx(sw.realIndex)}
             keyboard={{ enabled: true }}
             centeredSlides
+            initialSlide={4}
             slidesPerView="auto"
             spaceBetween={20}
             speed={500}
@@ -337,14 +338,14 @@ export default function DetailedFeatures() {
             <p className="text-white font-semibold text-lg mb-2" style={{ fontFamily: "'Poppins', sans-serif" }}>
               {feature.subtitle}
             </p>
-            <p className="text-white/55 text-[14px] leading-relaxed mb-4">
+            <p className="text-white/55 text-[18px] leading-relaxed mb-4">
               {feature.desc}
             </p>
             <div className="flex flex-wrap gap-2">
               {feature.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] font-medium px-3 py-1.5 rounded-full"
+                  className="text-[14px] font-medium px-3 py-1.5 rounded-full"
                   style={{
                     background: "rgba(139,92,246,0.1)",
                     border: "1px solid rgba(139,92,246,0.22)",
@@ -357,7 +358,6 @@ export default function DetailedFeatures() {
             </div>
           </div>
 
-          {/* Nav arrows — wired to Swiper via refs */}
           <div className="flex gap-3 flex-shrink-0 pt-1">
             <button
               ref={prevBtnRef}
