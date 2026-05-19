@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import logo from "../assets/smartcoach360.svg";
 
 // ── Route map ──────────────────────────────────────────────────────────────
@@ -23,13 +24,8 @@ const MOBILE_ROUTES = {
   "Log in":     "/login",
 };
 
-// ── Helpers ────────────────────────────────────────────────────────────────
-const navigate = (path) => {
-  window.location.href = window.location.origin + path;
-};
-
 // ── NavItem (desktop) ──────────────────────────────────────────────────────
-const NavItem = ({ label, hasIcon = false }) => (
+const NavItem = ({ label, hasIcon = false, navigate }) => (
   <button
     onClick={() => navigate(NAV_ROUTES[label] ?? `/${label.toLowerCase().replace(/\s+/g, "-")}`)}
     className="flex items-center gap-[3px] text-[14px] font-thin text-[#323338] hover:text-[#6161ff] transition-colors duration-150 px-2 py-1 group whitespace-nowrap"
@@ -44,7 +40,7 @@ const NavItem = ({ label, hasIcon = false }) => (
 );
 
 // ── Mobile Menu ────────────────────────────────────────────────────────────
-const MobileMenu = ({ open }) => (
+const MobileMenu = ({ open, navigate }) => (
   <div
     className={`lg:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-2xl z-50 transition-all duration-300 ${
       open ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
@@ -101,6 +97,7 @@ const MobileMenu = ({ open }) => (
 
 // ── Navbar ─────────────────────────────────────────────────────────────────
 export default function Navbar() {
+  const navigate = useNavigate();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -155,7 +152,7 @@ export default function Navbar() {
 
             {/* ── Desktop Nav Links ── */}
             <div className="hidden lg:flex items-left gap-0 xl:gap-1">
-              <NavItem label="Features" />
+              <NavItem label="Features" navigate={navigate} />
 
               {/* Integrations (has chevron, no dropdown icon) */}
               <button
@@ -167,12 +164,11 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </button>
-              
 
-              <NavItem label="Solutions" />
-              <NavItem label="About Us" />
+              <NavItem label="Solutions" navigate={navigate} />
+              <NavItem label="About Us" navigate={navigate} />
 
-              {/* Resources (no chevron in original — kept plain) */}
+              {/* Resources */}
               <button
                 onClick={() => navigate(NAV_ROUTES["Resources"])}
                 className="text-[14px] font-thin text-[#323338] hover:text-[#6161ff] transition-colors duration-150 px-2 py-1 whitespace-nowrap"
@@ -233,7 +229,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile dropdown */}
-        <MobileMenu open={mobileOpen} />
+        <MobileMenu open={mobileOpen} navigate={navigate} />
       </nav>
     </>
   );
