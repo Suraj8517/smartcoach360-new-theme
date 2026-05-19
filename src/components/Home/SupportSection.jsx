@@ -83,17 +83,17 @@ export default function SupportSection() {
   };
 
   return (
-    <section className="w-full bg-white pt-42">
+    <section className="w-full bg-white pt-16 lg:pt-28 overflow-hidden">
 
       {/* Heading */}
-      <div className="px-46">
-        <h2 className="mb-14 text-5xl font-medium tracking-tight text-gray-900">
+      <div className="px-5 sm:px-8 lg:px-12 xl:px-24">
+        <h2 className="mb-8 lg:mb-14 text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-gray-900">
           We're With You <br />Every Step of the Way
         </h2>
       </div>
 
       {/* Swiper */}
-      <div className="pl-46 [&_.swiper]:!overflow-visible mb-10 pr-46">
+      <div className="px-5 sm:px-8 lg:px-12 xl:px-24 mb-10 [&_.swiper]:overflow-hidden lg:[&_.swiper]:!overflow-visible">
         <Swiper
           modules={[Navigation]}
           onSwiper={(swiper) => {
@@ -102,16 +102,18 @@ export default function SupportSection() {
           }}
           onSlideChange={handleSwiperUpdate}
           spaceBetween={16}
-          slidesPerView={1.15}
+          slidesPerView={1}
           breakpoints={{
+            480:  { slidesPerView: 1.15 },
             640:  { slidesPerView: 2.15 },
             1024: { slidesPerView: 3.15 },
-            1280: { slidesPerView: 4.15 },
+            1280: { slidesPerView: 3.15 },
+            1440: { slidesPerView: 4.15}
           }}
         >
           {cards.map(({ badge, icon: Icon, title, description }) => (
             <SwiperSlide key={title}>
-              <div className="flex h-70 flex-col justify-between rounded-2xl shadow bg-white px-8 py-6 ">
+              <div className="flex w-full min-h-68  flex-col justify-between rounded-2xl shadow bg-white px-6 m-6 md:px-6 py-6">
                 {/* Icon + Badge row */}
                 <div className="flex items-start justify-between">
                   <Icon size={42} strokeWidth={1} className="text-gray-400" />
@@ -122,7 +124,7 @@ export default function SupportSection() {
 
                 {/* Title + Description */}
                 <div>
-                  <h3 className="mb-2 text-[1.35rem] font-normal text-gray-600">
+                  <h3 className="mb-2 text-[1.2rem] sm:text-[1.35rem] font-normal text-gray-600">
                     {title}
                   </h3>
                   <p className="m-0 text-[0.9rem] leading-relaxed text-gray-500">
@@ -136,7 +138,7 @@ export default function SupportSection() {
       </div>
 
       {/* Nav Buttons */}
-      <div className="mt-6 flex items-center gap-2.5 px-46">
+      <div className="mt-6 flex items-center gap-2.5 px-5 sm:px-8 lg:px-12 xl:px-24">
         <button
           onClick={() => swiperRef?.slidePrev()}
           disabled={isBeginning}

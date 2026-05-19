@@ -104,8 +104,16 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
       minHeight: "44px",
     }}
   >
-    Book a Demo  <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
- → </span>
+    Book a Demo  <span className="translate-y-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
   </button>
 </div>
 

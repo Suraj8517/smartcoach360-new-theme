@@ -85,7 +85,7 @@ function highlightText(text, highlights) {
 function TestimonialCard({ card }) {
   return (
     <div
-  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[400px] `}
+  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[500px] md:h-[400px] `}
 >
       {/* Subtle radial glow in top-left */}
       <div className="absolute top-0 left-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"

@@ -312,7 +312,7 @@ const cards = [
   },
   {
     id: "files",
-    position:       { top: "42%", left: "2%" },
+    position:       { top: "46%", left: "8%" },
     lgPosition:     { top: "40%", left: "1%" },
     width: { desktop: 230, lg: 190, tablet: 185 },
     content: <FilesContent />,
@@ -326,7 +326,7 @@ const cards = [
   },
   {
     id: "conversations",
-    position:       { bottom: "6%", left: "2%" },
+    position:       { bottom: "6%", left: "12%" },
     lgPosition:     { bottom: "4%", left: "1%" },
     width: { desktop: 240, lg: 200, tablet: 195 },
     content: <ConversationsContent />,

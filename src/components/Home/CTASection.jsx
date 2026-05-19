@@ -2,17 +2,17 @@ import img from "../../assets/ctasection/cta.png"
 
 export default function CTASection() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center text-center bg-white px-6 py-20">
+    <section className="min-h-screen flex flex-col items-center justify-center text-center bg-white px-6 md:py-20 py-14">
       <p className="text-sm text-gray-400 tracking-widest uppercase mb-4">
        Get Started Today
       </p>
 
-      <h1 className="text-[56px] 2xl:text-[86px] font-medium leading-none tracking-tight text-gray-950 mb-6">
+      <h1 className="text-[38px] md:text-[56px] 2xl:text-[86px] font-medium leading-none tracking-tight text-gray-950 mb-6">
        Ready to Transform<br/>
 Your Coaching Business?
       </h1>
 
-      <p className=" text-[38px] text-gray-800 leading-tight max-w-3xl mb-10  tracking-tight">
+      <p className="text-[24px] md:text-[38px] text-gray-800 leading-tight max-w-3xl mb-10  tracking-tight">
         Helping coaches {" "}
         <span className="inline-flex items-center align-middle mx-1 ">
           <img
