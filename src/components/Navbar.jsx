@@ -19,7 +19,7 @@ const MOBILE_ROUTES = {
   AI:           "/ai",
   Solutions:    "/solutions",
   Resources:    "/resources",
-  Enterprise:   "/enterprise",
+  Integrations:   "/integrations",
   Pricing:      "/pricing",
   "Log in":     "/login",
 };
@@ -52,7 +52,7 @@ const MobileMenu = ({ open, navigate }) => (
         { label: "AI",         chevron: true,  icon: true },
         { label: "Solutions",  chevron: true  },
         { label: "Resources",  chevron: true  },
-        { label: "Enterprise", chevron: false },
+        { label: "Integrations", chevron: false },
         { label: "Pricing",    chevron: false },
         { label: "Log in",     chevron: false },
       ].map(({ label, chevron, icon }) => (
@@ -160,9 +160,7 @@ export default function Navbar() {
                 className="flex items-center gap-[3px] text-[14px] font-thin text-[#323338] hover:text-[#6161ff] transition-colors duration-150 px-2 py-1 group whitespace-nowrap"
               >
                 Integrations
-                <svg className="w-3 h-3 text-[#676879] group-hover:text-[#6161ff] transition-colors mt-[1px] ml-[1px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                </svg>
+                
               </button>
 
               <NavItem label="Solutions" navigate={navigate} />
