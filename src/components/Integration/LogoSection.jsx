@@ -38,8 +38,6 @@ const integrations = [
   { name: "Web Content", logo: web },
 ];
 
-// Responsive column counts per breakpoint (used for last-row span calculation)
-// Tailwind: grid-cols-2 (mobile) / sm:grid-cols-3 (≥640px) / lg:grid-cols-4 (≥1024px)
 const COLS_BY_BP = { mobile: 2, sm: 3, lg: 4 };
 
 function IntegrationCell({ name, logo }) {
@@ -61,7 +59,7 @@ function IntegrationCell({ name, logo }) {
 export default function IntegrationsLogoSection() {
   return (
     <section className="bg-white">
-    <div className="max-w-7xl py-16 px-4 sm:px-6 text-center pt-24 sm:pt-32 mx-auto ">
+    <div className="2xl:max-w-7xl max-w-6xl py-16 px-4 sm:px-6 text-center pt-24 sm:pt-32 mx-auto ">
       {/* Heading */}
       <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-900 leading-snug mb-3">
         Connects to your stack. Acts where

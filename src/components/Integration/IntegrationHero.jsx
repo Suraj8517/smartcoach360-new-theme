@@ -5,7 +5,7 @@ import BookDemoBtn from '../UI/BookDemoBtn'
 export default function IntegrationHero() {
   return (
     <section className='w-full min-h-screen bg-black pt-44 md:pt-36 px-8 md:px-6'>
-      <div className='max-w-7xl mx-auto'>
+      <div className='2xl:max-w-7xl max-w-6xl mx-auto'>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 md:mb-24">
 
           {/* Left — text */}
