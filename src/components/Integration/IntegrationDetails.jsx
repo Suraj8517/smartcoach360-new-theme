@@ -17,7 +17,7 @@ import zsurvey from "../../assets/integrations/integration-logos/survey.png";
 import rocket from "../../assets/integrations/integration-logos/rocket.jpeg";
 import unlimit from "../../assets/integrations/integration-logos/unlimit.jpeg";
 import fb from "../../assets/integrations/integration-logos/fb.png";
-import stripe from "../../assets/integrations/integration-logos/stripe.png";
+import stripe from "../../assets/integrations/integration-logos/Stripe.png";
 
 const integrations = [
   { name: "WhatsApp", logo: whatsapp, description: "Automated reminders, two-way messaging, and broadcast campaigns from within the platform."},
