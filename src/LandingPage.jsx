@@ -6,6 +6,7 @@ import NotFound from './pages/404'
 import AboutUs from './pages/Aboutus';
 import Footer from './components/Footer';
 import SolutionSection from './components/Solutions/Solutions';
+import Integration from './pages/Integration';
 export default function LandingPage() {
   return (
     <>
@@ -17,6 +18,8 @@ export default function LandingPage() {
         <Route path="*" element={<NotFound/>}/>
         <Route path="about-us" element={<AboutUs/>}/>
         <Route path="solutions" element={<SolutionSection/>}/>
+        <Route path="integrations" element={<Integration/>}/>
+
     </Routes>
     </main>
     <Footer/>

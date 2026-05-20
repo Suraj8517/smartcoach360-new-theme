@@ -17,7 +17,7 @@ const orbs = [
 
 export default function NotFound() {
   return (
-    <div className="relative min-h-screen w-full bg-white flex flex-col items-center justify-center overflow-hidden px-6 py-12 font-poppins">
+    <div className="relative min-h-screen w-full bg-white flex flex-col items-center justify-center overflow-hidden px-6 2xl:py-12 md:py-28 font-poppins">
 
       {/* ── Content ── */}
       <div className="relative z-10 flex flex-col items-center text-center max-w-2xl w-full">

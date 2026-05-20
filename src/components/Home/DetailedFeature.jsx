@@ -141,7 +141,8 @@ export default function DetailedFeatures() {
   const swiperRef  = useRef(null);
   const prevBtnRef = useRef(null);
   const nextBtnRef = useRef(null);
-
+   const [isBegin, setIsBegin] = useState(true);
+  const [isEnd, setIsEnd] = useState(false);
   // Banner scroll
   const wrapperRef = useRef(null);
   const trackRef   = useRef(null);
@@ -246,26 +247,33 @@ export default function DetailedFeatures() {
         <div className="w-full relative">
           
           <Swiper
-            modules={[Navigation, Keyboard]}
-            onSwiper={(sw) => { swiperRef.current = sw; }}
-            onSlideChange={(sw) => setActiveIdx(sw.realIndex)}
-            keyboard={{ enabled: true }}
-            centeredSlides
-            initialSlide={4}
-            slidesPerView="auto"
-            spaceBetween={20}
-            speed={500}
-            grabCursor
-            navigation={{
-              prevEl: prevBtnRef.current,
-              nextEl: nextBtnRef.current,
-            }}
-            onBeforeInit={(sw) => {
-              sw.params.navigation.prevEl = prevBtnRef.current;
-              sw.params.navigation.nextEl = nextBtnRef.current;
-            }}
-            style={{ paddingTop: 8, paddingBottom: 8 }}
-          >
+  modules={[Navigation, Keyboard]}
+  onSwiper={(sw) => {
+    swiperRef.current = sw;
+    setIsBegin(sw.isBeginning);
+    setIsEnd(sw.isEnd);
+  }}
+  onSlideChange={(sw) => {
+    setActiveIdx(sw.realIndex);
+    setIsBegin(sw.isBeginning);
+    setIsEnd(sw.isEnd);
+  }}
+  keyboard={{ enabled: true }}
+  centeredSlides
+  initialSlide={4}
+  slidesPerView="auto"
+  spaceBetween={20}
+  speed={500}
+  grabCursor
+  navigation={{
+    prevEl: prevBtnRef.current,
+    nextEl: nextBtnRef.current,
+  }}
+  onBeforeInit={(sw) => {
+    sw.params.navigation.prevEl = prevBtnRef.current;
+    sw.params.navigation.nextEl = nextBtnRef.current;
+  }}
+>
             {features.map((f, i) => {
               const isActive = i === activeIdx;
               return (
@@ -361,14 +369,24 @@ export default function DetailedFeatures() {
           <div className="flex gap-3 flex-shrink-0 pt-1">
             <button
               ref={prevBtnRef}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-white/50 hover:text-white transition-all text-base"
-            >
+              
+className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all text-base
+${
+  isBegin
+    ? "border-white/10 text-white/20 cursor-not-allowed"
+    : "border-white/20 text-white/50 hover:border-white/50 hover:text-white"
+}`}            >
               ←
             </button>
             <button
               ref={nextBtnRef}
-              className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white/50 hover:border-white/50 hover:text-white transition-all text-base"
-            >
+              
+className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all text-base
+${
+  isBegin
+    ? "border-white/10 text-white/20 cursor-not-allowed"
+    : "border-white/20 text-white/50 hover:border-white/50 hover:text-white"
+}`}            >
               →
             </button>
           </div>

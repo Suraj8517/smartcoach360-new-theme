@@ -106,20 +106,22 @@ const comparisonFeatures = [
 ];
 
 const plans = [
-  { key: "pt",  label: "Personal Trainer", color: "#9747FF" },
-  { key: "gym", label: "Gym / Studio",     color: "#9747FF" },
-  { key: "nc",  label: "Nutrition Coach",  color: "#9747FF" },
-  { key: "ent", label: "Large Org",        color: "#9747FF" },
+  { key: "pt",  label: "Personal Trainer", shortLabel: "PT" },
+  { key: "gym", label: "Gym / Studio",     shortLabel: "Gym" },
+  { key: "nc",  label: "Nutrition Coach",  shortLabel: "Nutrition" },
+  { key: "ent", label: "Large Org",        shortLabel: "Org" },
 ];
 
-const CheckIcon = ({ active, color }) =>
+const PURPLE = "#9747FF";
+
+const CheckIcon = ({ active }) =>
   active ? (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ display: "block", margin: "0 auto" }}>
-      <circle cx="10" cy="10" r="10" fill={color} fillOpacity="0.1" />
-      <path d="M6 10l2.5 2.5 5.5-5" stroke={color} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="block mx-auto">
+      <circle cx="10" cy="10" r="10" fill={PURPLE} fillOpacity="0.1" />
+      <path d="M6 10l2.5 2.5 5.5-5" stroke={PURPLE} strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
     </svg>
   ) : (
-    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style={{ display: "block", margin: "0 auto" }}>
+    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="block mx-auto">
       <circle cx="10" cy="10" r="9.5" stroke="#E5E7EB" strokeWidth="1" />
     </svg>
   );
@@ -129,305 +131,141 @@ export default function SolutionSection() {
   const step = steps[activeStep];
 
   return (
-    <section
-      style={{
-        background: "#FAFAFA",
-      }}
-    >
+    <section className="bg-[#FAFAFA]">
+
       {/* ── Hero Header ── */}
-      <div
-        style={{
-          maxWidth: 1200,
-          margin: "0 auto",
-          padding: "240px 48px 100px",
-          textAlign: "center",
-        }}
-      >
-        <span
-          style={{
-            display: "inline-block",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: "0.1em",
-            textTransform: "uppercase",
-            color: "#9747FF",
-            marginBottom: 24,
-          }}
-        >
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 pt-24 sm:pt-36 lg:pt-[240px] pb-16 sm:pb-20 lg:pb-24 text-center">
+        <span className="inline-block text-[13px] font-medium tracking-[0.1em] uppercase text-[#9747FF] mb-6">
           How it works
         </span>
-        <h1
-          style={{
-            fontSize: "clamp(48px, 6vw, 80px)",
-            fontWeight: 500,
-            letterSpacing: "-0.04em",
-            lineHeight: 1.05,
-            color: "#0A0A0A",
-            margin: "0 0 28px",
-          }}
-        >
+        <h1 className="text-[clamp(36px,6vw,80px)] font-medium tracking-[-0.04em] leading-[1.05] text-[#0A0A0A] mb-6 sm:mb-7">
           Built for every kind of
           <br />
           fitness professional.
         </h1>
-        <p
-          style={{
-            fontSize: 18,
-            lineHeight: 1.7,
-            color: "#6B7280",
-            maxWidth: 540,
-            margin: "0 auto 48px",
-          }}
-        >
+        <p className="text-base sm:text-lg leading-[1.7] text-[#6B7280] max-w-[540px] mx-auto mb-10 sm:mb-12">
           Whether you coach one-on-one, run a busy gym, or manage a national fitness
           organisation SmartCoach360 fits the way you operate.
         </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", flexWrap: "wrap" }}>
-          <button
-            style={{
-              background: "#0A0A0A",
-              color: "#fff",
-              border: "none",
-              borderRadius: 100,
-              padding: "16px 32px",
-              fontSize: 15,
-              fontWeight: 600,
-              cursor: "pointer",
-              letterSpacing: "-0.01em",
-            }}
-          >
+        <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
+          <button className="w-full sm:w-auto bg-[#0A0A0A] text-white border-none rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
             Book a Demo →
           </button>
-          <button
-            style={{
-              background: "transparent",
-              color: "#0A0A0A",
-              border: "1.5px solid #E5E7EB",
-              borderRadius: 100,
-              padding: "16px 32px",
-              fontSize: 15,
-              fontWeight: 600,
-              cursor: "pointer",
-              letterSpacing: "-0.01em",
-            }}
-          >
+          <button className="w-full sm:w-auto bg-transparent text-[#0A0A0A] border-[1.5px] border-[#E5E7EB] rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
             See Pricing
           </button>
         </div>
       </div>
 
       {/* ── Tab Navigation ── */}
-      <div style={{ borderTop: "1px solid #EBEBEB", borderBottom: "1px solid #EBEBEB", background: "#fff" }}>
-        <div
-          style={{
-            maxWidth: 1200,
-            margin: "0 auto",
-            padding: "0 48px",
-            display: "flex",
-            gap: 0,
-            overflowX: "auto",
-          }}
-        >
+      <div className="border-t border-b border-[#EBEBEB] bg-white">
+        <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 flex overflow-x-auto scrollbar-hide gap-0">
           {steps.map((s, i) => (
             <button
               key={i}
               onClick={() => setActiveStep(i)}
-              style={{
-                background: "transparent",
-                border: "none",
-                borderBottom: activeStep === i ? `2.5px solid ${s.color}` : "2.5px solid transparent",
-                padding: "22px 32px",
-                cursor: "pointer",
-                fontSize: 14,
-                fontWeight: activeStep === i ? 700 : 500,
-                color: activeStep === i ? s.color : "#9CA3AF",
-                letterSpacing: "-0.01em",
-                whiteSpace: "nowrap",
-                transition: "all 0.15s ease",
-                display: "flex",
-                alignItems: "center",
-                gap: 10,
-              }}
+              className={[
+                "bg-transparent border-none border-b-[2.5px] py-5 sm:py-[22px] px-4 sm:px-6 lg:px-8 cursor-pointer text-sm whitespace-nowrap transition-all duration-150 flex items-center gap-2 sm:gap-2.5 flex-shrink-0",
+                activeStep === i
+                  ? "border-[#9747FF] font-bold text-[#9747FF]"
+                  : "border-transparent font-medium text-[#9CA3AF]",
+              ].join(" ")}
             >
               <span
-                style={{
-                  width: 22,
-                  height: 22,
-                  borderRadius: 6,
-                  background: activeStep === i ? s.color : "#F3F4F6",
-                  color: activeStep === i ? "#fff" : "#9CA3AF",
-                  fontSize: 11,
-                  fontWeight: 700,
-                  display: "inline-flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
+                className={[
+                  "w-[22px] h-[22px] rounded-[6px] text-[11px] font-bold inline-flex items-center justify-center flex-shrink-0",
+                  activeStep === i
+                    ? "bg-[#9747FF] text-white"
+                    : "bg-[#F3F4F6] text-[#9CA3AF]",
+                ].join(" ")}
               >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              {s.tag}
+              <span className="hidden sm:inline">{s.tag}</span>
+              {/* Mobile: short label */}
+              <span className="sm:hidden">{s.tag.split(" ")[0]}</span>
             </button>
           ))}
         </div>
       </div>
 
       {/* ── Step Detail ── */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "80px 48px" }}>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 80,
-            alignItems: "start",
-          }}
-        >
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 py-12 sm:py-16 lg:py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-start">
+
           {/* Left */}
           <div>
-            <span
-              style={{
-                fontSize: 12,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: step.color,
-                display: "block",
-                marginBottom: 16,
-              }}
-            >
+            <span className="text-xs font-bold tracking-[0.1em] uppercase text-[#9747FF] block mb-4">
               {step.tag}
             </span>
-            <h2
-              style={{
-                fontSize: "clamp(32px, 3.5vw, 48px)",
-                fontWeight: 500,
-                letterSpacing: "-0.04em",
-                lineHeight: 1.12,
-                color: "#0A0A0A",
-                margin: "0 0 24px",
-                whiteSpace: "pre-line",
-              }}
-            >
+            <h2 className="text-[clamp(28px,3.5vw,48px)] font-medium tracking-[-0.04em] leading-[1.12] text-[#0A0A0A] mb-6 whitespace-pre-line">
               {step.title}
             </h2>
-            <p style={{ fontSize: 16, lineHeight: 1.75, color: "#6B7280", margin: "0 0 40px" }}>
+            <p className="text-[15px] sm:text-base leading-[1.75] text-[#6B7280] mb-10">
               {step.body}
             </p>
 
             {/* Challenges */}
             <div>
-              <p
-                style={{
-                  fontSize: 11,
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#D1D5DB",
-                  margin: "0 0 16px",
-                }}
-              >
+              <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-[#D1D5DB] mb-4">
                 Pain points we solve
               </p>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: 10 }}>
+              <ul className="list-none p-0 m-0 flex flex-col gap-3">
                 {step.challenges.map((c, j) => (
-                  <li key={j} style={{ display: "flex", alignItems: "flex-start", gap: 12 }}>
+                  <li key={j} className="flex items-start gap-3">
                     <svg
                       width="16"
                       height="16"
                       viewBox="0 0 16 16"
                       fill="none"
-                      style={{ flexShrink: 0, marginTop: 3 }}
+                      className="flex-shrink-0 mt-[3px]"
                     >
-                      <circle cx="8" cy="8" r="7.5" stroke={step.color} strokeOpacity="0.3" />
+                      <circle cx="8" cy="8" r="7.5" stroke={PURPLE} strokeOpacity="0.3" />
                       <path
                         d="M5 8l2 2 4-4"
-                        stroke={step.color}
+                        stroke={PURPLE}
                         strokeWidth="1.5"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
-                    <span style={{ fontSize: 14, lineHeight: 1.6, color: "#374151" }}>{c}</span>
+                    <span className="text-[14px] leading-[1.6] text-[#374151]">{c}</span>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <button
-              style={{
-                marginTop: 40,
-                background: step.color,
-                color: "#fff",
-                border: "none",
-                borderRadius: 100,
-                padding: "15px 28px",
-                fontSize: 14,
-                fontWeight: 600,
-                cursor: "pointer",
-                letterSpacing: "-0.01em",
-              }}
-            >
+            <button className="mt-10 bg-[#9747FF] text-white border-none rounded-full px-7 py-[15px] text-[14px] font-semibold cursor-pointer tracking-[-0.01em]">
               Get Started →
             </button>
           </div>
 
           {/* Right — features grid */}
           <div>
-            <p
-              style={{
-                fontSize: 11,
-                fontWeight: 700,
-                letterSpacing: "0.1em",
-                textTransform: "uppercase",
-                color: "#D1D5DB",
-                margin: "0 0 20px",
-              }}
-            >
+            <p className="text-[11px] font-bold tracking-[0.1em] uppercase text-[#D1D5DB] mb-5">
               What you get
             </p>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "1fr 1fr",
-                gap: 16,
-              }}
-            >
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {step.features.map((feat, j) => (
                 <div
                   key={j}
-                  style={{
-                    background: "#fff",
-                    border: "1px solid #F0F0F0",
-                    borderRadius: 16,
-                    padding: "20px 20px 22px",
-                    transition: "border-color 0.2s",
-                  }}
+                  className="bg-white border border-[#F0F0F0] rounded-2xl p-5 transition-colors duration-200"
                 >
-                  <div
-                    style={{
-                      width: 32,
-                      height: 32,
-                      borderRadius: 8,
-                      background: step.color + "14",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      marginBottom: 14,
-                    }}
-                  >
+                  <div className="w-8 h-8 rounded-lg bg-[#9747FF]/[0.08] flex items-center justify-center mb-3.5">
                     <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <path
                         d="M2.5 7l3 3 6-6"
-                        stroke={step.color}
+                        stroke={PURPLE}
                         strokeWidth="1.8"
                         strokeLinecap="round"
                         strokeLinejoin="round"
                       />
                     </svg>
                   </div>
-                  <p style={{ fontSize: 13, fontWeight: 700, color: "#0A0A0A", margin: "0 0 6px", letterSpacing: "-0.01em" }}>
+                  <p className="text-[13px] font-bold text-[#0A0A0A] mb-1.5 tracking-[-0.01em]">
                     {feat.label}
                   </p>
-                  <p style={{ fontSize: 12.5, lineHeight: 1.65, color: "#9CA3AF", margin: 0 }}>{feat.desc}</p>
+                  <p className="text-[12.5px] leading-[1.65] text-[#9CA3AF] m-0">{feat.desc}</p>
                 </div>
               ))}
             </div>
@@ -435,158 +273,92 @@ export default function SolutionSection() {
         </div>
 
         {/* Step dots */}
-        <div
-          style={{
-            marginTop: 64,
-            display: "flex",
-            alignItems: "center",
-            gap: 8,
-            justifyContent: "center",
-          }}
-        >
+        <div className="mt-14 sm:mt-16 flex items-center gap-2 justify-center">
           {steps.map((s, i) => (
             <button
               key={i}
               onClick={() => setActiveStep(i)}
-              style={{
-                width: activeStep === i ? 28 : 8,
-                height: 8,
-                borderRadius: 100,
-                background: activeStep === i ? s.color : "#E5E7EB",
-                border: "none",
-                cursor: "pointer",
-                transition: "all 0.25s ease",
-                padding: 0,
-              }}
+              className={[
+                "h-2 rounded-full border-none cursor-pointer transition-all duration-250 p-0",
+                activeStep === i ? "w-7 bg-[#9747FF]" : "w-2 bg-[#E5E7EB]",
+              ].join(" ")}
             />
           ))}
         </div>
       </div>
 
       {/* ── Divider ── */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 48px" }}>
-        <div style={{ height: 1, background: "#EBEBEB" }} />
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
+        <div className="h-px bg-[#EBEBEB]" />
       </div>
 
       {/* ── Comparison Table ── */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "100px 48px 120px" }}>
-        <div style={{ textAlign: "center", marginBottom: 64 }}>
-          <span
-            style={{
-              fontSize: 12,
-              fontWeight: 700,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#9747FF",
-              display: "block",
-              marginBottom: 16,
-            }}
-          >
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
+        <div className="text-center mb-12 sm:mb-16">
+          <span className="text-xs font-bold tracking-[0.1em] uppercase text-[#9747FF] block mb-4">
             Compare plans
           </span>
-          <h2
-            style={{
-              fontSize: "clamp(36px, 4vw, 56px)",
-              fontWeight: 800,
-              letterSpacing: "-0.04em",
-              color: "#0A0A0A",
-              margin: "0 0 16px",
-              lineHeight: 1.1,
-            }}
-          >
+          <h2 className="text-[clamp(30px,4vw,56px)] font-medium tracking-[-0.04em] text-[#0A0A0A] mb-4 leading-[1.1]">
             Which plan is right for you?
           </h2>
-          <p style={{ fontSize: 16, color: "#9CA3AF", margin: 0 }}>
+          <p className="text-base text-[#9CA3AF] m-0">
             All plans include core features. Larger plans unlock team and scale tools.
           </p>
         </div>
 
-        <div
-          style={{
-            background: "#fff",
-            border: "1px solid #EBEBEB",
-            borderRadius: 20,
-            overflow: "hidden",
-          }}
-        >
-          {/* Header */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "2fr repeat(4, 1fr)",
-              borderBottom: "1px solid #F3F4F6",
-              background: "#FAFAFA",
-            }}
-          >
-            <div style={{ padding: "24px 28px" }}>
-              <span style={{ fontSize: 13, fontWeight: 600, color: "#9CA3AF" }}>Feature</span>
-            </div>
-            {plans.map((p) => (
-              <div key={p.key} style={{ padding: "24px 16px", textAlign: "center" }}>
-                <span
-                  style={{
-                    display: "inline-block",
-                    fontSize: 12,
-                    fontWeight: 700,
-                    padding: "6px 14px",
-                    borderRadius: 100,
-                    background: p.color + "14",
-                    color: p.color,
-                    letterSpacing: "-0.01em",
-                  }}
-                >
-                  {p.label}
-                </span>
-              </div>
-            ))}
-          </div>
+        {/* Table wrapper — horizontal scroll on small screens */}
+        <div className="overflow-x-auto -mx-5 sm:mx-0 px-5 sm:px-0">
+          <div className="min-w-[520px] bg-white border border-[#EBEBEB] rounded-2xl overflow-hidden">
 
-          {/* Rows */}
-          {comparisonFeatures.map((feat, i) => {
-            const vals = [feat.pt, feat.gym, feat.nc, feat.ent];
-            return (
-              <div
-                key={i}
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "2fr repeat(4, 1fr)",
-                  borderBottom: i < comparisonFeatures.length - 1 ? "1px solid #F9FAFB" : "none",
-                  background: i % 2 === 0 ? "#fff" : "#FDFDFD",
-                  alignItems: "center",
-                }}
-              >
-                <div style={{ padding: "16px 28px" }}>
-                  <span style={{ fontSize: 14, color: "#374151", fontWeight: 500 }}>{feat.label}</span>
-                </div>
-                {vals.map((val, j) => (
-                  <div key={j} style={{ padding: "16px", display: "flex", justifyContent: "center" }}>
-                    <CheckIcon active={val} color={plans[j].color} />
-                  </div>
-                ))}
+            {/* Header */}
+            <div className="grid grid-cols-[2fr_repeat(4,1fr)] border-b border-[#F3F4F6] bg-[#FAFAFA]">
+              <div className="py-5 sm:py-6 px-4 sm:px-7">
+                <span className="text-[13px] font-semibold text-[#9CA3AF]">Feature</span>
               </div>
-            );
-          })}
+              {plans.map((p) => (
+                <div key={p.key} className="py-5 sm:py-6 px-2 sm:px-4 text-center">
+                  <span className="inline-block text-[11px] sm:text-[12px] font-bold py-1.5 px-2 sm:px-3.5 rounded-full bg-[#9747FF]/[0.08] text-[#9747FF] tracking-[-0.01em]">
+                    {/* Show short label on mobile, full label on sm+ */}
+                    <span className="sm:hidden">{p.shortLabel}</span>
+                    <span className="hidden sm:inline">{p.label}</span>
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* Rows */}
+            {comparisonFeatures.map((feat, i) => {
+              const vals = [feat.pt, feat.gym, feat.nc, feat.ent];
+              return (
+                <div
+                  key={i}
+                  className={[
+                    "grid grid-cols-[2fr_repeat(4,1fr)] items-center",
+                    i < comparisonFeatures.length - 1 ? "border-b border-[#F9FAFB]" : "",
+                    i % 2 === 0 ? "bg-white" : "bg-[#FDFDFD]",
+                  ].join(" ")}
+                >
+                  <div className="py-3.5 sm:py-4 px-4 sm:px-7">
+                    <span className="text-[13px] sm:text-[14px] text-[#374151] font-medium">{feat.label}</span>
+                  </div>
+                  {vals.map((val, j) => (
+                    <div key={j} className="py-3.5 sm:py-4 px-2 sm:px-4 flex justify-center">
+                      <CheckIcon active={val} />
+                    </div>
+                  ))}
+                </div>
+              );
+            })}
+          </div>
         </div>
 
         {/* CTA below table */}
-        <div style={{ textAlign: "center", marginTop: 48 }}>
-          <p style={{ fontSize: 15, color: "#9CA3AF", marginBottom: 24 }}>
+        <div className="text-center mt-12">
+          <p className="text-[15px] text-[#9CA3AF] mb-6">
             Not sure which plan fits your business?
           </p>
-          <button
-            style={{
-              background: "#0A0A0A",
-              color: "#fff",
-              border: "none",
-              borderRadius: 100,
-              padding: "16px 36px",
-              fontSize: 15,
-              fontWeight: 600,
-              cursor: "pointer",
-              letterSpacing: "-0.01em",
-            }}
-          >
-            Talk to Sales →
+          <button className="bg-[#0A0A0A] text-white border-none rounded-full px-9 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
+            Contact Us →
           </button>
         </div>
       </div>
