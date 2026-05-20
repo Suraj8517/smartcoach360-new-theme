@@ -69,7 +69,7 @@ function HexIcon({ logo, name ,iswhite}) {
             alt={`${name} logo`}
             onError={() => setImgError(true)}
             className="object-contain rounded"
-            style={{ width: 46, height: 46 }}
+            style={{ width: 56, height: 56 }}
           />
         ) : (
           <span className="text-purple-300 text-xs font-semibold tracking-widest">
