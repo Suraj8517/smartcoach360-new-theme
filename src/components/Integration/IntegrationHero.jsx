@@ -24,7 +24,7 @@ export default function IntegrationHero() {
               SmartCoach360 is designed to complement your existing workflow, reducing handoffs, eliminating duplication, and creating a more consistent experience from first enquiry to long-term retention.
             </p>
             <div className="anim-3 mt-8 sm:mt-10 mx-auto md:mx-0">
-  <BookDemoBtn weight="light"/>
+  <BookDemoBtn weight="light" text="white"/>
 </div>
           </div>
 

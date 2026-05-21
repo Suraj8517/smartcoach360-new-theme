@@ -7,6 +7,9 @@ import AboutUs from './pages/Aboutus';
 import Footer from './components/Footer';
 import SolutionSection from './components/Solutions/Solutions';
 import Integration from './pages/Integration';
+import ContactUsPage from './pages/ContactUsPage';
+import PricingPage from './pages/Pricing';
+
 export default function LandingPage() {
   return (
     <>
@@ -19,6 +22,10 @@ export default function LandingPage() {
         <Route path="about-us" element={<AboutUs/>}/>
         <Route path="solutions" element={<SolutionSection/>}/>
         <Route path="integrations" element={<Integration/>}/>
+        <Route path="contact-us" element={<ContactUsPage/>}/>
+        <Route path="pricing" element={<PricingPage/>}/>
+       
+
 
     </Routes>
     </main>

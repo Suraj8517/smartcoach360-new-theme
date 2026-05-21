@@ -1,10 +1,10 @@
 import React from 'react'
 
-export default function BookDemoBtn(weight) {
+export default function BookDemoBtn({weight,text}) {
   return (
     <div>
         <button
-    className={`integration-hero-cta text-white font-${weight} rounded-full group transition-all duration-300`}
+    className={`integration-hero-cta text-${text} font-${weight} rounded-full group transition-all duration-300`}
     style={{
       fontSize: "clamp(0.85rem, 1.5vw, 1rem)",
       padding: "clamp(0.55rem, 1.2vw, 0.75rem) clamp(1.4rem, 3vw, 2rem)",
