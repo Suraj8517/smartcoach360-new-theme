@@ -47,7 +47,7 @@ function HexIcon({ logo, name ,iswhite}) {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <div className="relative mx-auto" style={{ width: 150, height: 150 }}>
+    <div className="relative mx-auto md:w-35 md:h-35 h-25 w-25" >
       <svg
         viewBox="0 0 110 110"
         className="absolute inset-0 w-full h-full"
@@ -68,8 +68,8 @@ function HexIcon({ logo, name ,iswhite}) {
             src={logo}
             alt={`${name} logo`}
             onError={() => setImgError(true)}
-            className="object-contain rounded"
-            style={{ width: 56, height: 56 }}
+            className="object-contain rounded w-10 h-10 md:w-13 md:h-13"
+            
           />
         ) : (
           <span className="text-purple-300 text-xs font-semibold tracking-widest">

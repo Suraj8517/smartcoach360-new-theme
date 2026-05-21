@@ -11,8 +11,8 @@ export default function IntegrationHero() {
           {/* Left — text */}
           <div className="flex flex-col gap-4">
             <h2
-              className="text-center md:text-left text-white font-thin leading-[1.2] tracking-[-0.04em] pb-6 md:pb-1"
-              style={{ fontSize: "clamp(2.2rem, 5vw, 3.5rem)" }}
+              className="text-center md:text-left text-white md:font-thin font-bold leading-[1.2] tracking-[-0.04em] pb-2 md:pb-1"
+              style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
             >
               Seamlessly integrate <br />
               <span>all of your favorite tools.</span>
