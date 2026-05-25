@@ -9,6 +9,8 @@ import SolutionSection from './components/Solutions/Solutions';
 import Integration from './pages/Integration';
 import ContactUsPage from './pages/ContactUsPage';
 import PricingPage from './pages/Pricing';
+import SuccessStories from './pages/SuccessStories';
+import ComparisonPage from './pages/ComparisonPage';
 
 export default function LandingPage() {
   return (
@@ -24,7 +26,8 @@ export default function LandingPage() {
         <Route path="integrations" element={<Integration/>}/>
         <Route path="contact-us" element={<ContactUsPage/>}/>
         <Route path="pricing" element={<PricingPage/>}/>
-       
+        <Route path="success-stories" element={<SuccessStories/>}/>
+        <Route path="comparison" element={<ComparisonPage/>}/>
 
 
     </Routes>

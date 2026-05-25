@@ -115,7 +115,7 @@ function PlanCard({ plan }) {
 
       <div className="p-5 flex flex-col gap-2">
         <p className="text-sm font-bold text-gray-900 mb-1">Features includes:</p>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-6">
           {featureItems.map((item) => (
             <li key={item} className="flex items-center justify-between text-sm text-gray-700">
               <span>{item}</span>
@@ -230,7 +230,7 @@ const ProPlan = plans.find((p) => p.name === "Pro");
 
 export default function PricingTable() {
   return (
-    <div className="bg-white min-h-screen px-4">
+    <div className="bg-white min-h-screen px-4 pb-36">
       <div className="2xl:max-w-[1600px] max-w-[1200px] mx-auto">
 
         {/*

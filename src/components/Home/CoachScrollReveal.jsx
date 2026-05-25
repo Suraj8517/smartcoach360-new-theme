@@ -13,6 +13,7 @@ const COLOR_IMG   = loaded;
 const LEFT_IMG    = leftImg;
 const RIGHT_IMG   = rightImg;
 const AVATARS = [avatar1, avatar2, avatar3];
+const url =import.meta.env.VITE_CALENDLY_LINK;
 
 // ── Shared card shell ─────────────────────────────────────────────
 const Card = ({ children, className = "", image, imageAlt = "" }) => (
@@ -156,21 +157,13 @@ const ConversationsContent = () => (
   </Card>
 );
 
-// ── Phase boundaries ──────────────────────────────────────────────
-// Outline builds from 0 → PHASE1_END
-// Cards animate from PHASE1_END → PHASE2_END  (only AFTER outline is visible)
-// Color + marquee fade in from PHASE1_END → PHASE2_END
+
 const PHASE1_END = 0.15;   // outline fully visible
 const PHASE2_END = 0.88;   // cards fully centered, start to fade
 
-// ── Flanking images appear after COLOR_IMG is fully visible ──────
-// COLOR_IMG reaches full opacity around progress ~0.5 (colorOpacity = clamp(phaseP(PHASE1_END,1)*3))
-// phaseP(0.15, 1) * 3 >= 1  →  phaseP >= 1/3  →  progress >= 0.15 + (1/3)*(1-0.15) ≈ 0.43
-// We start the flanking fade slightly after that, at FLANK_START, full by FLANK_END
 const FLANK_START = 0.50;  // start fading in side images (loaded image is fully visible by ~0.43)
 const FLANK_END   = 0.80;  // side images fully opaque
 
-// ── Marquee ticker (Anton font, slides in from right, stays centered) ─
 const MarqueeText = ({ progress }) => {
   const clamp01 = (v) => Math.min(1, Math.max(0, v));
   const p = clamp01((progress - PHASE1_END) / (PHASE2_END - PHASE1_END));
@@ -223,7 +216,7 @@ const MobileVersion = () => (
   <div className="bg-black text-white pt-12">
 
     {/* ── Full-bleed hero ── */}
-    <div className="relative w-full min-h-svh overflow-hidden flex flex-col justify-end">
+    <div className="relative w-full min-h-[50vh] overflow-hidden flex flex-col justify-end">
 
       {/* Coach image */}
       <img
@@ -268,8 +261,10 @@ const MobileVersion = () => (
           Stop juggling apps. Manage clients, programmes, and payments — built for coaches who scale.
         </p>
 
-        <button className="inline-flex items-center gap-2 bg-white text-black text-[13px] font-medium rounded-full px-6 py-3 tracking-[0.01em]">
-          Get Started <span className="text-base leading-none">→</span>
+        <button onClick={() => window.open(url, "_blank")} className="inline-flex items-center gap-2 bg-white text-black text-[13px] font-medium rounded-full px-6 py-3 tracking-[0.01em]">
+          Get Started  <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="#111" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
         </button>
       </div>
     </div>
@@ -371,9 +366,13 @@ export default function CoachScrollReveal() {
   }, []);
 
   // Show mobile version on small screens
-  if (windowWidth < 1024) {
+   if (windowWidth < 768) {
     return <MobileVersion />;
   }
+  if (windowWidth < 1024) {
+    return <DetailedFeatures />;
+  }
+ 
 
   const clamp01 = (v) => Math.min(1, Math.max(0, v));
   const ease    = (t) => 1 - Math.pow(1 - t, 1.5);
@@ -394,19 +393,14 @@ export default function CoachScrollReveal() {
   const cardOpacity  = clamp01(1 - (p2 - 0.2) * 6);
   const cardScale    = 1 - Math.min(p2, 0.6) * 0.12;
 
-  // Phase 3: final reveal (color fully shows, outline fades)
   const p3             = phaseP(PHASE2_END, 1);
   const colorOpacity   = clamp01(phaseP(PHASE1_END, 1) * 3);
   const outlineOpacity = outlineBase * (1 - clamp01(p3 * 2.5));
 
-  // ── Flanking images: fade in only after loaded image is fully visible ──
-  // colorOpacity reaches 1 when phaseP(PHASE1_END,1) >= 1/3, i.e. progress ≈ 0.43
-  // We start fading flanking images in at FLANK_START (0.50) for a clear sequence
   const flankRaw     = clamp01((progress - FLANK_START) / (FLANK_END - FLANK_START));
   const flankEased   = 1 - Math.pow(1 - flankRaw, 2);   // ease-out quad
   const flankOpacity = flankEased;
 
-  // Slide in from the sides: left image slides in from left, right from right
   const LEFT_SLIDE_START  = -8;   // vw offset when hidden
   const RIGHT_SLIDE_START =  8;   // vw offset when hidden
   const leftTranslateX  = `${LEFT_SLIDE_START  * (1 - flankEased)}vw`;
@@ -429,7 +423,7 @@ const SCROLL_LENGTH = 4;
   return (
     <>
     <DetailedFeatures/>
-    <div ref={containerRef} className="relative bg-black pt-16"  style={{ height: `${SCROLL_LENGTH * 150}vh` }}>
+    <div ref={containerRef} className="hidden xl:block relative bg-black pt-16 "  style={{ height: `${SCROLL_LENGTH * 150}vh` }}>
 
       {/* ── Hero text ── */}
       <div className="max-w-6xl lg:max-w-6xl relative z-50 w-full mx-auto flex flex-col items-center px-8 pt-10 pb-6 lg:flex-row lg:items-start lg:justify-between lg:pt-12 xl:px-16 xl:pt-16">
@@ -443,10 +437,11 @@ const SCROLL_LENGTH = 4;
          <p className=" text-white font-normal leading-[1.6] tracking-[.04rem] text-center mb-3 text-[13px] lg:text-left lg:text-[14px] xl:text-[1rem]">
   Stop juggling apps. Manage clients, programmes, nutrition, payments, and messages, all in one place built for coaches who want to scale.
 </p>
-           <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2]  active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
+           <button onClick={() => window.open(url, "_blank")} className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2] group active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
             Book a Demo
-              <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
-→</span>
+               <svg className="group-hover:translate-x-1 transition-transform duration-300" width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                            <path d="M3 8h10M9 4l4 4-4 4" stroke="#111" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
+                          </svg>
           </button>
         </div>
       </div>

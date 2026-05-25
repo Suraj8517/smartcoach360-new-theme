@@ -186,6 +186,7 @@ export default function FeatureShowcase() {
   const [animKey, setAnimKey] = useState(0);
   const [imgFailed, setImgFailed] = useState(false);
   const [mobIndex, setMobIndex] = useState(0);
+const url =import.meta.env.VITE_CALENDLY_LINK;
 
   const displayFeature = active !== null ? FEATURES[active] : FEATURES[0];
   const isBlurred = active === null;
@@ -485,7 +486,6 @@ export default function FeatureShowcase() {
             </div>
           </div>
 
-          {/* ══ MOBILE ═══════════════════════════════════════════════ */}
           {/* ══ MOBILE ═══════════════════════════════════════════════ */}
 <div className="lg:hidden flex flex-col gap-3">
 

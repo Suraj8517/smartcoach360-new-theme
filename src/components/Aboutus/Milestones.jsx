@@ -83,7 +83,7 @@ function AnimatedStat({ value, suffix = "" }) {
 // ─── Tag pill ────────────────────────────────────────────────────────────────
 function Tag({ label }) {
   return (
-    <span className="text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-violet-500/50 text-violet-300 bg-violet-950/60">
+    <span className="text-[11px] font-bold uppercase tracking-widest px-4 py-1.5 rounded-full border border-violet-500/50 text-white bg-violet-950/60">
       {label}
     </span>
   );
@@ -277,13 +277,13 @@ export default function MilestoneSection() {
           <img src={images.platformLaunch} alt="Platform launch" className="w-full h-full object-cover absolute inset-0" />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0e0520]/95 via-violet-950/50 to-transparent" />
           <div className="absolute top-6 left-6">
-            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest bg-violet-700 text-violet-100 px-4 py-1.5 rounded-full">
+            <span className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest bg-black text-violet-100 px-4 py-1.5 rounded-full">
                Platform Launch
             </span>
           </div>
           <div className="absolute bottom-8 left-7 right-7">
             <p className="text-white font-medium text-2xl leading-snug">SmartCoach360 goes live worldwide</p>
-            <p className="text-violet-300 text-sm mt-3 leading-relaxed">
+            <p className="text-white text-sm mt-3 leading-relaxed">
               Fitness professionals everywhere gain access to the first platform built specifically for how coaching businesses actually work.
             </p>
           </div>
@@ -294,19 +294,19 @@ export default function MilestoneSection() {
           <p className="text-xs font-bold uppercase tracking-widest text-violet-400">Community</p>
           <div>
             <p className="text-6xl font-black text-white leading-none"><AnimatedStat value={10000} suffix="+" /></p>
-            <p className="text-base font-medium text-violet-400 mt-3">coaches using the platform daily</p>
+            <p className="text-base font-medium text-white mt-3">coaches using the platform daily</p>
           </div>
         </AnimatedCard>
 
         {/* [R1–R2 C3] Enterprise */}
         <AnimatedCard delay={60} className="row-span-2 rounded-[28px] p-8 flex flex-col justify-between overflow-hidden" style={{ minHeight: 440, background: "#0e0520", border: "1px solid rgba(139,92,246,0.25)" }}>
           <div>
-            <span className="text-[11px] font-bold uppercase tracking-widest bg-violet-900 text-violet-300 px-4 py-1.5 rounded-full border border-violet-700/40">Enterprise tier</span>
+            <span className="text-[11px] font-bold uppercase tracking-widest bg-violet-900 text-violet-100 px-4 py-1.5 rounded-full border border-violet-700/40">Enterprise tier</span>
             <p className="text-3xl font-black text-white leading-snug mt-5">
               Multi-branch, SSO &amp; dedicated support
             </p>
-            <p className="text-sm text-violet-400 leading-relaxed mt-4">
-              The full platform available to large fitness organisations—with the infrastructure and security to match.
+            <p className="text-sm text-white leading-relaxed mt-4">
+              The full platform available to large fitness organisations with the infrastructure and security to match.
             </p>
             <div className="flex gap-2 flex-wrap mt-5">
               <Tag label="SSO" /><Tag label="Multi-branch" /><Tag label="Priority support" />
@@ -322,7 +322,7 @@ export default function MilestoneSection() {
           <p className="text-xs font-bold uppercase tracking-widest text-violet-400">Success stories</p>
           <div>
             <p className="text-6xl font-black text-white leading-none"><AnimatedStat value={500} suffix="k" /></p>
-            <p className="text-base font-medium text-violet-400 mt-3">client transformations enabled</p>
+            <p className="text-base font-medium text-white mt-3">client transformations enabled</p>
           </div>
         </AnimatedCard>
 
@@ -338,8 +338,8 @@ export default function MilestoneSection() {
                 <p className="text-3xl font-extrabold text-white leading-snug">
                   Full iOS and Android apps released
                 </p>
-                <p className="text-sm text-violet-400 leading-relaxed mt-3 max-w-sm">
-                  Complete platform access in your pocket—coaches and clients connected anywhere, on any device.
+                <p className="text-sm text-white leading-relaxed mt-3 max-w-sm">
+                  Complete platform access in your pocket coaches and clients connected anywhere, on any device.
                 </p>
               </div>
               <div className="flex gap-3">
@@ -367,8 +367,8 @@ export default function MilestoneSection() {
           <div>
             <p className="text-6xl font-black text-white leading-none"><AnimatedStat value={40} suffix="+" /></p>
             <p className="text-base font-bold text-violet-100 mt-3">features shaped by real coaches</p>
-            <p className="text-sm text-violet-400 leading-relaxed mt-2">
-              Every single feature built on real coaching workflows—no speculation, no assumptions.
+            <p className="text-sm text-white leading-relaxed mt-2">
+              Every single feature built on real coaching workflows no speculation, no assumptions.
             </p>
           </div>
         </AnimatedCard>

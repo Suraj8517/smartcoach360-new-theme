@@ -82,7 +82,7 @@ export default function HowItWorksSection() {
       {/* ══════ DESKTOP ══════ */}
       <section
         ref={sectionRef}
-        className="hidden lg:block relative"
+        className="hidden xl:block relative"
         style={{ height: `${(totalSegments + 1.5) * 100}vh`, background: "#0A0A0A" }}
       >
         <div className="sticky top-0 h-screen overflow-hidden py-30" style={{ background: "#0A0A0A" }}>
@@ -282,7 +282,7 @@ export default function HowItWorksSection() {
       </section>
 
       {/* ══════ MOBILE ══════ */}
-      <section className="lg:hidden px-5 pt-14 pb-10" style={{ background: "#0A0A0A" }}>
+      <section className="xl:hidden px-5 pt-14 pb-10" style={{ background: "#0A0A0A" }}>
         <div className="text-center mb-10">
           <h1
             className="font-black leading-none mb-4"
@@ -337,7 +337,7 @@ export default function HowItWorksSection() {
                 <img
                   src={step.image}
                   alt={step.title}
-                  className="w-full h-44 object-cover block"
+                  className="w-[90%] h-84 object-cover block items-center mx-auto rounded-b-2xl"
                   style={{ opacity: 0.85 }}
                 />
                 <div

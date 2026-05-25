@@ -4,63 +4,168 @@ import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import trainer from '../../assets/for whom/trainer.avif'
-import gym from '../../assets/for whom/gym.avif'
-import wellness from '../../assets/for whom/wellness.avif'
-import owner from '../../assets/for whom/owner.avif'
+import engage from '../../assets/pricing/engage.png'
+import client from '../../assets/pricing/health.png'
+import nutrients from '../../assets/pricing/nutrients.png'
+import fitness from '../../assets/pricing/fitness.png'
+import workout from '../../assets/pricing/workout.png'
+import payments from '../../assets/pricing/payment.png'
+import security from '../../assets/pricing/security.png'
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const cards = [
   {
-    author: "Personal Trainers",
-    quote: "Stop juggling apps and admin. SmartCoach360 keeps clients, programmes, nutrition, and payments in one place, so you can scale stress-free.",
-    highlight: ["SmartCoach360", "so you can scale stress-free"],
-    image: trainer,
-    bg: "bg-[#0d0d14]",
-    authorColor: "text-violet-400",
-    highlightColor: "text-violet-400",
+    author: "Lead Management CRM",
+    quote: [
+      "Lead capture via forms, campaigns & manual",
+      "Source tracking: Ads, Instagram, WhatsApp",
+      "Pipeline: New → Contacted → Converted",
+      "Auto-assignment & follow-up reminders",
+      "Health reports & interaction history",
+    ],
+    image: engage,
+    authorColor: "text-violet-300",
+    dotColor: "bg-violet-400",
     quoteColor: "text-gray-200",
-    accentBorder: "border-violet-500/30",
-    link: "/personal-trainers",
+    accentBorder: "border-violet-500/20",
+    link: "/lead-management",
   },
+
   {
-    author: "Gym Owners & Studios",
-    quote: "One platform to manage your team, your classes, your client allocations, and your revenue—whether you’re running one location or five.",
-    highlight: ["platform", "you’re running one location or five."],
-    image: owner,
-    bg: "bg-[#F4CDFF]",
-    authorColor: "text-black",
-    highlightColor: "text-fuchsia-700",
-    quoteColor: "text-black",
-    accentBorder: "border-fuchsia-500/30",
-    link: "/retail-coaches",
-  },
-  {
-    author: "Nutrition & Wellness Coaches ",
-    quote: "Deliver truly personalised nutrition plans at scale, track macro compliance in real time, and keep your clients accountable without spending your whole day manually following up. ",
-    highlight: ["personalised nutrition plans", "without spending your whole day manually following up. "],
-    image: wellness,
-    bg: "bg-[#DED4FC]",
-    authorColor: "text-black",
-    highlightColor: "text-[#594889]",
-    quoteColor: "text-black",
-    accentBorder: "border-indigo-500/30",
-    link: "/tech-teams",
-  },
-  {
-    author: "Large Fitness Organisations ",
-    quote: "Enterprise tools for multi-branch management, SSO, bulk data uploads, and a dedicated Customer Success Manager to help you get the most out of the platform. ",
-    highlight: ["multi-branch management, SSO, bulk data uploads", "Customer Success Manager"],
-    image: gym,
-    bg: "bg-[#0f0a1e]",
-    authorColor: "text-purple-400",
-    highlightColor: "text-purple-400",
+    author: "Client Management",
+    quote: [
+      "Daily task & client overview dashboard",
+      "Smart notifications & reminders",
+      "Multi-coach collaboration support",
+      "Client segmentation & auto-assignment",
+      "Time zone-based program tracking",
+    ],
+    image: client,
+    authorColor: "text-pink-300",
+    dotColor: "bg-pink-400",
     quoteColor: "text-gray-200",
-    accentBorder: "border-purple-500/30",
-    link: "/health-professionals",
+    accentBorder: "border-pink-500/20",
+    link: "/client-management",
+  },
+
+  {
+    author: "Nutrition & Diet Planning",
+    quote: [
+      "AI-powered diet plan generator",
+      "Custom plan builder & templates",
+      "Macro & micro nutrient calculations",
+      "Condition-based diets (IBS, weight loss)",
+      "Meal planning & portion control",
+    ],
+    image: fitness,
+    authorColor: "text-indigo-300",
+    dotColor: "bg-indigo-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-indigo-500/20",
+    link: "/nutrition-planning",
+  },
+
+  {
+    author: "Recipe Builder",
+    quote: [
+      "Custom recipe creation",
+      "Ingredient-level nutrition breakdown",
+      "Cooking method adjustments",
+      "Yield & portion calculations",
+      "Allergen tagging & reusable recipes",
+    ],
+    image: nutrients,
+    authorColor: "text-purple-300",
+    dotColor: "bg-purple-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-purple-500/20",
+    link: "/recipe-builder",
+  },
+
+  {
+    author: "Workout & Fitness",
+    quote: [
+      "Workout plan builder",
+      "Video-based exercise library",
+      "Sets, reps & difficulty levels",
+      "Daily/weekly workout calendar",
+      "Warm-up & cool-down plans",
+    ],
+    image: workout,
+    authorColor: "text-cyan-300",
+    dotColor: "bg-cyan-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-cyan-500/20",
+    link: "/workout-fitness",
+  },
+
+  {
+    author: "Payments & Monetization",
+    quote: [
+      "Razorpay & Stripe integration",
+      "UPI payments & payment links",
+      "Installments & discount support",
+      "Auto upgrade to premium",
+      "Cart & token feature",
+    ],
+    image: payments,
+    authorColor: "text-orange-300",
+    dotColor: "bg-orange-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-orange-500/20",
+    link: "/payments",
+  },
+
+  {
+    author: "Communication & Engagement",
+    quote: [
+      "In-app chat & push notifications",
+      "Broadcast messages",
+      "Reminder automation",
+      "WhatsApp integration (addon)",
+    ],
+    image: engage,
+    authorColor: "text-emerald-300",
+    dotColor: "bg-emerald-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-emerald-500/20",
+    link: "/communication",
+  },
+
+  {
+    author: "Reports & Analytics",
+    quote: [
+      "Client progress reports",
+      "Transformation tracking",
+      "Coach performance dashboard",
+      "Revenue insights",
+      "Program effectiveness reports",
+    ],
+    image: client,
+    authorColor: "text-blue-300",
+    dotColor: "bg-blue-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-blue-500/20",
+    link: "/reports-analytics",
+  },
+
+  {
+    author: "Admin & Security",
+    quote: [
+      "Role-based access (Admin, Coach, Sales)",
+      "Multi-coach / multi-branch support",
+      "Secure cloud hosting (AWS / GCP)",
+      "Data encryption & backup",
+      "Data ownership & privacy controls",
+    ],
+    image: security,
+    authorColor: "text-rose-300",
+    dotColor: "bg-rose-400",
+    quoteColor: "text-gray-200",
+    accentBorder: "border-rose-500/20",
+    link: "/admin-security",
   },
 ];
-
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
 function highlightText(text, highlights) {
@@ -84,9 +189,13 @@ function highlightText(text, highlights) {
 
 function TestimonialCard({ card }) {
   return (
-    <div
-  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[500px] md:h-[400px] `}
+    <div style={{
+    backgroundImage: `url(${card.image})`,
+   
+  }}
+  className={`bg-cover bg-position-[70%] md:bg-right bg-no-repeat border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[400px] 2xl:h-[500px]  `}
 >
+    <div className="absolute inset-0 bg-black/90 md:bg-black/80 z-0" />
       {/* Subtle radial glow in top-left */}
       <div className="absolute top-0 left-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"
         style={{ background: "radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%)" }}
@@ -96,58 +205,29 @@ function TestimonialCard({ card }) {
       <div className="font-[poppins] flex flex-col justify-between p-7 flex-1 min-w-0 relative z-10">
         {/* Author + quote mark */}
         <div className="flex items-center gap-3">
-          <h2 className={`font-[poppins] font-semibold ${card.highlightColor} leading-none tracking-tight text-[clamp(1.1rem,2.4vw,1.4rem)]`}>
+          <h2 className={` font-semibold ${card.authorColor} leading-none tracking-tight text-[clamp(1.3rem,2.4vw,1.4rem)]`}>
             {card.author}
           </h2>
         </div>
 
         {/* Quote */}
-        <p className={`${card.quoteColor} text-[15px] xl:text-[19px] leading-relaxed font-normal flex-1 flex items-center mt-4`}>
-          <span>
-            {highlightText(card.quote, card.highlight).map((part, i) =>
-              part.highlighted ? (
-                <span key={i} className={`${card.highlightColor} font-medium`}>{part.text}</span>
-              ) : (
-                <span key={i}>{part.text}</span>
-              )
-            )}
-          </span>
-        </p>
-
-        {/* View more link */}
-        <a
-          href={card.link}
-          className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold ${card.authorColor} hover:opacity-80 transition-opacity duration-150 self-start group`}
-        >
-          View more details
-          <span className="inline-block group-hover:translate-x-1 transition-transform duration-150">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <path
-            d="M3 8h10M9 4l4 4-4 4"
-            stroke="#b291e0"
-            strokeWidth="1.6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </svg></span>
-        </a>
+        <div className="flex flex-col gap-3 mt-4 flex-1 justify-center">
+  {card.quote.map((item, i) => (
+    <div
+      key={i}
+      className={`${card.quoteColor} text-[14px] xl:text-[19px] leading-relaxed flex items-start gap-3`}
+    >
+      <div
+  className={`w-2 h-2 rounded-full mt-3 shrink-0 ${card.dotColor}`}
+/>
+      
+      <span>{item}</span>
+    </div>
+  ))}
+</div>
       </div>
 
-      <div className="shrink-0 relative overflow-hidden rounded-2xl mx-4 mb-4 md:mx-0 md:mb-0 md:my-3 md:mr-3 md:w-[46%] w-auto h-[220px] sm:h-[260px] md:h-[94%]">
-  
-  {/* Overlay */}
-  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10 " />
-
-  <img
-  src={card.image}
-  alt={card.author}
-  className={`w-full h-full object-cover ${
-    card.author === "Personal Trainers"
-      ? "object-top"
-      : "object-center"
-  } pointer-events-none`}
-  draggable={false}
-/>
-</div>
+     
     </div>
   );
 }
@@ -164,25 +244,16 @@ export default function CustomersSection() {
   const [isEnd, setIsEnd] = useState(false);
 
   const setPrevRef = useCallback((node) => {
-    prevRef.current = node;
-    if (swiperRef.current && node) {
-      swiperRef.current.params.navigation.prevEl = node;
-      swiperRef.current.navigation.init();
-      swiperRef.current.navigation.update();
-    }
-  }, []);
+  prevRef.current = node;
+}, []);
 
-  const setNextRef = useCallback((node) => {
-    nextRef.current = node;
-    if (swiperRef.current && node) {
-      swiperRef.current.params.navigation.nextEl = node;
-      swiperRef.current.navigation.init();
-      swiperRef.current.navigation.update();
-    }
-  }, []);
+const setNextRef = useCallback((node) => {
+  nextRef.current = node;
+}, []);
 
   return (
-    <section className="bg-[#f5f6f8] py-28 font-sans">
+    <section className="bg-[#
+    ] py-28 font-sans">
       <style>{`
         .customers-swiper {
           cursor: grab;
@@ -227,32 +298,15 @@ export default function CustomersSection() {
       <div className="max-w-[90%] px-6 xl:px-10 2xl:px-16 flex flex-col sm:flex-row sm:items-start sm:justify-between gap-6 mb-20 mx-auto">
         <div>
           <h2 className="font-medium text-gray-950 leading-none tracking-tighter text-[clamp(2.2rem,4.5vw,3.5rem)]">
-            Built for Every Type
+            Complete 
             <br />
-            of Fitness Professional
+           feature set
           </h2>
         </div>
         <div className="flex sm:items-center sm:pt-6">
-        <button className="group border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
-  Contact sales
-
-  <svg
-    className="group-hover:translate-x-1 transition-transform duration-300"
-    width="14"
-    height="14"
-    viewBox="0 0 16 16"
-    fill="none"
-    aria-hidden="true"
-  >
-    <path
-      d="M3 8h10M9 4l4 4-4 4"
-      stroke="currentColor"
-      strokeWidth="1.6"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    />
-  </svg>
-</button>
+          <button className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+            Contact sales <span className="text-lg leading-none transition-transform duration-150  group-hover:translate-x-1">→</span>
+          </button>
         </div>
       </div>
 
@@ -285,7 +339,7 @@ export default function CustomersSection() {
               onFromEdge={(swiper) => { setIsBeginning(swiper.isBeginning); setIsEnd(swiper.isEnd); }}
             >
               {cards.map((card, i) => (
-                <SwiperSlide key={i} style={{ width: 780 }}>
+                <SwiperSlide key={i} style={{ width: 980 }}>
                   <TestimonialCard card={card} />
                 </SwiperSlide>
               ))}

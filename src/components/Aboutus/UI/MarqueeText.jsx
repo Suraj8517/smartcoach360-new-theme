@@ -3,16 +3,16 @@ import React from "react";
 
 const MarqueeItem = () => (
   <div className="inline-flex items-center whitespace-nowrap px-2">
-    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-violet-700 ">
+    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-purple-600 ">
       #1{" "}
     </span>
     <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-violet-600 ml-4 lg:ml-16">
       platform{" "}
     </span>
-    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-purple-500 ml-4 lg:ml-16">
+    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-purple-600 ml-4 lg:ml-16">
       for{" "}
     </span>
-    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-purple-300 ml-4 lg:ml-16">
+    <span className="font-medium text-5xl sm:text-7xl lg:text-[15vw] tracking-normal text-purple-600 ml-4 lg:ml-16">
       coaches{" "}
     </span>
    

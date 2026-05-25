@@ -1,4 +1,6 @@
 export default function Hero() {
+  const url =import.meta.env.VITE_CALENDLY_LINK;
+
   return (
     <>
       <style>{`
@@ -95,7 +97,7 @@ background: linear-gradient(90deg, #a855f7 0%, #9333ea 25%, #7c3aed 50%, #6d28d9
 
         {/* ── CTA Button ── */}
 <div className="anim-3 mt-8 sm:mt-10">
-  <button
+  <button onClick={() => window.open(url, "_blank")}
     className="hero-cta text-white font-semibold rounded-full group transition-all duration-300 "
     style={{
       fontSize: "clamp(0.85rem, 1.5vw, 1rem)",

@@ -98,6 +98,7 @@ const bannerAvatars = [
   { id: 5, url: avatar5, bg: "#ffd5dc" },
   { id: 6, url: avatar6, bg: "#c0e8c0" },
 ];
+const url =import.meta.env.VITE_CALENDLY_LINK;
 
 // ─────────────────────────────────────────────────────────────────────────────
 function BannerAvatar({ av, size }) {
@@ -314,11 +315,11 @@ export default function DetailedFeatures() {
                         </div>
                       </div>
                       {isActive && (
-                        <button className="flex items-center gap-2 bg-white text-black text-xs font-semibold px-4 py-2 rounded-full hover:bg-white/90 transition-all flex-shrink-0">
+                        <button onClick={() => window.open(url, "_blank")} className="group flex items-center gap-2 bg-white text-black text-xs font-semibold px-4 py-2 rounded-full hover:bg-white/90 transition-all flex-shrink-0">
                           Book a Demo
-                          <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                          <span className="group-hover:translate-x-1 transition-transform duration-300"><svg  width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                             <path d="M3 8h10M9 4l4 4-4 4" stroke="#111" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-                          </svg>
+                          </svg></span>
                         </button>
                       )}
                     </div>

@@ -1,7 +1,9 @@
 import { ChevronRight } from "lucide-react";
 import { FEATURES } from "./constants/features";
+const url =import.meta.env.VITE_CALENDLY_LINK;
 
 export const ExplorePanel = ({ active, onSelect }) => (
+  
   <div
     className="bg-white border border-gray-100 py-7 px-6"
     style={{ borderRadius: 24, boxShadow: "0 8px 40px rgba(0,0,0,0.08)", width: 340 }}
@@ -55,6 +57,8 @@ export const ExplorePanel = ({ active, onSelect }) => (
 
     <div className="flex justify-center">
       <button
+                      onClick={() => window.open(url, "_blank")}
+
         className="rounded-full py-2.5 px-7 text-[13.5px] font-medium text-white flex items-center gap-1.5 transition-all duration-150 hover:opacity-90 active:scale-95 group"
         style={{ background: "#6E0ACE" }}
       >

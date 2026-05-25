@@ -134,7 +134,7 @@ export default function SolutionSection() {
     <section className="bg-[#FAFAFA]">
 
       {/* ── Hero Header ── */}
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 pt-24 sm:pt-36 lg:pt-[240px] pb-16 sm:pb-20 lg:pb-24 text-center">
+      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 pt-24 sm:pt-36 lg:pt-[150px] pb-16 sm:pb-20 lg:pb-24 text-center">
         <span className="inline-block text-[13px] font-medium tracking-[0.1em] uppercase text-[#9747FF] mb-6">
           How it works
         </span>
@@ -287,10 +287,7 @@ export default function SolutionSection() {
         </div>
       </div>
 
-      {/* ── Divider ── */}
-      <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12">
-        <div className="h-px bg-[#EBEBEB]" />
-      </div>
+     
 
       {/* ── Comparison Table ── */}
       <div className="max-w-[1200px] mx-auto px-5 sm:px-8 lg:px-12 py-16 sm:py-20 lg:py-24">
@@ -317,7 +314,7 @@ export default function SolutionSection() {
               </div>
               {plans.map((p) => (
                 <div key={p.key} className="py-5 sm:py-6 px-2 sm:px-4 text-center">
-                  <span className="inline-block text-[11px] sm:text-[12px] font-bold py-1.5 px-2 sm:px-3.5 rounded-full bg-[#9747FF]/[0.08] text-[#9747FF] tracking-[-0.01em]">
+                  <span className="inline-block text-[11px] sm:text-[12px] font-bold py-1.5 px-2 sm:px-3.5 text-black tracking-[-0.01em]">
                     {/* Show short label on mobile, full label on sm+ */}
                     <span className="sm:hidden">{p.shortLabel}</span>
                     <span className="hidden sm:inline">{p.label}</span>
