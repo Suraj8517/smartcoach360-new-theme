@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SmartCoachFooter() {
   const contactItems = [
     {
@@ -133,9 +135,8 @@ export default function SmartCoachFooter() {
         </p>
         <div style={{ display: "flex", gap: 20 }}>
           {footerLinks.map((link) => (
-            <a
+            <Link to={link.href}
               key={link.label}
-              href={link.href}
               style={{
                 fontSize: 12,
                 color: "#999",
@@ -146,7 +147,7 @@ export default function SmartCoachFooter() {
               onMouseLeave={e => e.target.style.color = "#999"}
             >
               {link.label}
-            </a>
+            </Link>
           ))}
         </div>
       </div>
