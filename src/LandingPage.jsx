@@ -13,7 +13,8 @@ import SuccessStories from './pages/SuccessStories';
 import ComparisonPage from './pages/ComparisonPage';
 import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
-
+import Blogs from './pages/blogs';
+import BlogPosts from './pages/blogPosts';
 export default function LandingPage() {
   return (
     <>
@@ -32,8 +33,9 @@ export default function LandingPage() {
         <Route path="comparison" element={<ComparisonPage/>}/>
         <Route path="terms-and-conditions" element={<TermsAndConditions/>}/>
         <Route path="privacy-policy" element={<PrivacyPolicy/>}/>
-
-    </Routes>
+        <Route path="blogs" element={<Blogs/>}/>
+        <Route path="/blogs/:slug" element={<BlogPosts />} /> 
+   </Routes>
     </main>
     <Footer/>
     </Router>

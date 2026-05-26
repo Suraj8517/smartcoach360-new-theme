@@ -21,7 +21,7 @@ export default function ComparisonHero() {
               className="text-white leading-loose text-justify md:text-left"
               style={{ fontSize: "clamp(0.875rem, 1.3vw, 1.1rem)" }}
             >
-Many coaching platforms excel in one area but leave critical gaps elsewhere. SmartCoach360 was designed as a complete, end-to-end platform—coaching delivery and business operations built to work together.            </p>
+Many coaching platforms excel in one area but leave critical gaps elsewhere. SmartCoach360 was designed as a complete, end-to-end platform, coaching delivery and business operations built to work together.            </p>
             <div className="anim-3 mt-8 sm:mt-10 mx-auto md:mx-0">
   <BookDemoBtn weight="light" text="white"/>
 </div>

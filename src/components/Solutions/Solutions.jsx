@@ -1,5 +1,7 @@
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
+  const url =import.meta.env.VITE_CALENDLY_LINK;
+   
 const steps = [
   {
     number: "01",
@@ -148,12 +150,27 @@ export default function SolutionSection() {
           organisation SmartCoach360 fits the way you operate.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center items-center">
-          <button className="w-full sm:w-auto bg-[#0A0A0A] text-white border-none rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
-            Book a Demo →
-          </button>
-          <button className="w-full sm:w-auto bg-transparent text-[#0A0A0A] border-[1.5px] border-[#E5E7EB] rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
+         <button onClick={() => window.open(url, "_blank")}
+    className="hero-cta text-white font-semibold rounded-full group transition-all duration-300 px-4 py-4 text-[15px]"
+    style={{
+      letterSpacing: "0.01em",
+      minHeight: "44px",
+    }}
+  >
+    Book a Demo  <span className="translate-y-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
+  </button>
+          <Link to="/pricing" className="w-full sm:w-auto bg-transparent text-[#0A0A0A] border-[1.5px] border-[#E5E7EB] rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
             See Pricing
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -235,9 +252,7 @@ export default function SolutionSection() {
               </ul>
             </div>
 
-            <button className="mt-10 bg-[#9747FF] text-white border-none rounded-full px-7 py-[15px] text-[14px] font-semibold cursor-pointer tracking-[-0.01em]">
-              Get Started →
-            </button>
+            
           </div>
 
           {/* Right — features grid */}
@@ -354,9 +369,36 @@ export default function SolutionSection() {
           <p className="text-[15px] text-[#9CA3AF] mb-6">
             Not sure which plan fits your business?
           </p>
-          <button className="bg-[#0A0A0A] text-white border-none rounded-full px-9 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em]">
-            Contact Us →
-          </button>
+           <Link to="/contact-us" className="group"
+          style={{
+            padding: "10px 13px",
+            borderRadius: 999,
+            fontSize: 16,
+            fontWeight: 500,
+            color: "#ffffff",
+            background: "#111111",
+            border: "none",
+            cursor: "pointer",
+            whiteSpace: "nowrap",
+            flexShrink: 0,
+            fontFamily: "'Poppins', sans-serif",
+            transition: "background 0.15s",
+            marginLeft: 2,
+          }}
+          onMouseEnter={e => { e.currentTarget.style.background = "#9747FF"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "#111111"; }}
+        >
+          Contact Us <span className="translate-y-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
+        </Link>
         </div>
       </div>
     </section>
