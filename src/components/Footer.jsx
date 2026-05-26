@@ -44,7 +44,7 @@ export default function SmartCoachFooter() {
         background: "#ffffff",
         color: "#1a1a1a",
       }}
-      className="w-full"
+      className="w-full border-t border-gray-200"
     >
       {/* Top section */}
       <div className="px-5 sm:px-10 pt-10 pb-8">
