@@ -15,7 +15,7 @@ const NAV_ROUTES = {
 
 const MOBILE_ROUTES = {
   "About Us": "/about-us",
-  AI: "/ai",
+  Compare: "/comparison",
   Solutions: "/solutions",
   Resources: "/resources",
   Integrations: "/integrations",
@@ -263,12 +263,13 @@ const MobileMenu = ({ open, navigate, onClose, currentPath }) => {
   const [resourcesExpanded, setResourcesExpanded] = useState(false);
 
   const mobileItems = [
-    { label: "About Us", chevron: true },
+    { label: "About Us", chevron: false },
     { label: "Solutions", chevron: false },
     { label: "Resources", chevron: true, hasSubmenu: true },
     { label: "Integrations", chevron: false },
     { label: "Pricing", chevron: false },
-    { label: "Log in", chevron: false },
+    { label: "Comparison", chevron: false },
+
   ];
 
   const handleNav = (route) => {

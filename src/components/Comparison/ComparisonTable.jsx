@@ -23,10 +23,10 @@ const features = [
 ];
 
 const columns = [
-  { key: "sc360", label: "SmartCoach360", highlight: true },
-  { key: "truecoach", label: "TrueCoach", highlight: false },
-  { key: "mindbody", label: "Mindbody", highlight: false },
-  { key: "ptdistinction", label: "PTDistinction", highlight: false },
+  { key: "sc360", label: "SmartCoach360", highlight: true ,shortLabel: "SC360"},
+  { key: "truecoach", label: "TrueCoach", highlight: false, shortLabel: "TC"},
+  { key: "mindbody", label: "Mindbody", highlight: false, shortLabel: "MB"},
+  { key: "ptdistinction", label: "PTDistinction", highlight: false, shortLabel: "PTD"},
 ];
 
 const CheckIcon = () => (
@@ -74,11 +74,19 @@ export default function ComparisonTable() {
                 className="py-3.5 px-1.5 text-center border-b border-gray-200 text-xs font-medium"
               >
                 {col.highlight ? (
-                  <span className="inline-block bg-[#EEEDFE] border border-[#AFA9EC] rounded-full px-3 py-[3px] text-[11px] font-medium text-[#3C3489]">
+                  <span>
+                    <span className="sm:hidden inline-block bg-[#EEEDFE] border border-[#AFA9EC] rounded-full px-3 py-[3px] text-[11px] font-medium text-[#3C3489]">
+                    {col.shortLabel}
+                  </span>
+                  <span className="hidden sm:inline-block bg-[#EEEDFE] border border-[#AFA9EC] rounded-full px-3 py-[3px] text-[11px] font-medium text-[#3C3489]">
                     {col.label}
                   </span>
+                  </span>
                 ) : (
-                  <span className="text-gray-500">{col.label}</span>
+                  <span className="text-gray-500">
+    <span className="sm:hidden">{col.shortLabel}</span>
+    <span className="hidden sm:inline">{col.label}</span>
+  </span>
                 )}
               </th>
             ))}
