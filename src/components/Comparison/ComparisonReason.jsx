@@ -92,7 +92,7 @@ export default function ComparisonReason() {
   };
 
   return (
-    <section className="w-full bg-white pt-16 lg:pt-28 overflow-hidden">
+    <section className="w-full bg-white pt-16 lg:pt-28 mb-14 overflow-hidden">
 
       {/* Heading */}
       <div className="px-5 sm:px-8 lg:px-12 xl:px-24">

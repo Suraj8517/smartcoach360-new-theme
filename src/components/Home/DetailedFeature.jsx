@@ -377,7 +377,21 @@ ${
     ? "border-white/10 text-white/20 cursor-not-allowed"
     : "border-white/20 text-white/50 hover:border-white/50 hover:text-white"
 }`}            >
-              ←
+              <svg
+  width="16"
+  height="16"
+  viewBox="0 0 16 16"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M13 8H3M7 4L3 8l4 4"
+    stroke="#ffffff"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg>
             </button>
             <button
               ref={nextBtnRef}
@@ -388,7 +402,15 @@ ${
     ? "border-white/10 text-white/20 cursor-not-allowed"
     : "border-white/20 text-white/50 hover:border-white/50 hover:text-white"
 }`}            >
-              →
+             <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
             </button>
           </div>
         </div>

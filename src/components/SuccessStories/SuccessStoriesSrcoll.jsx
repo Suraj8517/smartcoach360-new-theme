@@ -315,8 +315,36 @@ export default function CustomersSection() {
         </div>
 
         <div className="flex justify-end gap-3 mt-6 px-6 xl:px-10 2xl:px-16">
-          <button ref={setPrevRef} disabled={isBeginning} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150">←</button>
-          <button ref={setNextRef} disabled={isEnd} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150">→</button>
+          <button ref={setPrevRef} disabled={isBeginning} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"><svg
+  width="16"
+  height="16"
+  viewBox="0 0 16 16"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M13 8H3M7 4L3 8l4 4"
+    stroke="#111111"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg></button>
+          <button ref={setNextRef} disabled={isEnd} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"><svg
+  width="16"
+  height="16"
+  viewBox="0 0 16 16"
+  fill="none"
+  aria-hidden="true"
+>
+  <path
+    d="M3 8h10M9 4l4 4-4 4"
+    stroke="#111111"
+    strokeWidth="1.6"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+  />
+</svg></button>
         </div>
       </div>
 
