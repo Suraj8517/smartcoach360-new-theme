@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import { ChevronDown, Search, Check, AlertCircle } from "lucide-react";
-
+import {Link} from "react-router-dom";
 const COUNTRIES = [
   { code: "+91",  flag: "🇮🇳", name: "India" },
   { code: "+1",   flag: "🇺🇸", name: "United States" },
@@ -202,7 +202,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className=" flex  justify-center p-1 md:p-5">
+    <div className=" flex  justify-center p-1 md:p-5 mb-20">
       <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
 
       <div className="bg-white rounded-2xl border border-gray-200 shadow-sm w-full max-w-[480px] px-8 py-7">
@@ -350,8 +350,12 @@ export default function ContactForm() {
 
               <p className="text-[11px] text-gray-500 text-center leading-relaxed m-0">
                 By submitting you agree to our{" "}
-                <span className="text-violet-700 cursor-pointer underline">Privacy Policy.</span>{" "}
-We never share your data.              </p>
+                <Link to="/privacy-policy" className="text-violet-700 cursor-pointer underline">
+                  Privacy Policy
+                </Link>
+                .
+                We never share your data.
+              </p>
             </div>
           </>
         )}

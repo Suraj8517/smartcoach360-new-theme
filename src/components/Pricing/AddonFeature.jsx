@@ -1,3 +1,4 @@
+const url = import.meta.env.VITE_CALENDLY_LINK;
 const cards = [
   {
     title: "WhatsApp Integration",
@@ -65,12 +66,24 @@ export default function AddonFeature() {
           </h2>
           <p className="text-gray-500 text-lg max-w-xl mx-auto mb-8">
 Unlock advanced tools and smart integrations that help your team work faster, manage better, and scale effortlessly.          </p>
-          <button className="bg-gray-900 hover:bg-gray-700 transition-colors text-white font-medium px-7 py-3.5 rounded-full text-base inline-flex items-center gap-2">
-            Get Started
-            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
+          <button onClick={() => window.open(url, "_blank")}
+    className="w-full sm:w-auto bg-[#0A0A0A] text-white border-none rounded-full px-8 py-4 text-[15px] font-semibold cursor-pointer tracking-[-0.01em] group"
+    style={{
+      letterSpacing: "0.01em",
+      minHeight: "44px",
+    }}
+  >
+    Book a Demo  <span className="translate-y-1 inline-block transition-transform duration-300 group-hover:translate-x-1">
+  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <path
+            d="M3 8h10M9 4l4 4-4 4"
+            stroke="#ffffff"
+            strokeWidth="1.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg></span>
+  </button>
         </div>
 
         {/* Cards Grid */}

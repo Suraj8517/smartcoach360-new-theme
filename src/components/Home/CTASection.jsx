@@ -1,5 +1,5 @@
 import img from "../../assets/ctasection/cta.png"
-
+const url = import.meta.env.VITE_CALENDLY_LINK;
 export default function CTASection() {
   return (
     <section className="min-h-screen flex flex-col items-center justify-center text-center bg-white px-6 md:py-20 py-14">
@@ -24,7 +24,7 @@ Your Coaching Business?
         {" "}streamline client management and grow their business.
       </p>
 
-      <button className="inline-flex items-center gap-2 bg-black text-white text-[15px] font-medium px-7 py-3.5 rounded-full hover:bg-purple-950 transition-colors group">
+      <button onClick={() => window.open(url, "_blank")} className="inline-flex items-center gap-2 bg-black text-white text-[15px] font-medium px-7 py-3.5 rounded-full hover:bg-purple-950 transition-colors group">
         Book a Demo<span className="group-hover:translate-x-1 inline-block transition-transform duration-300">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path

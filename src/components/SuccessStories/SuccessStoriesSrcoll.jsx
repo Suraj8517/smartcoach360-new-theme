@@ -13,6 +13,7 @@ import security from '../../assets/for whom/gym.avif'
 
 const cards = [
   {
+    id: "personal-trainer",
     label: "Case Study 1 — Personal Trainer",
     author: "Independent Personal Trainer — Online & In-person",
     quote: "I Went From 12 Clients to 35 in 6 Months Without Burning Out",
@@ -37,6 +38,7 @@ const cards = [
     imageBorder: "ring-violet-900/50",
   },
   {
+        id: "gym-owner",
     label: "Case Study 2 — Gym Owner",
     author: "Fitness Studio Owner — 3 Locations, 8 Coaches",
     quote: "SmartCoach360 Gave Me Real Visibility Across All 3 Gyms for the First Time",
@@ -61,6 +63,7 @@ const cards = [
     imageBorder: "ring-pink-900/50",
   },
   {
+        id: "nutrition-coach",
     label: "Case Study 3 — Nutrition Coach",
     author: "Online Nutrition & Wellness Coach — 60+ Remote Clients",
     quote: "My Clients Are Hitting Their Macro Goals 3x More Consistently Since I Switched",
@@ -85,6 +88,7 @@ const cards = [
     imageBorder: "ring-indigo-900/50",
   },
   {
+    id: "large-organisation",
     label: "Case Study 4 — Large Organisation",
     author: "National Fitness Organisation — 20+ Branches, 50+ Coaches",
     quote: "We Finally Have One System That Works Across Our Entire Organisation",
@@ -114,7 +118,7 @@ const cards = [
 
 function TestimonialCard({ card }) {
   return (
-    <div
+    <div id={`${card.id}`}
       className={`border ${card.accentBorder} rounded-3xl overflow-hidden w-full select-none relative h-[580px] 2xl:h-[620px] flex flex-row`}
       style={{ background: card.gradientColor.includes("140b25") ? "#0d0a18" : card.gradientColor.includes("240b17") ? "#100810" : card.gradientColor.includes("0d1230") ? "#090c18" : "#060f12" }}
     >

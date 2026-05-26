@@ -11,6 +11,7 @@ import fitness from '../../assets/pricing/fitness.png'
 import workout from '../../assets/pricing/workout.png'
 import payments from '../../assets/pricing/payment.png'
 import security from '../../assets/pricing/security.png'
+import {Link } from "react-router-dom";
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const cards = [
@@ -304,9 +305,9 @@ const setNextRef = useCallback((node) => {
           </h2>
         </div>
         <div className="flex sm:items-center sm:pt-6">
-          <button className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+          <Link to="/contact-us" className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
             Contact sales <span className="text-lg leading-none transition-transform duration-150  group-hover:translate-x-1">→</span>
-          </button>
+          </Link>
         </div>
       </div>
 

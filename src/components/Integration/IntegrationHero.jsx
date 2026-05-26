@@ -1,7 +1,6 @@
 import React from 'react'
 import hero from "../../assets/integrations/hero.png"
 import BookDemoBtn from '../UI/BookDemoBtn'
-
 export default function IntegrationHero() {
   return (
     <section className='w-full xl:min-h-screen bg-black pt-44 md:pt-26 xl:pt-16 px-8 md:px-16'>

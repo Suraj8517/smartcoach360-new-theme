@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const CheckIcon = () => (
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" className="shrink-0 mt-0.5">
@@ -88,7 +89,7 @@ function PlanCard({ plan }) {
             <span className="text-3xl font-thin text-gray-900 leading-none mt-1">₹</span>
             <span className="text-4xl font-extrabold text-gray-900 leading-none">{plan.price}</span>
             <div className="flex flex-col ml-1 mt-3">
-              <span className="text-sm text-gray-500 leading-tight  ">/{plan.subUnit}</span>
+              <span className="text-sm text-gray-500 leading-tight">/{plan.subUnit}</span>
             </div>
           </div>
         ) : (
@@ -101,14 +102,16 @@ function PlanCard({ plan }) {
           <p className="font-bold text-sm text-gray-900 mt-4">{plan.seatsNote}</p>
         )}
 
-        <button
-          className={`mt-2 w-full rounded-full py-2.5 text-sm font-semibold transition-colors ${
+        <Link
+          to="/contact-us"
+          className={`mt-2 block text-center w-full rounded-full py-2.5 text-sm font-semibold transition-colors ${
             plan.ctaFilled
-  ? "bg-gradient-to-r from-purple-600 via-violet-600 to-violet-600 text-white shadow-lg shadow-purple-200 hover:translate-y-[-1px] hover:shadow-purple-300"
-  : "border border-purple-600 bg-white text-purple-600 hover:bg-purple-50" }`}
+              ? "bg-gradient-to-r from-purple-600 via-violet-600 to-violet-600 text-white shadow-lg shadow-purple-200 hover:-translate-y-px hover:shadow-purple-300"
+              : "border border-purple-600 bg-white text-purple-600 hover:bg-purple-50"
+          }`}
         >
           {plan.ctaLabel}
-        </button>
+        </Link>
       </div>
 
       <div className="border-t border-gray-200 mx-5" />
@@ -132,96 +135,81 @@ function PlanCard({ plan }) {
 function HorizontalCard({ title, badge, seatsNote, ctaLabel, ctaFilled = false }) {
   return (
     <div className="mt-6 overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:shadow-xl">
-  {/* Header */}
-  <div className="flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-[#141428] via-[#1c1c3a] to-[#25254d] px-6 py-4">
-    <div className="flex items-center gap-3">
-      <div className="h-3 w-3 rounded-full bg-[#7c7cff] shadow-[0_0_12px_rgba(124,124,255,0.8)]" />
-      <span className="text-sm font-semibold tracking-wide text-white">
-        {title}
-      </span>
-    </div>
-
-    {badge && (
-      <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
-        {badge}
-      </span>
-    )}
-  </div>
-
-  {/* Content */}
-  <div className="flex flex-col lg:flex-row">
-    {/* Left Section */}
-    <div className="relative flex w-full shrink-0 flex-col justify-between border-b border-gray-100 bg-gradient-to-b from-gray-50 to-white p-7 lg:w-[320px] lg:border-b-0 lg:border-r">
-      <div>
-       
-
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900">
-          {title}
-        </h2>
-
-        <div className="mt-5">
-          <span className="bg-gradient-to-r from-[#5b5bd6] to-[#7c7cff] bg-clip-text text-4xl font-extrabold text-transparent">
-            Custom
-          </span>
-
-          <p className="mt-1 text-sm text-gray-500">
-            Tailored pricing for your business
-          </p>
+      {/* Header */}
+      <div className="flex items-center justify-between border-b border-white/10 bg-gradient-to-r from-[#141428] via-[#1c1c3a] to-[#25254d] px-6 py-4">
+        <div className="flex items-center gap-3">
+          <div className="h-3 w-3 rounded-full bg-[#7c7cff] shadow-[0_0_12px_rgba(124,124,255,0.8)]" />
+          <span className="text-sm font-semibold tracking-wide text-white">{title}</span>
         </div>
 
-        {seatsNote && (
-          <div className="mt-5 inline-flex rounded-2xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-700">
-            {seatsNote}
-          </div>
+        {badge && (
+          <span className="rounded-full border border-white/10 bg-white/10 px-3 py-1 text-xs font-semibold text-white backdrop-blur">
+            {badge}
+          </span>
         )}
       </div>
 
-      <button
-        className={`mt-8 w-full rounded-2xl py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98] ${
-          ctaFilled
-  ? "bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white shadow-lg shadow-purple-200 hover:translate-y-[-1px] hover:shadow-purple-300"
-  : "border border-purple-600 bg-white text-purple-600 hover:bg-purple-50" }`}
-      >
-        {ctaLabel}
-      </button>
-    </div>
+      {/* Content */}
+      <div className="flex flex-col lg:flex-row">
+        {/* Left Section */}
+        <div className="relative flex w-full shrink-0 flex-col justify-between border-b border-gray-100 bg-gradient-to-b from-gray-50 to-white p-7 lg:w-[320px] lg:border-b-0 lg:border-r">
+          <div>
+            <h2 className="text-3xl font-bold tracking-tight text-gray-900">{title}</h2>
 
-    {/* Right Section */}
-    <div className="flex-1 p-7">
-      <div className="mb-5 flex items-center justify-between">
-        <div>
-          <h3 className="text-lg font-bold text-gray-900">
-            Everything Included
-          </h3>
-          <p className="mt-1 text-sm text-gray-500">
-            Premium features designed for scaling teams
-          </p>
+            <div className="mt-5">
+              <span className="bg-gradient-to-r from-[#5b5bd6] to-[#7c7cff] bg-clip-text text-4xl font-extrabold text-transparent">
+                Custom
+              </span>
+              <p className="mt-1 text-sm text-gray-500">Tailored pricing for your business</p>
+            </div>
+
+            {seatsNote && (
+              <div className="mt-5 inline-flex rounded-2xl border border-indigo-100 bg-indigo-50 px-4 py-3 text-sm font-semibold text-indigo-700">
+                {seatsNote}
+              </div>
+            )}
+          </div>
+
+          <Link
+            to="/contact-us"
+            className={`mt-8 block text-center w-full rounded-2xl py-3 text-sm font-semibold transition-all duration-300 active:scale-[0.98] ${
+              ctaFilled
+                ? "bg-gradient-to-r from-purple-600 via-violet-600 to-fuchsia-600 text-white shadow-lg shadow-purple-200 hover:-translate-y-px hover:shadow-purple-300"
+                : "border border-purple-600 bg-white text-purple-600 hover:bg-purple-50"
+            }`}
+          >
+            {ctaLabel}
+          </Link>
         </div>
 
-        <div className="hidden rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 sm:flex">
-          Full Access
+        {/* Right Section */}
+        <div className="flex-1 p-7">
+          <div className="mb-5 flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-bold text-gray-900">Everything Included</h3>
+              <p className="mt-1 text-sm text-gray-500">Premium features designed for scaling teams</p>
+            </div>
+            <div className="hidden rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 sm:flex">
+              Full Access
+            </div>
+          </div>
+
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
+            {featureItems.map((item) => (
+              <li
+                key={item}
+                className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white px-4 py-3 transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50/40 hover:shadow-sm"
+              >
+                <span className="text-sm font-medium text-gray-700">{item}</span>
+                <div className="flex h-7 w-7 items-center justify-center rounded-full transition-transform duration-300 group-hover:scale-110">
+                  <CheckIcon />
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
-
-      <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2">
-        {featureItems.map((item) => (
-          <li
-            key={item}
-            className="group flex items-center justify-between rounded-2xl border border-gray-100 bg-white px-4 py-3 transition-all duration-300 hover:border-indigo-200 hover:bg-indigo-50/40 hover:shadow-sm"
-          >
-            <span className="text-sm font-medium text-gray-700">
-              {item}
-            </span>
-
-            <div className="flex h-7 w-7 items-center justify-center rounded-full  transition-transform duration-300 group-hover:scale-110">
-              <CheckIcon />
-            </div>
-          </li>
-        ))}
-      </ul>
     </div>
-  </div>
-</div>
   );
 }
 
@@ -233,23 +221,18 @@ export default function PricingTable() {
     <div className="bg-white min-h-screen px-4 pb-36">
       <div className="2xl:max-w-[1600px] max-w-[1200px] mx-auto">
 
-        {/*
-          Grid — first 4 cards always vertical.
-          At 2xl, Pro joins as the 5th vertical card.
-          Below 2xl, Pro renders as horizontal card below.
-        */}
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4">
           {gridPlans.map((plan) => (
             <PlanCard key={plan.name} plan={plan} />
           ))}
 
-          {/* Pro as vertical — only at 2xl */}
+          {/* Pro as 5th column — 2xl only */}
           <div className="hidden 2xl:block">
             <PlanCard plan={ProPlan} />
           </div>
         </div>
 
-        {/* Pro as horizontal — below 2xl only */}
+        {/* Pro as horizontal — below 2xl */}
         <div className="2xl:hidden">
           <HorizontalCard
             title="Pro"
@@ -260,7 +243,7 @@ export default function PricingTable() {
           />
         </div>
 
-        {/* Custom horizontal — always shown */}
+        {/* Enterprise — always shown */}
         <HorizontalCard
           title="Enterprise"
           badge="Special Pricing"

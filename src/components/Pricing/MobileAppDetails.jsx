@@ -72,15 +72,7 @@ export default function AppSection() {
             </ul>
           </div>
 
-          {/* CTA */}
-          <div>
-            <button className="bg-violet-600 hover:bg-violet-700 active:scale-95 transition-all duration-150 text-white font-semibold px-8 py-4 rounded-full text-base flex items-center gap-2 shadow-lg shadow-violet-200">
-              Get Started
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </button>
-          </div>
+          
         </div>
 
         {/* Right: Image with circle bg */}

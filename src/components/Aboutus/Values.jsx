@@ -9,7 +9,7 @@ import img2 from "../../assets/aboutus/bg/1.png";
 import img3 from "../../assets/aboutus/bg/3.png";
 import img4 from "../../assets/aboutus/bg/4.png";
 import img5 from "../../assets/aboutus/bg/5.png";
-
+import { Link } from "react-router-dom";
 // ─── Data ─────────────────────────────────────────────────────────────────────
 const cards = [
   {
@@ -226,12 +226,12 @@ export default function Values() {
           </h2>
         </div>
         <div className="flex sm:items-center sm:pt-6">
-          <button className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+          <Link to="/contact-us" className="border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold group hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
             Contact sales{" "}
             <span className="text-lg leading-none transition-transform duration-150 group-hover:translate-x-1">
               →
             </span>
-          </button>
+          </Link>
         </div>
       </div>
 

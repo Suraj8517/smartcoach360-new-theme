@@ -4,60 +4,74 @@ import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Link } from "react-router-dom";
 import trainer from '../../assets/for whom/trainer.avif'
 import gym from '../../assets/for whom/gym.avif'
 import wellness from '../../assets/for whom/wellness.avif'
 import owner from '../../assets/for whom/owner.avif'
+import { HashLink } from "react-router-hash-link";
+import { color } from "framer-motion";
+
 // ─── Data ─────────────────────────────────────────────────────────────────────
 
 const cards = [
   {
     author: "Personal Trainers",
-    quote: "Stop juggling apps and admin. SmartCoach360 keeps clients, programmes, nutrition, and payments in one place, so you can scale stress-free.",
+    quote:
+      "Stop juggling apps and admin. SmartCoach360 keeps clients, programmes, nutrition, and payments in one place, so you can scale stress-free.",
     highlight: ["SmartCoach360", "so you can scale stress-free"],
     image: trainer,
-    bg: "bg-[#0d0d14]",
-    authorColor: "text-violet-400",
-    highlightColor: "text-violet-400",
-    quoteColor: "text-gray-200",
-    accentBorder: "border-violet-500/30",
-    link: "/personal-trainers",
+    bg: "#0d0d14",
+    authorColor: "#A78BFA",
+    highlightColor: "#A78BFA",
+    quoteColor: "#E5E7EB",
+    accentBorder: "rgba(139, 92, 246, 0.3)",
+    link: "personal-trainer",
   },
   {
     author: "Gym Owners & Studios",
-    quote: "One platform to manage your team, your classes, your client allocations, and your revenue—whether you’re running one location or five.",
+    quote:
+      "One platform to manage your team, your classes, your client allocations, and your revenue—whether you’re running one location or five.",
     highlight: ["platform", "you’re running one location or five."],
     image: owner,
-    bg: "bg-[#F4CDFF]",
-    authorColor: "text-black",
-    highlightColor: "text-fuchsia-700",
-    quoteColor: "text-black",
-    accentBorder: "border-fuchsia-500/30",
-    link: "/retail-coaches",
+    bg: "#F4CDFF",
+    authorColor: "#000000",
+    highlightColor: "#A21CAF",
+    quoteColor: "#000000",
+    accentBorder: "rgba(217, 70, 239, 0.3)",
+    link: "gym-owner",
   },
   {
-    author: "Nutrition & Wellness Coaches ",
-    quote: "Deliver truly personalised nutrition plans at scale, track macro compliance in real time, and keep your clients accountable without spending your whole day manually following up. ",
-    highlight: ["personalised nutrition plans", "without spending your whole day manually following up. "],
+    author: "Nutrition & Wellness Coaches",
+    quote:
+      "Deliver truly personalised nutrition plans at scale, track macro compliance in real time, and keep your clients accountable without spending your whole day manually following up.",
+    highlight: [
+      "personalised nutrition plans",
+      "without spending your whole day manually following up.",
+    ],
     image: wellness,
-    bg: "bg-[#DED4FC]",
-    authorColor: "text-black",
-    highlightColor: "text-[#594889]",
-    quoteColor: "text-black",
-    accentBorder: "border-indigo-500/30",
-    link: "/tech-teams",
+    bg: "#DED4FC",
+    authorColor: "#000000",
+    highlightColor: "#594889",
+    quoteColor: "#000000",
+    accentBorder: "rgba(99, 102, 241, 0.3)",
+    link: "nutrition-coach",
   },
   {
-    author: "Large Fitness Organisations ",
-    quote: "Enterprise tools for multi-branch management, SSO, bulk data uploads, and a dedicated Customer Success Manager to help you get the most out of the platform. ",
-    highlight: ["multi-branch management, SSO, bulk data uploads", "Customer Success Manager"],
+    author: "Large Fitness Organisations",
+    quote:
+      "Enterprise tools for multi-branch management, SSO, bulk data uploads, and a dedicated Customer Success Manager to help you get the most out of the platform.",
+    highlight: [
+      "multi-branch management, SSO, bulk data uploads",
+      "Customer Success Manager",
+    ],
     image: gym,
-    bg: "bg-[#0f0a1e]",
-    authorColor: "text-purple-400",
-    highlightColor: "text-purple-400",
-    quoteColor: "text-gray-200",
-    accentBorder: "border-purple-500/30",
-    link: "/health-professionals",
+    bg: "#0f0a1e",
+    authorColor: "#C084FC",
+    highlightColor: "#C084FC",
+    quoteColor: "#E5E7EB",
+    accentBorder: "rgba(168, 85, 247, 0.3)",
+    link: "large-organisation",
   },
 ];
 
@@ -84,8 +98,8 @@ function highlightText(text, highlights) {
 
 function TestimonialCard({ card }) {
   return (
-    <div
-  className={`${card.bg} border ${card.accentBorder} rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[500px] md:h-[400px] `}
+    <div style={{backgroundColor:card.bg, borderColor: card.accentBorder}}
+  className={` border rounded-3xl flex md:flex-row flex-col overflow-hidden w-full select-none relative h-[500px] md:h-[400px] `}
 >
       {/* Subtle radial glow in top-left */}
       <div className="absolute top-0 left-0 w-64 h-64 rounded-full opacity-20 pointer-events-none"
@@ -96,17 +110,17 @@ function TestimonialCard({ card }) {
       <div className="font-[poppins] flex flex-col justify-between p-7 flex-1 min-w-0 relative z-10">
         {/* Author + quote mark */}
         <div className="flex items-center gap-3">
-          <h2 className={`font-[poppins] font-semibold ${card.highlightColor} leading-none tracking-tight text-[clamp(1.1rem,2.4vw,1.4rem)]`}>
+          <h2 style={{ color: card.highlightColor }} className={`font-[poppins] font-semibold leading-none tracking-tight text-[clamp(1.1rem,2.4vw,1.4rem)]`}>
             {card.author}
           </h2>
         </div>
 
         {/* Quote */}
-        <p className={`${card.quoteColor} text-[15px] xl:text-[19px] leading-relaxed font-normal flex-1 flex items-center mt-4`}>
+        <p style={{ color: card.quoteColor }} className={`text-[15px] xl:text-[19px] leading-relaxed font-normal flex-1 flex items-center mt-4`}>
           <span>
             {highlightText(card.quote, card.highlight).map((part, i) =>
               part.highlighted ? (
-                <span key={i} className={`${card.highlightColor} font-medium`}>{part.text}</span>
+                <span key={i} style={{color:card.highlightColor}} className={` font-medium`}>{part.text}</span>
               ) : (
                 <span key={i}>{part.text}</span>
               )
@@ -114,22 +128,22 @@ function TestimonialCard({ card }) {
           </span>
         </p>
 
-        {/* View more link */}
-        <a
-          href={card.link}
-          className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold ${card.authorColor} hover:opacity-80 transition-opacity duration-150 self-start group`}
-        >
+        <HashLink style={{color:card.authorColor}}
+  smooth
+  to={`/success-stories#${card.link}`}
+  className={`mt-5 inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity duration-150 self-start group`}
+>
           View more details
           <span className="inline-block group-hover:translate-x-1 transition-transform duration-150">  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
           <path
             d="M3 8h10M9 4l4 4-4 4"
-            stroke="#b291e0"
+            stroke={`${card.authorColor}`}
             strokeWidth="1.6"
             strokeLinecap="round"
             strokeLinejoin="round"
           />
         </svg></span>
-        </a>
+        </HashLink>
       </div>
 
       <div className="shrink-0 relative overflow-hidden rounded-2xl mx-4 mb-4 md:mx-0 md:mb-0 md:my-3 md:mr-3 md:w-[46%] w-auto h-[220px] sm:h-[260px] md:h-[94%]">
@@ -233,7 +247,7 @@ export default function CustomersSection() {
           </h2>
         </div>
         <div className="flex sm:items-center sm:pt-6">
-        <button className="group border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
+        <Link to="/contact-us" className="group border-2 border-gray-800 text-gray-800 rounded-full px-3 py-2 text-base font-semibold hover:bg-gray-900 hover:text-white transition-all duration-200 flex items-center gap-2 whitespace-nowrap">
   Contact sales
 
   <svg
@@ -252,7 +266,7 @@ export default function CustomersSection() {
       strokeLinejoin="round"
     />
   </svg>
-</button>
+</Link>
         </div>
       </div>
 

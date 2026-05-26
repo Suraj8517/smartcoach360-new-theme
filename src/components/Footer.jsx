@@ -2,7 +2,7 @@ export default function SmartCoachFooter() {
   const contactItems = [
     {
       label: "Email",
-      value: "contact@smartcoach360.ai",
+      value: "sales@smartcoach360.ai",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2" />
@@ -21,7 +21,7 @@ export default function SmartCoachFooter() {
     },
     {
       label: "Address",
-      value: "123 Main St, San Francisco, CA 94105",
+      value: "No 9/14, Bharathi Street,Vellakinar, Coimbatore,Tamil Nadu, 641029",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />

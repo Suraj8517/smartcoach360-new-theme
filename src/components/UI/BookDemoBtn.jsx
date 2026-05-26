@@ -1,9 +1,9 @@
 import React from 'react'
-
+const url=import.meta.env.VITE_CALENDLY_LINK;
 export default function BookDemoBtn({weight,text}) {
   return (
     <div>
-        <button
+        <button onClick={()=>window.open(url, "_blank")}
     className={`integration-hero-cta text-${text} font-${weight} rounded-full group transition-all duration-300`}
     style={{
       fontSize: "clamp(0.85rem, 1.5vw, 1rem)",

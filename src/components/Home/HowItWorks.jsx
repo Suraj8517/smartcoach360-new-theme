@@ -5,7 +5,7 @@ import onboard from '../../assets/howitworks/onboarding.avif'
 import growth from '../../assets/howitworks/growth.avif'
 
 
-
+const url=import.meta.env.VITE_CALENDLY_LINK;
 const steps = [
   {
     number: "01",
@@ -121,7 +121,7 @@ export default function HowItWorksSection() {
                 From your first demo to automated operations — here's exactly
                 how it happens, with hands-on support the whole way.
               </p>
-             <button className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2]  active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
+             <button onClick={() => window.open(url, "_blank")} className="flex items-center gap-2 bg-white text-black font-semibold rounded-full px-5 py-2.5 text-[13px] transition-all duration-200 hover:bg-[#f2f2f2]  active:scale-95 lg:text-[14px] lg:px-6 lg:py-3 group">
             Book a Demo
               <span className="inline-block transition-transform duration-300 group-hover:translate-x-1">
   <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
@@ -237,7 +237,7 @@ export default function HowItWorksSection() {
                     >
                       {step.description}
                     </p>
-                    <button
+                    <button onClick={() => window.open(url, "_blank")}
                 className="inline-flex self-start items-center gap-2 px-6 py-3.5 rounded-full text-sm font-normal border-none cursor-pointer  transition-all text-purple-300 group"
               >
                 Get Started<span className="group-hover:translate-x-1 inline-block transition-transform text-purple-300 duration-300"> 

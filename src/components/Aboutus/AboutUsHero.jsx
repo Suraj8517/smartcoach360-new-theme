@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import AvatarRow from "./UI/AvatarRow";
 import Results from "./UI/Results";
+import { Link } from "react-router-dom";
+const url = import.meta.env.VITE_CALENDLY_LINK;
+
 
 export default function AboutUsHero() {
   const [visible, setVisible] = useState(false);
@@ -76,6 +79,7 @@ export default function AboutUsHero() {
         style={{ transitionDelay: "320ms" }}
       >
         <button
+        onClick={()=>window.open(url,"_blank")}
           className="flex items-center gap-2 px-7 py-3 rounded-full text-white text-sm group font-semibold shadow-lg hover:shadow-xl active:scale-95 transition-all duration-200"
           style={{
             background: "linear-gradient(135deg, #6C47FF 0%, #8B5CF6 100%)",
@@ -86,12 +90,12 @@ export default function AboutUsHero() {
             <path d="M2 7H12M8 3L12 7L8 11" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
         </button>
-        <button className="flex items-center gap-2 text-gray-700 text-sm font-semibold hover:text-gray-900 transition-colors duration-150 group">
+        <Link to="/contact-us" className="flex items-center gap-2 text-gray-700 text-sm font-semibold hover:text-gray-900 transition-colors duration-150 group">
           Contact Us
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none" className="group-hover:translate-x-1 transition-transform duration-200">
             <path d="M2 7H12M8 3L12 7L8 11" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
           </svg>
-        </button>
+        </Link>
       </div>
 
       {/* Avatar */}
