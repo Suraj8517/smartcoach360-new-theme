@@ -45,7 +45,7 @@ const steps = [
   },
 ];
 
-const CARD_TOP = 120;
+const CARD_TOP = 60;
 const CARD_GAP = 560;
 const CARD_CASCADE = 452;
 
@@ -157,7 +157,7 @@ export default function HowItWorksSection() {
             return (
               <div
                 key={i}
-                className="absolute left-6 2xl:left-74 xl:left-50 xl:right-50 right-6 2xl:right-74 xl:bottom-10 2xl:bottom-50 overflow-hidden rounded-2xl"
+                className="absolute left-6 2xl:left-74 xl:left-50 xl:right-50 right-6 2xl:right-74 xl:bottom-20 2xl:bottom-50 overflow-hidden rounded-2xl"
                 style={{
                   top: `${CARD_TOP}px`,
                   transform: `translateY(${translateY}px)`,

@@ -32,8 +32,8 @@ export default function SmartCoachFooter() {
   ];
 
   const footerLinks = [
-    { label: "Privacy Policy", href: "#" },
-    { label: "Terms of Service", href: "#" },
+    { label: "Privacy Policy", href: "/privacy-policy" },
+    { label: "Terms and Conditions", href: "/terms-and-conditions" },
   ];
 
   return (
