@@ -6,6 +6,12 @@ import rightImg from '../../assets/coach/right.png';
 import avatar1 from "../../assets/crm/avatar/avatar5.png";
 import avatar2 from "../../assets/crm/avatar/avatar3.png";
 import avatar3 from "../../assets/crm/avatar/avatar8.png";
+import whatsapp from "../../assets/integrations/integration-logos/whatsapp.png";
+import zoom from "../../assets/integrations/integration-logos/zoom.png";
+import teams from "../../assets/integrations/integration-logos/teams.png";
+import call from "../../assets/integrations/integration-logos/call.png";
+import sheets from "../../assets/integrations/integration-logos/sheets.png";
+import gform from "../../assets/integrations/integration-logos/google-forms.png";
 import { motion } from "framer-motion";
 import DetailedFeatures from "./DetailedFeature";
 const OUTLINE_IMG = outline;
@@ -31,30 +37,51 @@ const CardTitle = ({ children }) => (
   <p className="text-white text-[11px] font-semibold mb-2 tracking-wide">{children}</p>
 );
 
-// ── Card contents ─────────────────────────────────────────────────
-const IntegrationsContent = () => (
-  <Card>
-    <CardTitle>Integrations</CardTitle>
-    <div className="flex gap-2 flex-wrap">
-      {[{ bg: "bg-[#4a1fa8]", char: "S" }, { bg: "bg-[#c5221f]", char: "M" }, { bg: "bg-[#1a6ec0]", char: "Z" }].map((app, i) => (
-        <div key={i} className={`w-10 h-10 sm:w-12 sm:h-12 rounded-xl ${app.bg} flex items-center justify-center text-white font-bold text-lg`}>{app.char}</div>
-      ))}
-      <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center text-[#555] text-xs font-semibold">+26</div>
-    </div>
-  </Card>
-);
+
+const IntegrationsContent = () => {
+  const apps = [
+    { src: whatsapp, alt: "WhatsApp" },
+    { src: zoom,     alt: "Zoom"     },
+    { src: teams,    alt: "Teams"    },
+    { src: sheets,   alt: "Sheets"   },
+    { src: gform,    alt: "Google Forms" },
+  ];
+
+  return (
+    <Card>
+      <CardTitle>Integrations</CardTitle>
+      <div className="flex gap-2 flex-wrap">
+        {apps.map((app) => (
+          <div
+            key={app.alt}
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center overflow-hidden p-1.5"
+          >
+            <img
+              src={app.src}
+              alt={app.alt}
+              className="w-full h-full object-contain"
+            />
+          </div>
+        ))}
+        <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#1e1e1e] border border-[#2a2a2a] flex items-center justify-center text-[#555] text-xs font-semibold">
+          +23
+        </div>
+      </div>
+    </Card>
+  );
+};
 
 const DocsContent = () => (
   <Card>
     <CardTitle>Docs</CardTitle>
     <div className="bg-[#181818] rounded-lg p-2.5 border border-[#222]">
-      <p className="text-white text-[10px] font-semibold mb-1.5">Q4 marketing: next steps</p>
+      <p className="text-white text-[10px] font-semibold mb-1.5">Q4 fitness: next steps</p>
       <div className="flex items-center gap-1.5 mb-1.5">
-        <div className="w-4 h-4 rounded-full bg-blue-600 flex items-center justify-center text-[7px] text-white font-bold shrink-0">G</div>
-        <span className="text-[8px] text-violet-400">Graham Rowe</span>
-        <span className="text-[8px] text-[#555]">Can you add the m...</span>
+        <div className="w-4 h-4 rounded-full bg-orange-600 flex items-center justify-center text-[7px] text-white font-bold shrink-0">A</div>
+        <span className="text-[8px] text-violet-400">Alex Carter</span>
+        <span className="text-[8px] text-[#555]">Can you update the m...</span>
       </div>
-      {["Optimize campaign performance", "Rebrand efforts", "Increase SEO ranking"].map((t, i) => (
+      {["Track macros & calorie intake", "Progressive overload plan", "Improve sleep & recovery"].map((t, i) => (
         <div key={i} className="flex items-center gap-1.5 mb-1">
           <div className={`w-3 h-3 rounded-[3px] shrink-0 ${i === 1 ? "bg-indigo-600" : "border border-[#333] bg-transparent"}`} />
           <span className={`text-[8px] ${i === 1 ? "text-white" : "text-[#555]"}`}>{t}</span>
@@ -63,38 +90,84 @@ const DocsContent = () => (
     </div>
   </Card>
 );
-
 const DashboardContent = () => (
   <Card>
     <CardTitle>Dashboards</CardTitle>
     <div className="bg-white rounded-xl p-2.5">
       <div className="flex justify-between items-start mb-2">
-        <p className="text-gray-900 text-base font-bold">$120,760</p>
-        <div className="w-9 h-9 rounded-full shrink-0" style={{ background: "conic-gradient(#4f46e5 0% 38%, #22c55e 38% 62%, #f59e0b 62% 100%)" }} />
+        <div>
+          <p className="text-gray-900 text-base font-bold">2,480 kcal</p>
+          <p className="text-[9px] text-gray-400 font-medium">Daily avg burn</p>
+        </div>
+        <div
+          className="w-9 h-9 rounded-full shrink-0"
+          style={{
+            background:
+              "conic-gradient(#4f46e5 0% 42%, #22c55e 42% 68%, #f59e0b 68% 100%)",
+          }}
+        />
       </div>
-      <div className="flex items-end gap-0.5 h-8 mb-1.5">
-        {[40, 65, 48, 82, 55, 95, 60, 74].map((h, i) => (
-          <div key={i} className={`flex-1 rounded-sm ${i === 5 ? "bg-indigo-500" : "bg-gray-200"}`} style={{ height: `${h}%` }} />
+
+      {/* Workout frequency bar chart */}
+      <div className="flex items-end gap-0.5 h-8 mb-1">
+        {[50, 70, 45, 90, 60, 100, 55, 80].map((h, i) => (
+          <div
+            key={i}
+            className={`flex-1 rounded-sm ${i === 5 ? "bg-indigo-500" : "bg-gray-200"}`}
+            style={{ height: `${h}%` }}
+          />
         ))}
       </div>
+      <div className="flex justify-between mb-1.5">
+        {["M", "T", "W", "T", "F", "S", "S", "M"].map((d, i) => (
+          <span key={i} className={`flex-1 text-center text-[7px] font-medium ${i === 5 ? "text-indigo-500" : "text-gray-300"}`}>
+            {d}
+          </span>
+        ))}
+      </div>
+
+      {/* Macro pills */}
+      <div className="flex gap-1 mb-2">
+        {[
+          { label: "Protein", val: "182g", color: "bg-indigo-100 text-indigo-700" },
+          { label: "Carbs",   val: "240g", color: "bg-amber-100 text-amber-700"   },
+          { label: "Fats",    val: "68g",  color: "bg-green-100 text-green-700"   },
+        ].map(({ label, val, color }) => (
+          <div key={label} className={`flex-1 rounded-md px-1.5 py-1 ${color}`}>
+            <p className="text-[7px] font-semibold leading-none">{label}</p>
+            <p className="text-[9px] font-bold leading-none mt-0.5">{val}</p>
+          </div>
+        ))}
+      </div>
+
+      {/* Members */}
       <div className="flex items-center gap-1 mt-1">
-        {[["bg-red-500","A"],["bg-purple-600","B"],["bg-cyan-500","C"],["bg-green-600","D"]].map(([c,l], i) => (
-          <div key={i} className={`w-5 h-5 rounded-full ${c} flex items-center justify-center text-[7px] text-white font-bold`}
-            style={{ marginLeft: i === 0 ? 0 : -5, border: "2px solid white" }}>{l}</div>
+        {[
+          ["bg-red-500",    "J"],
+          ["bg-purple-600", "M"],
+          ["bg-cyan-500",   "R"],
+          ["bg-green-600",  "S"],
+        ].map(([c, l], i) => (
+          <div
+            key={i}
+            className={`w-5 h-5 rounded-full ${c} flex items-center justify-center text-[7px] text-white font-bold`}
+            style={{ marginLeft: i === 0 ? 0 : -5, border: "2px solid white" }}
+          >
+            {l}
+          </div>
         ))}
-        <span className="text-[8px] text-gray-400 ml-1">+4 members</span>
+        <span className="text-[8px] text-gray-400 ml-1">+4 athletes</span>
       </div>
     </div>
   </Card>
 );
-
 const FilesContent = () => (
   <Card>
     <CardTitle>Files</CardTitle>
     {[
-      { name: "sales_targets_rev2", bg: "bg-[#1a6a3a]", icon: "X" },
-      { name: "lead_scoring_model", bg: "bg-[#1a4a8a]", icon: "W" },
-      { name: "sales_targets_rev2", bg: "bg-[#1a6a3a]", icon: "X" },
+      { name: "weekly_workout_split_v3",   bg: "bg-[#1a4a8a]", icon: "W" },
+      { name: "macro_tracking_template",   bg: "bg-[#1a6a3a]", icon: "X" },
+      { name: "meal_prep_plan_oct",        bg: "bg-[#1a4a8a]", icon: "W" },
     ].map((f, i) => (
       <div key={i} className="flex items-center gap-2 mb-1.5 px-2 py-1.5 bg-[#181818] border border-[#222] rounded-lg">
         <div className={`w-5 h-5 rounded-md ${f.bg} flex items-center justify-center text-[9px] text-white font-bold shrink-0`}>{f.icon}</div>
@@ -108,8 +181,8 @@ const DataRecordsContent = () => (
   <div className="flex flex-col gap-2">
     <Card>
       <CardTitle>Data records</CardTitle>
-      <p className="text-[9px] font-semibold text-violet-400 mb-1.5">Incoming feedback</p>
-      {["Easy for my entire tea...", "Missing some key fea..."].map((t, i) => (
+      <p className="text-[9px] font-semibold text-violet-400 mb-1.5">Member feedback</p>
+      {["Love the new HIIT progra...", "Need more plant-based me..."].map((t, i) => (
         <div key={i} className="text-[8px] text-[#555] py-1 border-b border-[#1e1e1e]">{t}</div>
       ))}
       <div className="flex gap-1 mt-2">
@@ -121,11 +194,11 @@ const DataRecordsContent = () => (
     <div className="bg-[#0a120a] border border-[#172417] rounded-2xl p-3 shadow-xl shadow-black/60">
       <p className="text-[11px] font-semibold text-green-400 mb-2 tracking-wide">Updates</p>
       <div className="flex gap-2 items-start">
-        <div className="w-6 h-6 rounded-full bg-amber-500 flex items-center justify-center text-[9px] text-white font-bold shrink-0">B</div>
+        <div className="w-6 h-6 rounded-full bg-orange-500 flex items-center justify-center text-[9px] text-white font-bold shrink-0">A</div>
         <div>
-          <p className="text-[8px] font-semibold text-[#ccc] mb-0.5">Ben</p>
+          <p className="text-[8px] font-semibold text-[#ccc] mb-0.5">Alex</p>
           <p className="text-[8px] text-[#666] leading-relaxed">
-            Hi <span className="text-indigo-400">@Everyone on this board</span>, here's the <span className="text-indigo-400">link</span> to the first draft. Wdyt?
+            Hey <span className="text-indigo-400">@All coaches</span>, here's the <span className="text-indigo-400">updated nutrition guide</span> for Q4. Feedback?
           </p>
           <div className="flex gap-3 mt-1.5">
             {["👍 Like", "↩ Reply"].map((a, i) => (
@@ -142,17 +215,17 @@ const ConversationsContent = () => (
   <Card>
     <div className="flex justify-between items-center mb-2">
       <p className="text-white text-[11px] font-semibold">Conversations</p>
-      <span className="text-[8px] text-violet-400">monday sidekick ▾</span>
+      <span className="text-[8px] text-violet-400">fitness sidekick ▾</span>
     </div>
     <div className="bg-indigo-600 rounded-lg px-2 py-1.5 mb-2 max-w-[85%]">
-      <span className="text-[8px] text-white">Create an end-to-end ticket routing workflow</span>
+      <span className="text-[8px] text-white">Build a 12-week progressive overload program</span>
     </div>
     <div className="flex items-center gap-1.5 mb-1.5">
       <div className="w-4 h-4 rounded-full bg-gradient-to-br from-violet-400 to-indigo-600 flex items-center justify-center text-[6px] text-white font-bold">AI</div>
-      <span className="text-[8px] text-[#444]">Processing your request...</span>
+      <span className="text-[8px] text-[#444]">Building your program...</span>
     </div>
     <div className="bg-[#181818] border border-[#222] rounded-lg px-2 py-1.5">
-      <span className="text-[8px] text-[#999] leading-relaxed">Hi there! Here's how I'll structure your workflow...</span>
+      <span className="text-[8px] text-[#999] leading-relaxed">Sure! Here's your 12-week split: weeks 1–4 foundation, 5–8 hypertrophy, 9–12 peak...</span>
     </div>
   </Card>
 );
@@ -473,14 +546,12 @@ const SCROLL_LENGTH = 4;
             );
           })}
 <MarqueeText progress={progress} />
-          {/* ── Character image stack (full screen) ── */}
           <div
             className="absolute inset-0 w-full h-full z-50"
             
           >
             
 
-            {/* ── LEFT flanking image (left-facing group) ── */}
             <img
               src={LEFT_IMG}
               alt="coach group left"
@@ -497,7 +568,6 @@ const SCROLL_LENGTH = 4;
               }}
             />
 
-            {/* ── RIGHT flanking image (right-facing group) ── */}
             <img
               src={RIGHT_IMG}
               alt="coach group right"
@@ -514,7 +584,6 @@ const SCROLL_LENGTH = 4;
               }}
             />
 
-            {/* Color image (center) */}
             <img
               src={COLOR_IMG}
               alt="coach colored"
@@ -530,7 +599,6 @@ const SCROLL_LENGTH = 4;
               }}
             />
 
-            {/* Outline image (center) */}
             <img
               src={OUTLINE_IMG}
               alt="coach outline"
@@ -549,7 +617,6 @@ const SCROLL_LENGTH = 4;
 
         </div>
 
-        {/* ── Bottom black fade overlay ── */}
         <div
           className="absolute bottom-0 left-0 w-full pointer-events-none"
           style={{
