@@ -15,6 +15,7 @@ import TermsAndConditions from './pages/TermsAndConditions';
 import PrivacyPolicy from './pages/PrivacyPolicy';
 import Blogs from './pages/blogs';
 import BlogPosts from './pages/blogPosts';
+import Security from './pages/Security';
 export default function LandingPage() {
   return (
     <>
@@ -35,6 +36,8 @@ export default function LandingPage() {
         <Route path="privacy-policy" element={<PrivacyPolicy/>}/>
         <Route path="blogs" element={<Blogs/>}/>
         <Route path="/blogs/:slug" element={<BlogPosts />} /> 
+        <Route path="/security" element={<Security />} /> 
+
    </Routes>
     </main>
     <Footer/>
