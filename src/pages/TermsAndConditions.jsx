@@ -92,17 +92,6 @@ export default function TermsAndConditions() {
   return (
     <div className="font-poppins flex flex-col h-screen overflow-hidden pt-16 xl:pt-4">
 
-      {/* Header */}
-      <header className="bg-zinc-900 px-5 py-7 text-center shrink-0">
-        <div className="flex justify-center items-center gap-2.5 mb-2">
-          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-            <Gavel size={18} className="text-white" />
-          </div>
-          <h1 className="text-2xl md:text-3xl font-bold text-white m-0">SmartCoach360 Legal Portal</h1>
-        </div>
-        <p className="text-zinc-400 text-sm m-0">Terms &amp; Conditions</p>
-      </header>
-
       {/* Mobile menu bar */}
       <div className="flex md:hidden items-center px-4 py-2.5 border-b border-zinc-200 bg-white gap-2.5">
         <button
@@ -150,7 +139,7 @@ export default function TermsAndConditions() {
 
       {/* Main layout */}
       <div className="flex flex-1 overflow-hidden">
-
+        
         {/* Desktop sidebar */}
         <div className="hidden md:flex flex-col w-64 min-w-[256px] h-full overflow-y-auto border-r border-zinc-200 shrink-0 bg-zinc-50">
           <div className="px-4 pb-5 flex-1">
@@ -185,7 +174,7 @@ export default function TermsAndConditions() {
         {/* Content */}
         <main ref={contentRef} className="flex-1 overflow-y-auto bg-white">
           <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-10 pb-20">
-
+            
             {/* Breadcrumb */}
             <div className="flex items-center justify-between flex-wrap gap-2 text-[13px] text-zinc-400 mb-5">
               <div className="flex items-center gap-1.5">
@@ -193,10 +182,10 @@ export default function TermsAndConditions() {
                 <ChevronRight size={13} />
                 <span>Terms &amp; Policies</span>
               </div>
-              <span className="text-zinc-400 text-[13px]">Last Updated: June 01, 2025</span>
+              <span className="text-zinc-400 text-[13px]">Last Updated: March 01, 2026</span>
             </div>
 
-            <h1 className="text-3xl md:text-[32px] font-extrabold text-zinc-900 mb-1.5">Terms of Service</h1>
+            <h1 className="text-3xl md:text-[32px] font-extrabold text-zinc-900 mb-1.5">Terms and Conditions</h1>
             <p className="text-[15px] font-semibold text-zinc-600 mb-5">Thanks for joining SmartCoach360!</p>
 
             <P>By registering, purchasing a program, or using any SmartCoach360 service, you agree to be bound by these Terms and Conditions. Please read them carefully before proceeding.</P>
