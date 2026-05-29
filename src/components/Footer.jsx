@@ -13,17 +13,30 @@ export default function SmartCoachFooter() {
       ),
     },
     {
-      label: "Phone",
-      value: "+1 800 000 0000",
+      label: "LinkedIn",
+      value: null,
+      href: "https://www.linkedin.com/company/smartcoach360/",
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
+        </svg>
+      ),
+    },
+    {
+      label: "Instagram",
+      value: null,
+      href: "https://instagram.com/smartcoach360",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L7.91 8.7a16 16 0 0 0 6 6l.52-.88a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 21 16z" />
+          <rect x="2" y="2" width="20" height="20" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
         </svg>
       ),
     },
     {
       label: "Address",
-      value: "No 9/14, Bharathi Street,Vellakinar, Coimbatore,Tamil Nadu, 641029",
+      value: "No 9/14, Bharathi Street, Vellakinar, Coimbatore, Tamil Nadu, 641029",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
@@ -40,28 +53,19 @@ export default function SmartCoachFooter() {
 
   return (
     <footer
-      style={{
-        background: "#ffffff",
-        color: "#1a1a1a",
-      }}
+      style={{ background: "#ffffff", color: "#1a1a1a" }}
       className="w-full border-t border-gray-200"
     >
       {/* Top section */}
       <div className="px-5 sm:px-10 pt-10 pb-8">
-
-        {/* Contact items */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-5 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
           {contactItems.map((item) => (
-            <div
-              key={item.label}
-              style={{
-                display: "flex",
-                alignItems: "flex-start",
-                gap: 14,
-              }}
-            >
+            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
               {/* Icon bubble */}
-              <div
+              <a
+                href={item.href ?? undefined}
+                target={item.href ? "_blank" : undefined}
+                rel={item.href ? "noopener noreferrer" : undefined}
                 style={{
                   width: 38,
                   height: 38,
@@ -72,10 +76,12 @@ export default function SmartCoachFooter() {
                   justifyContent: "center",
                   flexShrink: 0,
                   color: "#7c5cfc",
+                  textDecoration: "none",
+                  cursor: item.href ? "pointer" : "default",
                 }}
               >
                 {item.icon}
-              </div>
+              </a>
 
               <div style={{ minWidth: 0 }}>
                 <p style={{
@@ -88,22 +94,43 @@ export default function SmartCoachFooter() {
                 }}>
                   {item.label}
                 </p>
-                <p style={{
-                  fontSize: 13.5,
-                  color: "#333",
-                  lineHeight: 1.55,
-                  wordBreak: "break-word",
-                  margin: 0,
-                }}>
-                  {item.value}
-                </p>
+                {item.value && !item.href && (
+                  <p style={{
+                    fontSize: 13.5,
+                    color: "#333",
+                    lineHeight: 1.55,
+                    wordBreak: "break-word",
+                    margin: 0,
+                  }}>
+                    {item.value}
+                  </p>
+                )}
+                {item.value && item.href && (
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      fontSize: 13.5,
+                      color: "#333",
+                      lineHeight: 1.55,
+                      wordBreak: "break-word",
+                      margin: 0,
+                      textDecoration: "none",
+                      transition: "color 0.2s",
+                    }}
+                    onMouseEnter={e => e.target.style.color = "#7c5cfc"}
+                    onMouseLeave={e => e.target.style.color = "#333"}
+                  >
+                    {item.value}
+                  </a>
+                )}
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Big brand wordmark */}
       <div style={{ overflow: "hidden" }}>
         <p
           style={{
@@ -135,14 +162,10 @@ export default function SmartCoachFooter() {
         </p>
         <div style={{ display: "flex", gap: 20 }}>
           {footerLinks.map((link) => (
-            <Link to={link.href}
+            <Link
+              to={link.href}
               key={link.label}
-              style={{
-                fontSize: 12,
-                color: "#999",
-                textDecoration: "none",
-                transition: "color 0.2s",
-              }}
+              style={{ fontSize: 12, color: "#999", textDecoration: "none", transition: "color 0.2s" }}
               onMouseEnter={e => e.target.style.color = "#7c5cfc"}
               onMouseLeave={e => e.target.style.color = "#999"}
             >

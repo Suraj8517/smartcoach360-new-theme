@@ -6,8 +6,7 @@ export default function ComparisonHero() {
   return (
     <section className='w-full xl:min-h-screen bg-black pt-44 md:pt-26 xl:pt-6 px-8 md:px-16'>
       <div className='2xl:max-w-7xl max-w-6xl mx-auto'>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-12 md:mb-24">
-
+<div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center mb-0">
           {/* Left — text */}
           <div className="flex flex-col gap-4">
             <h2
@@ -35,6 +34,8 @@ Many coaching platforms excel in one area but leave critical gaps elsewhere. Sma
                 alt="Platform demo"
                 className="w-full object-cover opacity-50"
               />
+                <div className="hidden 2xl:block absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent pointer-events-none" />
+
             </div>
           </div>
 

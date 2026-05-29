@@ -77,13 +77,12 @@ const CardContent = ({ card }) => (
       fontSize: "2.1rem", fontWeight: 800, lineHeight: 1.08,
       letterSpacing: "-0.03em", color: "rgba(0,0,0,0.88)",
       marginBottom: 12, whiteSpace: "pre-line",
-      fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif",
     }}>
       {card.title}
     </h2>
     <p style={{
       fontSize: "0.875rem", color: "rgba(0,0,0,0.58)", lineHeight: 1.6,
-      marginBottom: 24, fontFamily: "'DM Sans', sans-serif",
+      marginBottom: 24, 
     }}>
       {card.description}
     </p>
@@ -92,7 +91,6 @@ const CardContent = ({ card }) => (
         <li key={i} style={{
           display: "flex", alignItems: "center", gap: 10,
           fontSize: "0.875rem", fontWeight: 500, color: "rgba(0,0,0,0.78)",
-          fontFamily: "'DM Sans', sans-serif",
         }}>
           <span style={{
             flexShrink: 0, width: 18, height: 18, borderRadius: "50%",
@@ -114,7 +112,6 @@ export default function ProductTabsSection() {
   return (
     <section
       className="w-full xl:min-h-screen flex items-center justify-center py-16 px-4"
-      style={{ fontFamily: "'DM Sans', 'Helvetica Neue', sans-serif" }}
     >
       <div className="w-full max-w-6xl">
 

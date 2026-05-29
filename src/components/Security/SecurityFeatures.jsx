@@ -78,13 +78,13 @@ const cards = [
 
 export default function SecurityFeatures() {
   return (
-    <section className="w-full py-16 px-4">
+    <section className="w-full  py-16 px-4">
       <div className="max-w-5xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
           {cards.map((card) => (
             <div
               key={card.id}
-              className="bg-white rounded-3xl overflow-hidden flex flex-col"
+              className="bg-[#f0f1f5] rounded-3xl overflow-hidden flex flex-col h-[700px] md:h-[750px]"
             >
               {/* Badge + Title */}
               <div className="px-8 pt-8 pb-4 flex flex-col gap-3">

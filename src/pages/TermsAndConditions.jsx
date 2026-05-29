@@ -90,24 +90,24 @@ export default function TermsAndConditions() {
   };
 
   return (
-    <div className=" font-poppins flex flex-col h-screen overflow-hidden pt-16 xl:pt-4">
+    <div className="font-poppins flex flex-col h-screen overflow-hidden pt-16 xl:pt-4">
 
       {/* Header */}
-      <header className="bg-gradient-to-r from-violet-950 via-violet-700 to-violet-500 px-5 py-7 text-center shrink-0">
+      <header className="bg-zinc-900 px-5 py-7 text-center shrink-0">
         <div className="flex justify-center items-center gap-2.5 mb-2">
-          <div className="w-8 h-8 rounded-lg bg-white/20 flex items-center justify-center">
+          <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
             <Gavel size={18} className="text-white" />
           </div>
           <h1 className="text-2xl md:text-3xl font-bold text-white m-0">SmartCoach360 Legal Portal</h1>
         </div>
-        <p className="text-violet-200 text-sm m-0">Terms &amp; Conditions</p>
+        <p className="text-zinc-400 text-sm m-0">Terms &amp; Conditions</p>
       </header>
 
       {/* Mobile menu bar */}
-      <div className="flex md:hidden items-center px-4 py-2.5 border-b border-violet-100 bg-white gap-2.5">
+      <div className="flex md:hidden items-center px-4 py-2.5 border-b border-zinc-200 bg-white gap-2.5">
         <button
           onClick={() => setSidebarOpen(v => !v)}
-          className="bg-transparent border-none cursor-pointer flex items-center gap-2 text-violet-600 font-semibold text-sm"
+          className="bg-transparent border-none cursor-pointer flex items-center gap-2 text-zinc-700 font-semibold text-sm"
         >
           <Menu size={20} />
           Navigation
@@ -117,10 +117,10 @@ export default function TermsAndConditions() {
       {/* Mobile sidebar overlay */}
       {sidebarOpen && (
         <div className="md:hidden fixed inset-0 z-50 flex">
-          <div className="w-72 bg-white h-full overflow-y-auto shadow-xl shadow-violet-500/20">
-            <div className="px-4 py-4 border-b border-violet-100 flex justify-between items-center">
-              <span className="font-bold text-violet-700 text-base">Navigation</span>
-              <button onClick={() => setSidebarOpen(false)} className="bg-transparent border-none cursor-pointer text-violet-600">
+          <div className="w-72 bg-white h-full overflow-y-auto shadow-xl shadow-black/10">
+            <div className="px-4 py-4 border-b border-zinc-200 flex justify-between items-center">
+              <span className="font-bold text-zinc-800 text-base">Navigation</span>
+              <button onClick={() => setSidebarOpen(false)} className="bg-transparent border-none cursor-pointer text-zinc-500">
                 <X size={20} />
               </button>
             </div>
@@ -131,20 +131,20 @@ export default function TermsAndConditions() {
                   onClick={() => scrollToSection(s.id)}
                   className={`flex items-center gap-2 px-2.5 py-2 w-full border-none rounded-md cursor-pointer mb-0.5 text-[13px] text-left transition-colors ${
                     activeSection === s.id
-                      ? "bg-violet-50 text-violet-700 font-semibold"
-                      : "bg-transparent text-violet-800 font-normal hover:bg-violet-50"
+                      ? "bg-zinc-100 text-zinc-900 font-semibold"
+                      : "bg-transparent text-zinc-700 font-normal hover:bg-zinc-50"
                   }`}
                 >
-                  <s.icon size={13} className="shrink-0 opacity-60" />
+                  <s.icon size={13} className="shrink-0 opacity-50" />
                   <span className="flex-1">{s.label}</span>
                   <span className={`text-[10px] rounded-full px-1.5 py-0.5 font-semibold ${
-                    activeSection === s.id ? "bg-violet-600 text-white" : "bg-violet-100 text-violet-600"
+                    activeSection === s.id ? "bg-purple-800 text-white" : "bg-purple-100 text-purple-500"
                   }`}>{s.num}</span>
                 </button>
               ))}
             </div>
           </div>
-          <div className="flex-1 bg-violet-900/35" onClick={() => setSidebarOpen(false)} />
+          <div className="flex-1 bg-black/30" onClick={() => setSidebarOpen(false)} />
         </div>
       )}
 
@@ -152,29 +152,28 @@ export default function TermsAndConditions() {
       <div className="flex flex-1 overflow-hidden">
 
         {/* Desktop sidebar */}
-        <div className="hidden md:flex flex-col w-64 min-w-[256px] h-full overflow-y-auto border-r border-violet-100 shrink-0 bg-gradient-to-b from-violet-50 to-white">
-        
+        <div className="hidden md:flex flex-col w-64 min-w-[256px] h-full overflow-y-auto border-r border-zinc-200 shrink-0 bg-zinc-50">
           <div className="px-4 pb-5 flex-1">
             <div className="pl-2 mt-1">
-              <div className="block px-2.5 py-1.5 text-sm text-violet-700 bg-violet-100 font-semibold rounded-md border-none w-full text-left mb-3">
+              <div className="block px-2.5 py-1.5 text-sm text-zinc-700 bg-zinc-100 font-semibold rounded-md border-none w-full text-left mb-3">
                 Terms & Conditions
               </div>
-              <div className="border-t border-violet-200 pt-3">
-                <p className="text-[11px] font-bold text-violet-800 uppercase tracking-widest px-2.5 mt-0 mb-1.5">Sections</p>
+              <div className="border-t border-zinc-200 pt-3">
+                <p className="text-[11px] font-bold text-zinc-500 uppercase tracking-widest px-2.5 mt-0 mb-1.5">Sections</p>
                 {sections.map(s => (
                   <button
                     key={s.id}
                     onClick={() => scrollToSection(s.id)}
                     className={`flex items-center gap-2 px-2.5 py-1.5 w-full border-none rounded-md cursor-pointer mb-0.5 text-[13px] text-left transition-colors ${
                       activeSection === s.id
-                        ? "bg-violet-100 text-violet-900 font-semibold"
-                        : "bg-transparent text-violet-900 font-normal hover:bg-violet-50"
+                        ? "bg-zinc-200 text-zinc-900 font-semibold"
+                        : "bg-transparent text-zinc-700 font-normal hover:bg-zinc-100"
                     }`}
                   >
-                    <s.icon size={13} className="shrink-0 opacity-60" />
+                    <s.icon size={13} className="shrink-0 opacity-50 text-purple-600" />
                     <span className="flex-1">{s.label}</span>
                     <span className={`text-[10px] rounded-full px-1.5 py-0.5 font-semibold ${
-                      activeSection === s.id ? "bg-violet-600 text-white" : "bg-violet-100 text-violet-600"
+                      activeSection === s.id ? "bg-purple-800 text-white" : "bg-purple-100 text-purple-500"
                     }`}>{s.num}</span>
                   </button>
                 ))}
@@ -185,20 +184,20 @@ export default function TermsAndConditions() {
 
         {/* Content */}
         <main ref={contentRef} className="flex-1 overflow-y-auto bg-white">
-          <div className=" font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-10 pb-20">
+          <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-10 pb-20">
 
             {/* Breadcrumb */}
-            <div className="flex items-center justify-between flex-wrap gap-2 text-[13px] text-violet-400 mb-5">
+            <div className="flex items-center justify-between flex-wrap gap-2 text-[13px] text-zinc-400 mb-5">
               <div className="flex items-center gap-1.5">
-                <a className="text-violet-600 cursor-pointer hover:underline">Home</a>
+                <a className="text-zinc-600 cursor-pointer hover:underline">Home</a>
                 <ChevronRight size={13} />
                 <span>Terms &amp; Policies</span>
               </div>
-              <span className="text-violet-400 text-[13px]">Last Updated: June 01, 2025</span>
+              <span className="text-zinc-400 text-[13px]">Last Updated: June 01, 2025</span>
             </div>
 
-            <h1 className="text-3xl md:text-[32px] font-extrabold text-violet-900 mb-1.5">Terms of Service</h1>
-            <p className="text-[15px] font-semibold text-violet-700 mb-5">Thanks for joining SmartCoach360!</p>
+            <h1 className="text-3xl md:text-[32px] font-extrabold text-zinc-900 mb-1.5">Terms of Service</h1>
+            <p className="text-[15px] font-semibold text-zinc-600 mb-5">Thanks for joining SmartCoach360!</p>
 
             <P>By registering, purchasing a program, or using any SmartCoach360 service, you agree to be bound by these Terms and Conditions. Please read them carefully before proceeding.</P>
 
@@ -394,9 +393,9 @@ export default function TermsAndConditions() {
 
             <SectionBlock id="pause" num="19" title="Program Pause" icon={PauseCircle} sectionRefs={sectionRefs}>
               <P>Life events may require a temporary pause of your program. You may request a pause by emailing <strong>sales@smartcoach360.ai</strong>.</P>
-              <p className="text-sm font-semibold text-violet-900 mt-4 mb-2">Pause Entitlement by Program Duration</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-4 mb-2">Pause Entitlement by Program Duration</p>
               <PauseTable />
-              <p className="text-sm font-semibold text-violet-900 mt-4 mb-2">Pause Guidelines</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-4 mb-2">Pause Guidelines</p>
               <BulletList items={[
                 "Pauses can be taken only in multiples of 7 days.",
                 "Minimum pause duration is 7 days. However, if the client's remaining pause balance is fewer than 7 days, the client may utilise the remaining balance in full.",
@@ -406,13 +405,13 @@ export default function TermsAndConditions() {
                 "Pauses cannot be availed during the last month of the program.",
                 "For a 3-month program specifically, pauses will not be permitted during the last 15 days.",
               ]} />
-              <p className="text-sm font-semibold text-violet-900 mt-4 mb-2">Long-Duration Pause Eligibility</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-4 mb-2">Long-Duration Pause Eligibility</p>
               <BulletList items={["Pregnancy (if not upgrading to prenatal program)", "Depression or mental health challenges", "Physical injury", "Family emergency", "Serious medical conditions"]} />
               <InfoBox>All medical conditions for exceptions must be supported with appropriate medical documentation (scans, X-rays, prescriptions, or written reports issued by a registered and licensed medical professional). SmartCoach360 reserves the sole and final discretion in deciding whether a participant may continue, modify, or discontinue the program based on the information provided.</InfoBox>
-              <p className="text-sm font-semibold text-violet-900 mt-4 mb-2">Pause Policy – Pregnancy, Delivery &amp; Medical Exceptions</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-4 mb-2">Pause Policy – Pregnancy, Delivery &amp; Medical Exceptions</p>
               <P>In the event that a client requests a pause due to childbirth, such pause shall be permitted for a maximum cumulative period of six (6) months from the date of delivery. In exceptional cases involving serious medical complications, a one-time additional extension may be considered solely at the discretion of the Company, subject to valid medical documentation.</P>
               <Callout>Failure to resume services within the applicable timeframe shall result in automatic lapse and forfeiture of any remaining or unused portion of the program, without any entitlement to extension, refund, transfer, or credit.</Callout>
-              <p className="text-sm font-semibold text-violet-900 mt-4 mb-2">Pause Eligibility for Part-Payment Plans</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-4 mb-2">Pause Eligibility for Part-Payment Plans</p>
               <P>Clients enrolled under a part-payment plan shall not be eligible to avail the pause facility during the first 45 days from the program start date. However, if the client settles the outstanding balance in full prior to the 45-day period, the client shall become eligible to utilise the pause facility from the date of full payment.</P>
             </SectionBlock>
 
@@ -420,9 +419,9 @@ export default function TermsAndConditions() {
 
             <SectionBlock id="conduct" num="20" title="Client Conduct Policy" icon={Scale} sectionRefs={sectionRefs}>
               <P>SmartCoach360 maintains a strict zero-tolerance policy for any form of harassment, abuse, discrimination, or disrespectful behavior toward staff or other participants.</P>
-              <p className="text-sm font-semibold text-violet-900 mt-3 mb-1.5">Abusive behavior includes:</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-3 mb-1.5">Abusive behavior includes:</p>
               <BulletList items={["Verbal abuse or disrespect", "Harassment or threats", "Discriminatory remarks", "Bullying", "Manipulative or harmful conduct"]} />
-              <p className="text-sm font-semibold text-violet-900 mt-3 mb-1.5">Consequences may include:</p>
+              <p className="text-sm font-semibold text-zinc-800 mt-3 mb-1.5">Consequences may include:</p>
               <BulletList items={["Warning", "Program suspension or termination", "Blocking access to coaches or services", "Permanent ban from the platform"]} />
             </SectionBlock>
 
@@ -511,8 +510,8 @@ export default function TermsAndConditions() {
               <P>SmartCoach360 may revise these Terms and Conditions periodically. Any changes will take effect once they are posted on this website. By continuing to access or use the program after updates are posted, you agree to be bound by the revised Terms and Conditions.</P>
             </SectionBlock>
 
-            <div className="border-t border-violet-100 pt-5 text-center">
-              <p className="text-[13px] text-violet-400 m-0">— End of Terms and Conditions —</p>
+            <div className="border-t border-zinc-200 pt-5 text-center">
+              <p className="text-[13px] text-zinc-400 m-0">— End of Terms and Conditions —</p>
             </div>
           </div>
         </main>
@@ -522,11 +521,11 @@ export default function TermsAndConditions() {
       <Modal open={showMedicalPopup} onClose={() => setShowMedicalPopup(false)} title="Medical Emergency Policy">
         <div className="flex flex-col gap-5">
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">1. Purpose</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">1. Purpose</h3>
             <p className="m-0">This policy defines the criteria and documentation requirements used to determine whether a client's medical circumstances qualify as a medical emergency for refund assessments.</p>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">2. Definition of Medical Emergency</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">2. Definition of Medical Emergency</h3>
             <ul className="pl-4 m-0 space-y-1">
               {["Sudden, severe, and unforeseen medical condition", "Requires immediate medical intervention", "Directly prevents continuation of the program"].map((item, k) => (
                 <li key={k} className="list-disc">{item}</li>
@@ -534,7 +533,7 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">3. Eligibility Criteria</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">3. Eligibility Criteria</h3>
             <ul className="pl-4 m-0 space-y-1">
               {["Life-threatening condition needing emergency care", "Doctor-certified restriction on physical activity", "Physically incapable of continuing program for uncertain duration"].map((item, k) => (
                 <li key={k} className="list-disc">{item}</li>
@@ -542,7 +541,7 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">4. Documentation Requirements</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">4. Documentation Requirements</h3>
             <p className="m-0 mb-2">Acceptable documents include:</p>
             <ul className="pl-4 m-0 mb-3 space-y-1">
               {["Hospital admission/discharge summaries", "Diagnostic reports / scans", "Doctor certificates / specialist letters"].map((item, k) => (
@@ -557,7 +556,7 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">5. Examples of Qualifying Emergencies</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">5. Examples of Qualifying Emergencies</h3>
             <ul className="pl-4 m-0 space-y-1">
               {["Cardiac events", "Stroke", "Organ failure or cancer", "Major fractures", "Emergency surgery", "Prolonged immobility / rehabilitation"].map((item, k) => (
                 <li key={k} className="list-disc">{item}</li>
@@ -565,7 +564,7 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">6. Non-Qualifying Scenarios</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">6. Non-Qualifying Scenarios</h3>
             <ul className="pl-4 m-0 space-y-1">
               {["Mild illness or temporary infections", "Short-term discomfort", "Brief hospitalization without long restrictions", "Elective or preventive treatment", "Pre-existing conditions without complications"].map((item, k) => (
                 <li key={k} className="list-disc">{item}</li>
@@ -573,14 +572,14 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2 text-sm">7. Assessment & Decision Authority</h3>
+            <h3 className="font-bold text-zinc-800 mb-2 text-sm">7. Assessment & Decision Authority</h3>
             <ul className="pl-4 m-0 space-y-1">
               {["Every claim reviewed case-by-case", "Additional documents may be requested", "Submitted records may be verified", "Claims not meeting criteria may be denied"].map((item, k) => (
                 <li key={k} className="list-disc">{item}</li>
               ))}
             </ul>
           </div>
-          <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 text-[13px] text-violet-800">
+          <div className="bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-700">
             This policy forms part of SmartCoach360 Terms &amp; Conditions and is binding on all participants.
           </div>
         </div>
@@ -590,7 +589,7 @@ export default function TermsAndConditions() {
       <Modal open={showTransferPopup} onClose={() => setShowTransferPopup(false)} title="Program Change & Transfer Policy">
         <div className="flex flex-col gap-6">
           <div>
-            <h3 className="font-bold text-violet-600 mb-2.5 text-base">1. Change to a Different Programme</h3>
+            <h3 className="font-bold text-zinc-800 mb-2.5 text-base">1. Change to a Different Programme</h3>
             <p className="m-0 mb-2.5">A participant may request a one-time change to a different program, subject to the following conditions:</p>
             <ul className="pl-4 m-0 space-y-1.5">
               {["Minimum forty-five (45) days must remain.", "New program duration must not be less than thirty (30) days.", "Program duration/access may be adjusted instead of fee adjustment.", "Prevailing program fee at the time of request shall apply.", "Any fee difference must be paid by the participant.", "Program change is permitted only once."].map((item, k) => (
@@ -599,7 +598,7 @@ export default function TermsAndConditions() {
             </ul>
           </div>
           <div>
-            <h3 className="font-bold text-violet-600 mb-2.5 text-base">2. Transfer to Different Individual</h3>
+            <h3 className="font-bold text-zinc-800 mb-2.5 text-base">2. Transfer to Different Individual</h3>
             <p className="m-0 mb-2.5">A participant may request a one-time transfer of enrollment to another individual, subject to the following conditions:</p>
             <ul className="pl-4 m-0 space-y-1.5">
               {["Minimum forty-five (45) days must remain.", "Only the same program may be transferred unless stated otherwise.", "Blossom and Queen programs may be converted to credit at provider's discretion.", "Prevailing program fee at the time of transfer shall apply.", "New participant must accept all applicable terms and policies.", "Original participant loses access after transfer.", "Transfer permitted only once per enrollment."].map((item, k) => (
@@ -607,10 +606,10 @@ export default function TermsAndConditions() {
               ))}
             </ul>
           </div>
-          <div className="bg-violet-50 border border-violet-200 rounded-lg p-4 text-[13px] text-violet-800">
+          <div className="bg-zinc-50 border border-zinc-200 rounded-lg p-4 text-[13px] text-zinc-700">
             All requests are subject to operational review and final approval by SmartCoach360.
           </div>
-        </div>hero
+        </div>
       </Modal>
     </div>
   );

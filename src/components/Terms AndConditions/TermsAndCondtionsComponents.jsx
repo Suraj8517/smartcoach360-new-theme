@@ -2,14 +2,14 @@ import { Info, X } from "lucide-react";
 
 
 export function P({ children }) {
-  return <p className="text-[15px] leading-7 text-violet-950 mb-3.5">{children}</p>;
+  return <p className="text-[15px] leading-7 text-zinc-800 mb-3.5">{children}</p>;
 }
 
 export function BulletList({ items }) {
   return (
     <ul className="pl-5 mb-3.5 space-y-1">
       {items.map((item, i) => (
-        <li key={i} className="text-[15px] leading-7 text-violet-950 list-disc">{item}</li>
+        <li key={i} className="text-[15px] leading-7 text-zinc-800 list-disc">{item}</li>
       ))}
     </ul>
   );
@@ -21,8 +21,8 @@ export function AlphaBulletList({ items }) {
   return (
     <ul className="list-none p-0 mb-3.5 space-y-2">
       {items.map((item, i) => (
-        <li key={i} className="flex gap-2.5 text-[15px] leading-7 text-violet-950">
-          <span className="min-w-[22px] h-[22px] rounded-[4px] bg-violet-100 text-violet-800 text-[11px] font-bold flex items-center justify-center shrink-0 mt-[3px]">
+        <li key={i} className="flex gap-2.5 text-[15px] leading-7 text-zinc-800">
+          <span className="min-w-[22px] h-[22px] rounded-[4px] bg-zinc-100 text-zinc-600 text-[11px] font-bold flex items-center justify-center shrink-0 mt-[3px]">
             {ALPHA[i]}
           </span>
           <span>{item}</span>
@@ -34,23 +34,23 @@ export function AlphaBulletList({ items }) {
 
 export function Callout({ children }) {
   return (
-    <div className="bg-violet-50 border-l-[3px] border-violet-400 rounded-r-md px-4 py-3 my-3.5">
-      <p className="text-sm text-violet-800 m-0 leading-7">{children}</p>
+    <div className="bg-zinc-50 border-l-[3px] border-zinc-400 rounded-r-md px-4 py-3 my-3.5">
+      <p className="text-sm text-zinc-700 m-0 leading-7">{children}</p>
     </div>
   );
 }
 
 export function InfoBox({ children }) {
   return (
-    <div className="bg-violet-50 border border-violet-200 rounded-lg px-4 py-3 my-3.5 flex gap-2.5">
-      <Info size={15} className="text-violet-600 shrink-0 mt-[3px]" />
-      <p className="text-sm text-violet-800 m-0 leading-7">{children}</p>
+    <div className="bg-zinc-50 border border-zinc-200 rounded-lg px-4 py-3 my-3.5 flex gap-2.5">
+      <Info size={15} className="text-zinc-500 shrink-0 mt-[3px]" />
+      <p className="text-sm text-zinc-700 m-0 leading-7">{children}</p>
     </div>
   );
 }
 
 export function Divider() {
-  return <hr className="border-none border-t border-violet-100 my-8" />;
+  return <hr className="border-none border-t border-zinc-200 my-8" />;
 }
 
 export function PauseTable() {
@@ -60,19 +60,19 @@ export function PauseTable() {
     ["36 months", "168 days"],
   ];
   return (
-    <div className="overflow-x-auto my-3.5 rounded-lg border border-violet-200">
+    <div className="overflow-x-auto my-3.5 rounded-lg border border-zinc-200">
       <table className="w-full border-collapse text-sm">
         <thead>
-          <tr className="bg-violet-50">
-            <th className="text-left px-4 py-2.5 font-semibold text-violet-900 border-b border-violet-200">Program Duration</th>
-            <th className="text-left px-4 py-2.5 font-semibold text-violet-900 border-b border-violet-200">Pause Days</th>
+          <tr className="bg-zinc-50">
+            <th className="text-left px-4 py-2.5 font-semibold text-zinc-800 border-b border-zinc-200">Program Duration</th>
+            <th className="text-left px-4 py-2.5 font-semibold text-zinc-800 border-b border-zinc-200">Pause Days</th>
           </tr>
         </thead>
         <tbody>
           {rows.map(([d, p], i) => (
-            <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-violet-50"}>
-              <td className="px-4 py-2 text-violet-800">{d}</td>
-              <td className="px-4 py-2 text-violet-600 font-semibold">{p}</td>
+            <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-zinc-50"}>
+              <td className="px-4 py-2 text-zinc-700">{d}</td>
+              <td className="px-4 py-2 text-zinc-500 font-semibold">{p}</td>
             </tr>
           ))}
         </tbody>
@@ -84,13 +84,13 @@ export function PauseTable() {
 export function SectionBlock({ id, num, title, icon: Icon, children, sectionRefs }) {
   return (
     <section id={id} ref={el => { sectionRefs.current[id] = el; }} className="mb-10">
-      <div className="flex items-start gap-3.5 mb-4 pb-3.5 border-b border-violet-100">
-        <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-violet-800 flex items-center justify-center shrink-0">
+      <div className="flex items-start gap-3.5 mb-4 pb-3.5 border-b border-zinc-200">
+        <div className="w-9 h-9 rounded-lg bg-violet-600 flex items-center justify-center shrink-0">
           <Icon size={17} className="text-white" />
         </div>
         <div>
-          <p className="text-[11px] text-violet-400 font-semibold m-0 mb-0.5 uppercase tracking-widest">Section {num}</p>
-          <h2 className="text-xl font-bold text-violet-900 m-0">{title}</h2>
+          <p className="text-[11px] text-zinc-400 font-semibold m-0 mb-0.5 uppercase tracking-widest">Section {num}</p>
+          <h2 className="text-xl font-bold text-zinc-900 m-0">{title}</h2>
         </div>
       </div>
       {children}
@@ -101,19 +101,19 @@ export function SectionBlock({ id, num, title, icon: Icon, children, sectionRefs
 export function Modal({ open, onClose, title, children }) {
   if (!open) return null;
   return (
-    <div className="fixed inset-0 z-[100] bg-violet-900/55 backdrop-blur-sm flex items-center justify-center p-4 md:p-6">
-      <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6 md:p-8 relative shadow-2xl shadow-violet-500/20">
+    <div className="fixed inset-0 z-[100] bg-black/40 backdrop-blur-sm flex items-center justify-center p-4 md:p-6">
+      <div className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-2xl p-6 md:p-8 relative shadow-2xl shadow-black/10">
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-9 h-9 rounded-full border-none bg-violet-50 text-violet-600 cursor-pointer flex items-center justify-center hover:bg-violet-100 transition-colors"
+          className="absolute top-4 right-4 w-9 h-9 rounded-full border-none bg-zinc-100 text-zinc-500 cursor-pointer flex items-center justify-center hover:bg-zinc-200 transition-colors"
         >
           <X size={16} />
         </button>
-        <h2 className="text-[22px] font-bold text-violet-900 mb-6">{title}</h2>
-        <div className="text-sm leading-7 text-violet-800">{children}</div>
+        <h2 className="text-[22px] font-bold text-zinc-900 mb-6">{title}</h2>
+        <div className="text-sm leading-7 text-zinc-700">{children}</div>
         <button
           onClick={onClose}
-          className="mt-7 w-full bg-gradient-to-r from-violet-600 to-violet-800 text-white border-none rounded-xl py-3.5 text-[15px] font-semibold cursor-pointer hover:opacity-90 transition-opacity"
+          className="mt-7 w-full bg-zinc-900 text-white border-none rounded-xl py-3.5 text-[15px] font-semibold cursor-pointer hover:bg-zinc-700 transition-colors"
         >
           Close
         </button>
