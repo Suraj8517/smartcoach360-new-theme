@@ -131,6 +131,7 @@ export default function SmartCoachFooter() {
         </div>
       </div>
 
+      {/* Big brand wordmark */}
       <div style={{ overflow: "hidden" }}>
         <p
           style={{
