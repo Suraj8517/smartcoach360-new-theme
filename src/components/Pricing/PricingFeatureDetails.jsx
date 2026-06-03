@@ -1,6 +1,6 @@
 import { useState, useRef, useCallback } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, FreeMode, Mousewheel } from "swiper/modules";
+import { Navigation, Pagination, FreeMode } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -316,20 +316,16 @@ const setNextRef = useCallback((node) => {
         <div className="cs-clip">
           <div className="pl-36">
             <Swiper
-              modules={[Navigation, FreeMode, Mousewheel]}
-  className="customers-swiper"
-  freeMode={{
-    enabled: true,
-    momentum: false,       // disable — macOS has its own
-    sticky: false,
-  }}
-  mousewheel={{ forceToAxis: true }}
-  slidesPerView="auto"
-  slidesOffsetAfter={80}
-  spaceBetween={20}
-  grabCursor={true}
-  simulateTouch={false}   // disable on desktop
-  speed={520}
+              modules={[Navigation, FreeMode]}
+              className="customers-swiper"
+              freeMode={{ enabled: true, momentum: true, momentumRatio: 0.55, momentumVelocityRatio: 0.55, minimumVelocity: 0.02, sticky: false }}
+              slidesPerView="auto"
+              slidesOffsetAfter={80}
+              spaceBetween={20}
+              grabCursor={true}
+              simulateTouch={true}
+              touchRatio={1}
+              speed={520}
               navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
