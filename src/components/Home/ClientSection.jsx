@@ -15,7 +15,6 @@ const logos = [
   { alt: "FitDad Club", className: "h-13", src: fdc },
   { alt: "Yours Mindfully", className: "h-15", src: mindfully },
   { alt: "FitKid Club", className: "h-15", src: fkc },
-  { alt: "LK 2", className: "h-[74px]", src: LK },
   { alt: "Miracle", className: "h-15", src: miracle },
 ];
 

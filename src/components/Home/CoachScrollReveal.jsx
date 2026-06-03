@@ -252,7 +252,7 @@ const MarqueeText = ({ progress }) => {
       <div
         style={{
           position: "absolute",
-          bottom: "5%",
+          bottom: "10%",
           left: 0,
           right: 0,
           zIndex: 350,
