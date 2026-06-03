@@ -52,7 +52,7 @@ export default function AboutUsHero() {
               backgroundClip: "text",
             }}
           >
-           Built by Fitness Professionals, 
+           Built by Health & Wellness Coaches, 
           </span>
           <br className="hidden sm:block" /> for Fitness Professionals 
         </h1>

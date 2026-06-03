@@ -218,7 +218,7 @@ export default function CustomersSection() {
   }, []);
 
   return (
-    <section className="py-28 font-sans">
+    <section className="pb-8 pt-18 font-sans">
       <style>{`
         .customers-swiper {
           cursor: grab;

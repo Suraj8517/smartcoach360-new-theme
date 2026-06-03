@@ -70,20 +70,22 @@ const plans = [
 /* ── Vertical plan card ── */
 function PlanCard({ plan }) {
   return (
+    
     <div
       className={`relative flex flex-col bg-white rounded-xl border overflow-hidden h-full ${
         plan.popular ? "border-[#1a1a2e]" : "border-gray-200"
       }`}
     >
-      {plan.popular && (
-        <div className="bg-[#1a1a2e] text-white text-xs font-semibold text-center py-2 tracking-wide">
-          Most Popular
-        </div>
-      )}
 
       <div className="p-5 flex flex-col gap-3">
+        <div className="flex ">
         <h2 className="text-xl font-bold text-gray-900 pb-2">{plan.name}</h2>
-
+ {plan.popular && (
+  <div className="ml-8 text-purple-500 text-xs font-semibold text-end tracking-widest animate-pulse">
+  Most Popular
+  </div>
+)}
+      </div>
         {plan.price ? (
           <div className="flex items-start gap-1">
             <span className="text-3xl font-thin text-gray-900 leading-none mt-1">₹</span>
@@ -218,7 +220,7 @@ const ProPlan = plans.find((p) => p.name === "Pro");
 
 export default function PricingTable() {
   return (
-    <div className="bg-white min-h-screen px-4 pb-36">
+    <div className="bg-white min-h-screen px-4 pb-16">
       <div className="2xl:max-w-[1600px] max-w-[1200px] mx-auto">
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 2xl:grid-cols-5 gap-4">

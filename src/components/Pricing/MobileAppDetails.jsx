@@ -18,7 +18,7 @@ const trackers = [
 
 export default function AppSection() {
   return (
-    <section className="bg-white py-4 px-4 sm:px-8 lg:px-16 overflow-hidden">
+    <section className="bg-white px-4 sm:px-8 lg:px-16 overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12 lg:gap-0">
 
         {/* Left: Text Content */}
