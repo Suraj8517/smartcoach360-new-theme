@@ -258,7 +258,7 @@ const DesktopFloatingNav = ({ navigate, currentPath, visible }) => (
         : "opacity-0 pointer-events-none"
       }`}
     style={{
-      top: "14px",
+      top: "5px",
       left: "50%",
       transform: `translateX(-50%) translateY(${visible ? "0px" : "-12px"})`,
     }}
@@ -271,6 +271,14 @@ const DesktopFloatingNav = ({ navigate, currentPath, visible }) => (
       >
         <div className="w-[42px] h-[42px] rounded-full bg-[#f3f0ff] flex items-center justify-center flex-shrink-0">
           <img src={logo} alt="Logo" className="w-7 h-7 object-contain" />
+        </div>
+         <div className="flex items-baseline">
+          <span className="text-[18px] font-extrabold text-gray-900 tracking-[-0.5px] leading-none">
+            smartcoach360
+          </span>
+          <span className="text-[13px] font-normal text-gray-400 ml-[2px] leading-none">
+            .ai
+          </span>
         </div>
       </button>
 
@@ -497,7 +505,6 @@ export default function Navbar() {
         />
       </nav>
 
-      {/* ── Desktop: both layers always rendered, toggled by scroll ── */}
       <div className="hidden xl:block">
         <DesktopFullBar
           navigate={navigate}

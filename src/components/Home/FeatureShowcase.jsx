@@ -182,7 +182,7 @@ const SkeletonScreen = () => (
 
 // ── Main Component ───────────────────────────────────────────
 export default function FeatureShowcase() {
-  const [active, setActive] = useState(null);
+  const [active, setActive] = useState(0);
   const [animKey, setAnimKey] = useState(0);
   const [imgFailed, setImgFailed] = useState(false);
   const [mobIndex, setMobIndex] = useState(0);
