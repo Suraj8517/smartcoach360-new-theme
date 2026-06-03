@@ -5,7 +5,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
 export const ExplorePanel = ({ active, onSelect }) => (
   
   <div
-    className="bg-white border border-gray-100 py-7 px-6"
+    className="bg-white border border-gray-100 py-7 px-6 z-100"
     style={{ borderRadius: 24, boxShadow: "0 8px 40px rgba(0,0,0,0.08)", width: 340 }}
   >
     <h3 className="text-[15px] font-normal text-gray-500 text-center mb-6 leading-snug">

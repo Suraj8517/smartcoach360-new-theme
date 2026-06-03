@@ -74,7 +74,7 @@ export const FEATURES = [
   {
     id: 2,
     key: "Dashboards & Reports",
-    label: "Dashboards & Reports",
+    label: "Dashboard",
     Icon: BarChart2,
     agentName: "Sales Agent",
     agentImage: dashboardavatar,

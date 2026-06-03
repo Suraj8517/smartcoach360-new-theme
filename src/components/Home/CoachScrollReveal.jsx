@@ -442,7 +442,7 @@ export default function CoachScrollReveal() {
    if (windowWidth < 768) {
     return <MobileVersion />;
   }
-  if (windowWidth < 1024) {
+  if (windowWidth < 1020) {
     return <DetailedFeatures />;
   }
  
@@ -496,7 +496,7 @@ const SCROLL_LENGTH = 4;
   return (
     <>
     <DetailedFeatures/>
-    <div ref={containerRef} className="hidden xl:block relative bg-black pt-16 "  style={{ height: `${SCROLL_LENGTH * 150}vh` }}>
+    <div ref={containerRef} className="hidden lg:block relative bg-black pt-16 "  style={{ height: `${SCROLL_LENGTH * 150}vh` }}>
 
       {/* ── Hero text ── */}
       <div className="max-w-6xl lg:max-w-6xl relative z-50 w-full mx-auto flex flex-col items-center px-8 pt-10 pb-6 lg:flex-row lg:items-start lg:justify-between lg:pt-12 xl:px-16 xl:pt-16">

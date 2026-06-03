@@ -401,7 +401,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
         }
       `}</style>
 
-      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden md:pt-30 md:pb-40">
+      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden lg:pt-30 md:pb-40">
         <div className="fs-grid-bg" />
 
         <div className="2xl:max-w-5xl max-w-4xl mx-auto relative z-10">
@@ -491,7 +491,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
 
   {/* ── Image card ── */}
   <div
-    className="w-full rounded-2xl relative overflow-hidden cursor-pointer select-none mob-card"
+  className="w-full h-[200px] md:h-[380px] rounded-2xl relative overflow-hidden cursor-pointer select-none mob-card"
     style={{ background: "#f5f5ff", boxShadow: "0 6px 24px rgba(0,0,0,0.09)" }}
     onClick={mobNext}
   >
@@ -504,14 +504,13 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
     <div key={`sweep-${mobIndex}`} className="mob-tap-sweep absolute inset-0 z-30 pointer-events-none" />
 
     {/* Screenshot */}
-    <img
-      key={`mob-${mobIndex}`}
-      src={mobFeature.screenshotImageMobile || mobFeature.screenshotImage}
-      alt={mobFeature.label}
-      className="mob-img w-full object-cover object-top block"
-      style={{ height: 220, maxHeight: 220 }}
-      onError={(e) => { e.currentTarget.style.display = "none"; }}
-    />
+   <img
+  key={`mob-${mobIndex}`}
+  src={mobFeature.screenshotImageMobile || mobFeature.screenshotImage}
+  alt={mobFeature.label}
+  className="mob-img w-full object-cover object-top block h-[220px] md:h-[380px]"
+  onError={(e) => { e.currentTarget.style.display = "none"; }}
+/>
 
     {/* Skeleton overlay */}
     {typeof MobSkeletonComp === "function" && (
@@ -589,8 +588,8 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
   </div>
 
   {/* ── CTA ── */}
-  <button
-    className="w-full rounded-xl py-3.5 text-[13px] font-semibold text-white flex items-center justify-center gap-2 mob-cta"
+  <button onClick={() => window.open(url, "_blank")}
+    className="w-[50%] mx-auto md:w-[30%] rounded-xl py-3.5 text-[13px] font-semibold text-white flex items-center justify-center gap-2 mob-cta"
     style={{
       background: "linear-gradient(90deg, #7c3aed 0%, #a855f7 100%)",
       boxShadow: "0 4px 16px rgba(124,58,237,0.28)",
@@ -609,7 +608,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
       e.currentTarget.style.boxShadow = "0 4px 16px rgba(124,58,237,0.28)";
     }}
   >
-    Get Started <ChevronRight size={15} />
+  Book a Demo <ChevronRight size={15} />
   </button>
 
 </div>

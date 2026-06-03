@@ -114,7 +114,7 @@ function BannerAvatar({ av, size }) {
 
 function Segment({ avs }) {
   return (
-    <span className="inline-flex items-center flex-shrink-0" style={{ paddingRight: 64 }}>
+    <span className="inline-flex items-center flex-shrink-0" style={{ paddingRight: 54 }}>
       <span className="inline-flex items-end gap-2 flex-shrink-0 px-8">
         <BannerAvatar av={avs[0]} size={54} />
         <BannerAvatar av={avs[1]} size={72} />
@@ -178,7 +178,7 @@ export default function DetailedFeatures() {
   }, []);
 
   const loopW = trackRef.current ? trackRef.current.scrollWidth / 3 : 1;
-  const safeX = ((bannerX % loopW) + loopW) % loopW;
+  const safeX = ((bannerX +700 % loopW) + loopW) % loopW;
   const seg2  = [...bannerAvatars].reverse();
   const feature = features[activeIdx];
 
@@ -191,7 +191,7 @@ export default function DetailedFeatures() {
     <div className="bg-black w-full min-h-screen">
 
       {/* ══ BANNER ══ */}
-      <div ref={wrapperRef} className="relative" style={{ height: 580 }}>
+      <div ref={wrapperRef} className="relative" style={{ height: 480 }}>
         <div className="bg-black overflow-hidden" style={{ height: 180 }}>
           <div className="absolute inset-y-0 left-0 z-20 pointer-events-none"
             style={{ width: 120, background: "linear-gradient(to right, #000 35%, transparent)" }} />
