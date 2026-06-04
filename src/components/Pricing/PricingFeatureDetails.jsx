@@ -178,7 +178,9 @@ function TestimonialCard({ card }) {
 
       <div className="font-[poppins] flex flex-col justify-between p-7 flex-1 min-w-0 relative z-10">
         <div className="flex items-center gap-3">
-          <h2 className={`font-semibold ${card.authorColor} leading-none tracking-tight text-[clamp(1.3rem,2.4vw,1.4rem)]`}>
+          <h2
+            className={`font-semibold ${card.authorColor} leading-none tracking-tight text-[clamp(1.3rem,2.4vw,1.4rem)]`}
+          >
             {card.author}
           </h2>
         </div>
@@ -209,12 +211,25 @@ export default function CustomersSection() {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
+  // ✅ FIX: Callback refs re-wire navigation after buttons mount
+  // (buttons render after Swiper in the DOM, so refs are null during onBeforeInit
+  // unless buttons are moved above — this callback handles the late-mount case)
   const setPrevRef = useCallback((node) => {
     prevRef.current = node;
+    if (swiperRef.current && node) {
+      swiperRef.current.params.navigation.prevEl = node;
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
   }, []);
 
   const setNextRef = useCallback((node) => {
     nextRef.current = node;
+    if (swiperRef.current && node) {
+      swiperRef.current.params.navigation.nextEl = node;
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
   }, []);
 
   return (
@@ -233,13 +248,10 @@ export default function CustomersSection() {
           cursor: grabbing;
         }
 
-        /* FIX: Allow touch-action pan-x so macOS trackpad horizontal
-           swipe is not intercepted by the parent vertical scroll */
         .cs-clip {
           overflow: hidden;
           margin-left: -9999px;
           padding-left: 9999px;
-          /* Ensures pointer events pass through correctly on Mac */
           touch-action: pan-y;
         }
 
@@ -297,19 +309,13 @@ export default function CustomersSection() {
         <div className="cs-clip">
           <div className="pl-36">
             <Swiper
-              // ✅ FIX 1: Added Mousewheel module
               modules={[Navigation, FreeMode, Mousewheel]}
               className="customers-swiper"
               freeMode={{
                 enabled: true,
-                // ✅ FIX 2: Disabled Swiper's own momentum — macOS trackpad
-                // has native OS-level momentum that fights Swiper's JS momentum,
-                // causing the swiper to freeze or snap back on Mac trackpads.
                 momentum: false,
                 sticky: false,
               }}
-              // ✅ FIX 3: Mousewheel with forceToAxis so horizontal trackpad
-              // swipes are captured by Swiper and vertical scrolls pass through
               mousewheel={{
                 forceToAxis: true,
                 sensitivity: 1,
@@ -322,14 +328,21 @@ export default function CustomersSection() {
               simulateTouch={true}
               touchRatio={1}
               speed={520}
-              // ✅ FIX 4: Prevent page scroll from competing while swiping
               touchStartPreventDefault={false}
+              // ✅ FIX: Start with null — onBeforeInit assigns real DOM nodes
               navigation={{
-                prevEl: prevRef.current,
-                nextEl: nextRef.current,
+                prevEl: null,
+                nextEl: null,
+              }}
+              // ✅ FIX: onBeforeInit fires before Navigation module reads prevEl/nextEl,
+              // so the real DOM nodes are in place for the very first interaction.
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
               }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
+                // Re-assign in case buttons mounted after onBeforeInit
                 swiper.params.navigation.prevEl = prevRef.current;
                 swiper.params.navigation.nextEl = nextRef.current;
                 swiper.navigation.init();
@@ -400,7 +413,7 @@ export default function CustomersSection() {
           className="customers-swiper customers-swiper-mobile"
           freeMode={{
             enabled: true,
-            momentum: false, // ✅ same fix for mobile
+            momentum: false,
             sticky: false,
           }}
           slidesPerView={1}

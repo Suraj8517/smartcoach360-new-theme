@@ -38,7 +38,7 @@ const cards = [
     imageBorder: "ring-violet-900/50",
   },
   {
-        id: "gym-owner",
+    id: "gym-owner",
     label: "Case Study 2 — Gym Owner",
     author: "Fitness Studio Owner — 3 Locations, 8 Coaches",
     quote: "SmartCoach360 Gave Me Real Visibility Across All 3 Gyms for the First Time",
@@ -63,7 +63,7 @@ const cards = [
     imageBorder: "ring-pink-900/50",
   },
   {
-        id: "nutrition-coach",
+    id: "nutrition-coach",
     label: "Case Study 3 — Nutrition Coach",
     author: "Online Nutrition & Wellness Coach — 60+ Remote Clients",
     quote: "My Clients Are Hitting Their Macro Goals 3x More Consistently Since I Switched",
@@ -118,9 +118,19 @@ const cards = [
 
 function TestimonialCard({ card }) {
   return (
-    <div id={`${card.id}`}
+    <div
+      id={`${card.id}`}
       className={`border ${card.accentBorder} rounded-3xl overflow-hidden w-full select-none relative h-[580px] 2xl:h-[620px] flex flex-row`}
-      style={{ background: card.gradientColor.includes("140b25") ? "#0d0a18" : card.gradientColor.includes("240b17") ? "#100810" : card.gradientColor.includes("0d1230") ? "#090c18" : "#060f12" }}
+      style={{
+        background:
+          card.gradientColor.includes("140b25")
+            ? "#0d0a18"
+            : card.gradientColor.includes("240b17")
+            ? "#100810"
+            : card.gradientColor.includes("0d1230")
+            ? "#090c18"
+            : "#060f12",
+      }}
     >
       {/* Solid dark bg */}
       <div className="absolute inset-0 bg-black/80 z-0" />
@@ -128,18 +138,24 @@ function TestimonialCard({ card }) {
       {/* Faint radial glow top-left */}
       <div
         className="absolute top-0 left-0 w-96 h-96 rounded-full opacity-[0.07] pointer-events-none z-0"
-        style={{ background: "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)" }}
+        style={{
+          background:
+            "radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 70%)",
+        }}
       />
 
       {/* ── LEFT: text content ── */}
       <div className="font-[poppins] relative z-10 h-full flex flex-col p-8 w-full md:w-[65%] gap-4">
-
         {/* Badge + Author */}
         <div className="flex flex-col gap-3">
-          <span className={`self-start text-[11px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${card.labelColor}`}>
+          <span
+            className={`self-start text-[11px] font-semibold uppercase tracking-widest px-3 py-1 rounded-full ${card.labelColor}`}
+          >
             {card.label}
           </span>
-          <h2 className={`font-semibold ${card.authorColor} leading-snug tracking-tight text-[clamp(1rem,1.8vw,1.2rem)]`}>
+          <h2
+            className={`font-semibold ${card.authorColor} leading-snug tracking-tight text-[clamp(1rem,1.8vw,1.2rem)]`}
+          >
             {card.author}
           </h2>
         </div>
@@ -174,13 +190,15 @@ function TestimonialCard({ card }) {
         <div className={`border-t ${card.dividerColor} mt-auto`} />
 
         {/* Stats row */}
-        <div className="md:grid grid-cols-5 gap-2 hidden ">
+        <div className="md:grid grid-cols-5 gap-2 hidden">
           {card.stats.map((stat, i) => (
             <div
               key={i}
               className="flex flex-col gap-1 bg-white/[0.04] rounded-xl px-2.5 py-2.5 border border-white/[0.06]"
             >
-              <span className={`font-bold text-[clamp(0.85rem,1.4vw,1.1rem)] leading-none ${card.statValueColor}`}>
+              <span
+                className={`font-bold text-[clamp(0.85rem,1.4vw,1.1rem)] leading-none ${card.statValueColor}`}
+              >
                 {stat.value}
               </span>
               <span className="text-white/30 text-[10px] uppercase tracking-wide leading-tight mt-0.5">
@@ -189,29 +207,31 @@ function TestimonialCard({ card }) {
             </div>
           ))}
         </div>
-
       </div>
 
       {/* ── RIGHT: framed image — hidden on mobile ── */}
       <div className="hidden md:flex relative z-10 flex-1 items-center justify-center p-6 pr-8">
         {/* Outer glow ring */}
-        <div className={`absolute inset-6 rounded-2xl ring-1 ${card.imageBorder} blur-sm opacity-60`} />
+        <div
+          className={`absolute inset-6 rounded-2xl ring-1 ${card.imageBorder} blur-sm opacity-60`}
+        />
 
         {/* Image frame */}
-        <div className={`relative w-full h-full rounded-2xl overflow-hidden ring-1 ${card.imageBorder} shadow-2xl`}>
+        <div
+          className={`relative w-full h-full rounded-2xl overflow-hidden ring-1 ${card.imageBorder} shadow-2xl`}
+        >
           <img
             src={card.image}
             alt={card.author}
             className="w-full h-full object-cover object-center"
             draggable={false}
           />
-          {/* Subtle inner overlay so image doesn't clash with text side */}
+          {/* Subtle inner overlay */}
           <div className="absolute inset-0 bg-gradient-to-l from-transparent via-transparent to-black/40" />
-          {/* Bottom fade into card bg */}
+          {/* Bottom fade */}
           <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/60 to-transparent" />
         </div>
       </div>
-
     </div>
   );
 }
@@ -219,6 +239,8 @@ function TestimonialCard({ card }) {
 // ─── Section ──────────────────────────────────────────────────────────────────
 
 export default function CustomersSection() {
+  // ✅ FIX: Use callback refs so Swiper can read the real DOM nodes
+  // even if buttons render after the Swiper mounts.
   const prevRef = useRef(null);
   const nextRef = useRef(null);
   const swiperRef = useRef(null);
@@ -226,12 +248,23 @@ export default function CustomersSection() {
   const [isBeginning, setIsBeginning] = useState(true);
   const [isEnd, setIsEnd] = useState(false);
 
+  // ✅ After either button mounts, re-wire navigation on the live Swiper instance.
   const setPrevRef = useCallback((node) => {
     prevRef.current = node;
+    if (swiperRef.current && node) {
+      swiperRef.current.params.navigation.prevEl = node;
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
   }, []);
 
   const setNextRef = useCallback((node) => {
     nextRef.current = node;
+    if (swiperRef.current && node) {
+      swiperRef.current.params.navigation.nextEl = node;
+      swiperRef.current.navigation.init();
+      swiperRef.current.navigation.update();
+    }
   }, []);
 
   return (
@@ -276,15 +309,21 @@ export default function CustomersSection() {
         }
       `}</style>
 
-
       {/* ── DESKTOP ── */}
       <div className="hidden lg:block">
         <div className="cs-clip">
-          <div className="xl:pl-36 pl-14 ">
+          <div className="xl:pl-36 pl-14">
             <Swiper
               modules={[Navigation, FreeMode]}
               className="customers-swiper"
-              freeMode={{ enabled: true, momentum: true, momentumRatio: 0.55, momentumVelocityRatio: 0.55, minimumVelocity: 0.02, sticky: false }}
+              freeMode={{
+                enabled: true,
+                momentum: true,
+                momentumRatio: 0.55,
+                momentumVelocityRatio: 0.55,
+                minimumVelocity: 0.02,
+                sticky: false,
+              }}
               slidesPerView="auto"
               slidesOffsetAfter={80}
               spaceBetween={20}
@@ -292,18 +331,38 @@ export default function CustomersSection() {
               simulateTouch={true}
               touchRatio={1}
               speed={520}
-              navigation={{ prevEl: prevRef.current, nextEl: nextRef.current }}
+              // ✅ FIX: Pass null initially — onBeforeInit sets the real nodes
+              navigation={{
+                prevEl: null,
+                nextEl: null,
+              }}
+              // ✅ FIX: Wire up nav elements BEFORE Swiper initialises its
+              // Navigation module so the first click works immediately.
+              onBeforeInit={(swiper) => {
+                swiper.params.navigation.prevEl = prevRef.current;
+                swiper.params.navigation.nextEl = nextRef.current;
+              }}
               onSwiper={(swiper) => {
                 swiperRef.current = swiper;
+                // Re-assign in case buttons mounted after onBeforeInit fired
                 swiper.params.navigation.prevEl = prevRef.current;
                 swiper.params.navigation.nextEl = nextRef.current;
                 swiper.navigation.init();
                 swiper.navigation.update();
               }}
-              onSlideChange={(swiper) => { setIsBeginning(swiper.isBeginning); setIsEnd(swiper.isEnd); }}
-              onReachBeginning={() => { setIsBeginning(true); setIsEnd(false); }}
+              onSlideChange={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
+              onReachBeginning={() => {
+                setIsBeginning(true);
+                setIsEnd(false);
+              }}
               onReachEnd={() => setIsEnd(true)}
-              onFromEdge={(swiper) => { setIsBeginning(swiper.isBeginning); setIsEnd(swiper.isEnd); }}
+              onFromEdge={(swiper) => {
+                setIsBeginning(swiper.isBeginning);
+                setIsEnd(swiper.isEnd);
+              }}
             >
               {cards.map((card, i) => (
                 <SwiperSlide key={i} style={{ width: 1180 }}>
@@ -314,37 +373,39 @@ export default function CustomersSection() {
           </div>
         </div>
 
+        {/* Nav buttons — rendered AFTER Swiper; callback refs re-wire on mount */}
         <div className="flex justify-end gap-3 mt-6 px-6 xl:px-10 2xl:px-16">
-          <button ref={setPrevRef} disabled={isBeginning} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"><svg
-  width="16"
-  height="16"
-  viewBox="0 0 16 16"
-  fill="none"
-  aria-hidden="true"
->
-  <path
-    d="M13 8H3M7 4L3 8l4 4"
-    stroke="#111111"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg></button>
-          <button ref={setNextRef} disabled={isEnd} className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"><svg
-  width="16"
-  height="16"
-  viewBox="0 0 16 16"
-  fill="none"
-  aria-hidden="true"
->
-  <path
-    d="M3 8h10M9 4l4 4-4 4"
-    stroke="#111111"
-    strokeWidth="1.6"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-  />
-</svg></button>
+          <button
+            ref={setPrevRef}
+            disabled={isBeginning}
+            className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M13 8H3M7 4L3 8l4 4"
+                stroke="#111111"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+
+          <button
+            ref={setNextRef}
+            disabled={isEnd}
+            className="w-12 h-12 rounded-full border-2 border-violet-300 flex items-center justify-center text-violet-500 text-lg hover:border-violet-600 hover:text-violet-700 disabled:opacity-25 transition-all duration-150"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <path
+                d="M3 8h10M9 4l4 4-4 4"
+                stroke="#111111"
+                strokeWidth="1.6"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
         </div>
       </div>
 
@@ -353,7 +414,13 @@ export default function CustomersSection() {
         <Swiper
           modules={[Pagination, FreeMode]}
           className="customers-swiper customers-swiper-mobile"
-          freeMode={{ enabled: true, momentum: true, momentumRatio: 0.5, minimumVelocity: 0.02, sticky: false }}
+          freeMode={{
+            enabled: true,
+            momentum: true,
+            momentumRatio: 0.5,
+            minimumVelocity: 0.02,
+            sticky: false,
+          }}
           slidesPerView={1}
           spaceBetween={16}
           grabCursor={true}
