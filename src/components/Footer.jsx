@@ -13,8 +13,20 @@ export default function SmartCoachFooter() {
       ),
     },
     {
+      label: "Address",
+      value: "No 9/14, Bharathi Street, Vellakinar, Coimbatore, Tamil Nadu, 641029",
+      icon: (
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+      ),
+    },
+  ];
+
+  const socialLinks = [
+    {
       label: "LinkedIn",
-      value: null,
       href: "https://www.linkedin.com/company/smartcoach360/",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -24,23 +36,12 @@ export default function SmartCoachFooter() {
     },
     {
       label: "Instagram",
-      value: null,
       href: "https://instagram.com/smartcoach360",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="2" width="20" height="20" rx="5" />
           <circle cx="12" cy="12" r="4" />
           <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" />
-        </svg>
-      ),
-    },
-    {
-      label: "Address",
-      value: "No 9/14, Bharathi Street, Vellakinar, Coimbatore, Tamil Nadu, 641029",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-          <circle cx="12" cy="10" r="3" />
         </svg>
       ),
     },
@@ -58,97 +59,89 @@ export default function SmartCoachFooter() {
     >
       {/* Top section */}
       <div className="px-5 sm:px-10 pt-10 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 justify-items-center">
+
+          {/* Email & Address */}
           {contactItems.map((item) => (
             <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-              {/* Icon bubble */}
-              <a
-                href={item.href ?? undefined}
-                target={item.href ? "_blank" : undefined}
-                rel={item.href ? "noopener noreferrer" : undefined}
-                style={{
-                  width: 38,
-                  height: 38,
-                  borderRadius: 10,
-                  background: "#f3f0ff",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  flexShrink: 0,
-                  color: "#7c5cfc",
-                  textDecoration: "none",
-                  cursor: item.href ? "pointer" : "default",
-                }}
-              >
+              <div style={{
+                width: 38, height: 38, borderRadius: 10,
+                background: "#f3f0ff", display: "flex",
+                alignItems: "center", justifyContent: "center",
+                flexShrink: 0, color: "#7c5cfc",
+              }}>
                 {item.icon}
-              </a>
-
+              </div>
               <div style={{ minWidth: 0 }}>
                 <p style={{
-                  fontSize: 10,
-                  fontWeight: 700,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#aaa",
-                  margin: "0 0 4px",
+                  fontSize: 10, fontWeight: 700, letterSpacing: "0.1em",
+                  textTransform: "uppercase", color: "#aaa", margin: "0 0 4px",
                 }}>
                   {item.label}
                 </p>
-                {item.value && !item.href && (
-                  <p style={{
-                    fontSize: 13.5,
-                    color: "#333",
-                    lineHeight: 1.55,
-                    wordBreak: "break-word",
-                    margin: 0,
-                  }}>
-                    {item.value}
-                  </p>
-                )}
-                {item.value && item.href && (
-                  <a
-                    href={item.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    style={{
-                      fontSize: 13.5,
-                      color: "#333",
-                      lineHeight: 1.55,
-                      wordBreak: "break-word",
-                      margin: 0,
-                      textDecoration: "none",
-                      transition: "color 0.2s",
-                    }}
-                    onMouseEnter={e => e.target.style.color = "#7c5cfc"}
-                    onMouseLeave={e => e.target.style.color = "#333"}
-                  >
-                    {item.value}
-                  </a>
-                )}
+                <p style={{
+                  fontSize: 13.5, color: "#333", lineHeight: 1.55,
+                  wordBreak: "break-word", margin: 0,
+                }}>
+                  {item.value}
+                </p>
               </div>
             </div>
           ))}
+
+          {/* Follow us on — social icons grouped */}
+          <div style={{ display: "flex", alignItems: "flex-end", gap: 14 }}>
+            <div style={{ minWidth: 0 }}>
+              <p style={{
+                fontSize: 10, fontWeight: 700, letterSpacing: "0.1em",
+                textTransform: "uppercase", color: "#aaa", margin: "0 0 10px",
+              }}>
+                Follow us on
+              </p>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title={social.label}
+                    style={{
+                      width: 38, height: 38, borderRadius: 10,
+                      background: "#f3f0ff", display: "flex",
+                      alignItems: "center", justifyContent: "center",
+                      flexShrink: 0, color: "#7c5cfc",
+                      textDecoration: "none",
+                      transition: "background 0.2s, color 0.2s",
+                    }}
+                    onMouseEnter={e => {
+                      e.currentTarget.style.background = "#7c5cfc";
+                      e.currentTarget.style.color = "#fff";
+                    }}
+                    onMouseLeave={e => {
+                      e.currentTarget.style.background = "#f3f0ff";
+                      e.currentTarget.style.color = "#7c5cfc";
+                    }}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
 
       {/* Big brand wordmark */}
       <div style={{ overflow: "hidden" }}>
-        <p
-          style={{
-            fontWeight: 700,
-            letterSpacing: "0.01em",
-            lineHeight: 0.88,
-            textAlign: "center",
-            whiteSpace: "nowrap",
-            userSelect: "none",
-            fontSize: "clamp(20px, 9vw, 160px)",
-            color: "transparent",
-            WebkitTextStroke: "1px #e0daf8",
-            margin: 0,
-            padding: "12px 0 40px",
-            textTransform: "uppercase",
-          }}
-        >
+        <p style={{
+          fontWeight: 700, letterSpacing: "0.01em", lineHeight: 0.88,
+          textAlign: "center", whiteSpace: "nowrap", userSelect: "none",
+          fontSize: "clamp(20px, 9vw, 160px)", color: "transparent",
+          WebkitTextStroke: "1px #e0daf8", margin: 0,
+          padding: "12px 0 40px", textTransform: "uppercase",
+        }}>
           SmartCoach360
         </p>
       </div>

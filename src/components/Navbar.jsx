@@ -80,7 +80,7 @@ function ResourcesDropdown({ currentPath, navigate }) {
 
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className={`flex items-center gap-[5px] px-[13px] py-2.5 rounded-full text-[15px] font-normal border-none cursor-pointer whitespace-nowrap transition-colors duration-150 font-[Poppins] ${isResourcesActive ? "text-[#6E0ACE] bg-[#EFE0FE]" : "text-[#323338] bg-transparent hover:text-[#6E0ACE] hover:bg-[#f9f5ff]"}`}>
+      <button className={`flex items-center gap-[5px] px-[13px]  py-2.5 rounded-full text-[15px] font-normal border-none cursor-pointer whitespace-nowrap transition-colors duration-150 font-[Poppins] ${isResourcesActive ? "text-[#6E0ACE] bg-[#EFE0FE]" : "text-[#323338] bg-transparent hover:text-[#6E0ACE] hover:bg-[#f9f5ff]"}`}>
         Resources
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${resourcesOpen ? "rotate-180" : "rotate-0"} ${isResourcesActive ? "text-[#6E0ACE]" : "text-[#888]"}`}>
           <path d="M6 9l6 6 6-6" />
@@ -94,7 +94,7 @@ function ResourcesDropdown({ currentPath, navigate }) {
         {RESOURCES_SUBMENU.map((item) => {
           const isSubActive = currentPath === item.route;
           return (
-            <button key={item.label} onClick={() => navigate(item.route)} className={`flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border-none cursor-pointer text-left transition-colors duration-[120ms] font-[Poppins] ${isSubActive ? "bg-[#EFE0FE]" : "bg-transparent hover:bg-[#f9f5ff]"}`}>
+            <button key={item.label} onClick={() => {navigate(item.route); setResourcesOpen(false);}} className={`flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border-none cursor-pointer text-left transition-colors duration-[120ms] font-[Poppins] ${isSubActive ? "bg-[#EFE0FE]" : "bg-transparent hover:bg-[#f9f5ff]"}`}>
               <span className={`mt-[1px] flex-shrink-0 ${isSubActive ? "text-[#6E0ACE]" : "text-[#888]"}`}>{item.icon}</span>
               <span className="flex flex-col gap-0.5">
                 <span className={`text-sm font-medium leading-[1.3] ${isSubActive ? "text-[#6E0ACE]" : "text-[#323338]"}`}>{item.label}</span>
@@ -177,7 +177,7 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
           justify-content: space-between;
           gap: 8px;
           white-space: nowrap;
-          overflow: hidden;
+          overflow: visible;
         }
 
         /* Bar state: fixed 68px height */

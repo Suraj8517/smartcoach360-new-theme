@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 const features = [
-  { icon: KeyRound,       name: "SSO (SAML 2.0 / OAuth 2.0)",      tier: "enterprise" },
+  { icon: KeyRound,       name: "SSO (SAML 2.0 / OAuth 2.0)",      tier: "all" },
   { icon: Users,          name: "Role-based Access Control",         tier: "all"        },
   { icon: Lock,           name: "TLS 1.2+ Encryption in Transit",    tier: "all"        },
   { icon: Database,       name: "AES-256 Encryption at Rest",        tier: "all"        },

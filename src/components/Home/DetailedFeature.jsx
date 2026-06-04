@@ -48,7 +48,7 @@ const features = [
   },
   {
     num: "003", icon: <Bolt size={16} />, img: workflow,
-    title: "Automation", subtitle: "Business Automation",
+    title: "Workflow", subtitle: "Business Automation",
     desc: "Lead allocation, client onboarding, payment flows, and communication sequences — completely automated and running in the background.",
     tags: ["Lead Allocation", "Auto Onboarding", "Payment Flows", "Message Sequences"],
   },
