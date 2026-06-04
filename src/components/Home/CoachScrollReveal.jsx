@@ -10,8 +10,8 @@ import whatsapp from "../../assets/integrations/integration-logos/whatsapp.png";
 import zoom from "../../assets/integrations/integration-logos/zoom.png";
 import teams from "../../assets/integrations/integration-logos/teams.png";
 import call from "../../assets/integrations/integration-logos/call.png";
-import sheets from "../../assets/integrations/integration-logos/sheets.png";
-import gform from "../../assets/integrations/integration-logos/google-forms.png";
+import sheets from "../../assets/integrations/integration-logos/stripe.png";
+import gform from "../../assets/integrations/integration-logos/unlimit.jpeg";
 import { motion } from "framer-motion";
 import DetailedFeatures from "./DetailedFeature";
 const OUTLINE_IMG = outline;
@@ -43,8 +43,8 @@ const IntegrationsContent = () => {
     { src: whatsapp, alt: "WhatsApp" },
     { src: zoom,     alt: "Zoom"     },
     { src: teams,    alt: "Teams"    },
-    { src: sheets,   alt: "Sheets"   },
-    { src: gform,    alt: "Google Forms" },
+    { src: sheets,   alt: "stripe"   },
+    { src: gform,    alt: "unlimit" },
   ];
 
   return (
@@ -59,7 +59,7 @@ const IntegrationsContent = () => {
             <img
               src={app.src}
               alt={app.alt}
-              className="w-full h-full object-contain"
+              className="w-full h-full object-contain rounded"
             />
           </div>
         ))}

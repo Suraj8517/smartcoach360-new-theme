@@ -125,11 +125,11 @@ export default function ProblemSection() {
               <span className="w-4 h-4 rounded-full bg-violet-600 flex items-center justify-center shrink-0">
                 <CheckIcon size={9} strokeWidth={3} className="text-white" />
               </span>
-              removes all of the above
+              One platform. Zero chaos.
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-violet-200 shrink-0" />
             <span className="text-slate-400 text-sm font-normal">
-              <span className="font-bold text-slate-600">One platform.</span> Zero chaos.
+              <span className="font-bold text-slate-600">removes </span> all of the above
             </span>
           </div>
 
