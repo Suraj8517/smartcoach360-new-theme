@@ -16,10 +16,12 @@ import PrivacyPolicy from './pages/PrivacyPolicy';
 import Blogs from './pages/blogs';
 import BlogPosts from './pages/blogPosts';
 import Security from './pages/Security';
+import ScrollToTop from './components/Helper/ScrollToTop';
 export default function LandingPage() {
   return (
     <>
      <Router>
+      <ScrollToTop/>
     <Navbar/>
     <main>
       <Routes>

@@ -11,6 +11,7 @@ import SupportSection from '../components/Home/SupportSection'
 export default function Home() {
   return (
     <>
+    
     <Hero/>
     <FeatureShowcase/>
      <TrustedBy/>

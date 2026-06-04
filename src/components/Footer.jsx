@@ -5,23 +5,14 @@ export default function SmartCoachFooter() {
     {
       label: "Email",
       value: "sales@smartcoach360.ai",
+      href: "mailto:sales@smartcoach360.ai",
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <rect x="2" y="4" width="20" height="16" rx="2" />
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
         </svg>
       ),
-    },
-    {
-      label: "Address",
-      value: "No 9/14, Bharathi Street, Vellakinar, Coimbatore, Tamil Nadu, 641029",
-      icon: (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-          <circle cx="12" cy="10" r="3" />
-        </svg>
-      ),
-    },
+    }
   ];
 
   const socialLinks = [
@@ -53,52 +44,55 @@ export default function SmartCoachFooter() {
   ];
 
   return (
-    <footer
-      style={{ background: "#ffffff", color: "#1a1a1a" }}
-      className="w-full border-t border-gray-200"
-    >
-      {/* Top section */}
-      <div className="px-5 sm:px-10 pt-10 pb-8">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-8 justify-items-center">
+    <footer className="w-full border-t border-gray-100 bg-white text-[#1a1a1a]">
 
-          {/* Email & Address */}
+      {/* ── Top info grid ── */}
+      <div className="px-5 sm:px-10 pt-10 pb-8">
+        {/* Mobile: single column stack | sm: 2-col | lg: 3-col */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
+
           {contactItems.map((item) => (
-            <div key={item.label} style={{ display: "flex", alignItems: "flex-start", gap: 14 }}>
-              <div style={{
-                width: 38, height: 38, borderRadius: 10,
-                background: "#f3f0ff", display: "flex",
-                alignItems: "center", justifyContent: "center",
-                flexShrink: 0, color: "#7c5cfc",
-              }}>
+            <div key={item.label} className="flex items-start gap-3">
+              <div className="w-10 h-10 rounded-xl bg-[#f3f0ff] flex items-center justify-center flex-shrink-0 text-[#7c5cfc]">
                 {item.icon}
               </div>
-              <div style={{ minWidth: 0 }}>
-                <p style={{
-                  fontSize: 10, fontWeight: 700, letterSpacing: "0.1em",
-                  textTransform: "uppercase", color: "#aaa", margin: "0 0 4px",
-                }}>
+              <div className="min-w-0">
+                <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-1">
                   {item.label}
                 </p>
-                <p style={{
-                  fontSize: 13.5, color: "#333", lineHeight: 1.55,
-                  wordBreak: "break-word", margin: 0,
-                }}>
-                  {item.value}
-                </p>
+                {item.href ? (
+                  <a
+                    href={item.href}
+                    className="text-[13.5px] text-[#333] leading-snug break-words hover:text-[#7c5cfc] transition-colors duration-200 no-underline"
+                  >
+                    {item.value}
+                  </a>
+                ) : (
+                  <p className="text-[13.5px] text-[#333] leading-snug break-words m-0">
+                    {item.value}
+                  </p>
+                )}
               </div>
             </div>
           ))}
 
-          {/* Follow us on — social icons grouped */}
-          <div style={{ display: "flex", alignItems: "flex-end", gap: 14 }}>
-            <div style={{ minWidth: 0 }}>
-              <p style={{
-                fontSize: 10, fontWeight: 700, letterSpacing: "0.1em",
-                textTransform: "uppercase", color: "#aaa", margin: "0 0 10px",
-              }}>
+          {/* Follow us on */}
+          <p className="flex items-center gap-2">
+  Built with ❤️ in Coimbatore, India
+</p>
+          <div className="flex items-start gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#f3f0ff] flex items-center justify-center flex-shrink-0 text-[#7c5cfc]">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <circle cx="18" cy="5" r="3" /><circle cx="6" cy="12" r="3" /><circle cx="18" cy="19" r="3" />
+                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49" />
+                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49" />
+              </svg>
+            </div>
+            <div>
+              <p className="text-[10px] font-bold tracking-widest uppercase text-gray-400 mb-3">
                 Follow us on
               </p>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div className="flex items-center gap-2">
                 {socialLinks.map((social) => (
                   <a
                     key={social.label}
@@ -106,22 +100,7 @@ export default function SmartCoachFooter() {
                     target="_blank"
                     rel="noopener noreferrer"
                     title={social.label}
-                    style={{
-                      width: 38, height: 38, borderRadius: 10,
-                      background: "#f3f0ff", display: "flex",
-                      alignItems: "center", justifyContent: "center",
-                      flexShrink: 0, color: "#7c5cfc",
-                      textDecoration: "none",
-                      transition: "background 0.2s, color 0.2s",
-                    }}
-                    onMouseEnter={e => {
-                      e.currentTarget.style.background = "#7c5cfc";
-                      e.currentTarget.style.color = "#fff";
-                    }}
-                    onMouseLeave={e => {
-                      e.currentTarget.style.background = "#f3f0ff";
-                      e.currentTarget.style.color = "#7c5cfc";
-                    }}
+                    className="w-10 h-10 rounded-xl bg-[#f3f0ff] flex items-center justify-center text-[#7c5cfc] no-underline transition-all duration-200 hover:bg-[#7c5cfc] hover:text-white"
                   >
                     {social.icon}
                   </a>
@@ -133,41 +112,42 @@ export default function SmartCoachFooter() {
         </div>
       </div>
 
-      {/* Big brand wordmark */}
-      <div style={{ overflow: "hidden" }}>
-        <p style={{
-          fontWeight: 700, letterSpacing: "0.01em", lineHeight: 0.88,
-          textAlign: "center", whiteSpace: "nowrap", userSelect: "none",
-          fontSize: "clamp(20px, 9vw, 160px)", color: "transparent",
-          WebkitTextStroke: "1px #e0daf8", margin: 0,
-          padding: "12px 0 40px", textTransform: "uppercase",
-        }}>
+      {/* ── Brand wordmark ── */}
+      <div className="overflow-hidden">
+        <p
+          className="text-center whitespace-nowrap select-none m-0 uppercase"
+          style={{
+            fontWeight: 700,
+            lineHeight: 0.88,
+            fontSize: "clamp(20px, 9vw, 160px)",
+            color: "transparent",
+            WebkitTextStroke: "1px #e0daf8",
+            padding: "12px 0 40px",
+            letterSpacing: "0.01em",
+          }}
+        >
           SmartCoach360
         </p>
       </div>
 
-      {/* Bottom bar */}
-      <div
-        style={{ padding: "14px 20px 20px" }}
-        className="flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-2 md:mb-22"
-      >
-        <p style={{ fontSize: 12, color: "#bbb", margin: 0 }}>
+      {/* ── Bottom bar ── */}
+      <div className="px-5 sm:px-10 pb-6 flex flex-col-reverse sm:flex-row sm:items-center sm:justify-between gap-3">
+        <p className="text-[12px] text-gray-300 m-0">
           © 2025–26 SmartCoach360. All rights reserved.
         </p>
-        <div style={{ display: "flex", gap: 20 }}>
+        <div className="flex flex-wrap gap-x-5 gap-y-2">
           {footerLinks.map((link) => (
             <Link
               to={link.href}
               key={link.label}
-              style={{ fontSize: 12, color: "#999", textDecoration: "none", transition: "color 0.2s" }}
-              onMouseEnter={e => e.target.style.color = "#7c5cfc"}
-              onMouseLeave={e => e.target.style.color = "#999"}
+              className="text-[12px] text-gray-400 no-underline hover:text-[#7c5cfc] transition-colors duration-200"
             >
               {link.label}
             </Link>
           ))}
         </div>
       </div>
+
     </footer>
   );
 }

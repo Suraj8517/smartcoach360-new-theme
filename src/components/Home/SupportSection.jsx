@@ -83,7 +83,7 @@ export default function SupportSection() {
   };
 
   return (
-    <section className="w-full bg-white pt-16 lg:pt-28 overflow-hidden">
+    <section className="w-full bg-white pt-16 lg:pt-28 overflow-hidden ">
 
       {/* Heading */}
       <div className="px-5 sm:px-8 lg:px-12 xl:px-24">
@@ -94,7 +94,7 @@ export default function SupportSection() {
 
       {/* Swiper */}
       <div className="px-5 sm:px-8 lg:px-12 xl:px-24 mb-10 [&_.swiper]:overflow-hidden lg:[&_.swiper]:!overflow-visible">
-        <Swiper
+        <Swiper className="cursor-grab active:cursor-grabbing"
           modules={[Navigation]}
           onSwiper={(swiper) => {
             setSwiperRef(swiper);

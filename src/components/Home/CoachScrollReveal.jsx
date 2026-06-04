@@ -73,20 +73,29 @@ const IntegrationsContent = () => {
 
 const DocsContent = () => (
   <Card>
-    <CardTitle>Docs</CardTitle>
+    <CardTitle>Payments</CardTitle>
     <div className="bg-[#181818] rounded-lg p-2.5 border border-[#222]">
-      <p className="text-white text-[10px] font-semibold mb-1.5">Q4 fitness: next steps</p>
+      <p className="text-white text-[10px] font-semibold mb-1.5">April invoice</p>
       <div className="flex items-center gap-1.5 mb-1.5">
-        <div className="w-4 h-4 rounded-full bg-orange-600 flex items-center justify-center text-[7px] text-white font-bold shrink-0">A</div>
-        <span className="text-[8px] text-violet-400">Alex Carter</span>
-        <span className="text-[8px] text-[#555]">Can you update the m...</span>
+        <div className="w-4 h-4 rounded-full bg-emerald-600 flex items-center justify-center text-[7px] text-white font-bold shrink-0">$</div>
+        <span className="text-[8px] text-violet-400">Stripe</span>
+        <span className="text-[8px] text-[#555]">Payment due in 3 da...</span>
       </div>
-      {["Track macros & calorie intake", "Progressive overload plan", "Improve sleep & recovery"].map((t, i) => (
+      {[
+        { label: "Subscription plan", amount: "$49.00", done: false },
+        { label: "Add-on: Analytics", amount: "$12.00", done: true },
+        { label: "Tax (8%)", amount: "$4.88", done: false },
+      ].map((item, i) => (
         <div key={i} className="flex items-center gap-1.5 mb-1">
-          <div className={`w-3 h-3 rounded-[3px] shrink-0 ${i === 1 ? "bg-indigo-600" : "border border-[#333] bg-transparent"}`} />
-          <span className={`text-[8px] ${i === 1 ? "text-white" : "text-[#555]"}`}>{t}</span>
+          <div className={`w-3 h-3 rounded-[3px] shrink-0 ${item.done ? "bg-emerald-600" : "border border-[#333] bg-transparent"}`} />
+          <span className={`text-[8px] flex-1 ${item.done ? "text-white" : "text-[#555]"}`}>{item.label}</span>
+          <span className={`text-[8px] ${item.done ? "text-emerald-400" : "text-[#555]"}`}>{item.amount}</span>
         </div>
       ))}
+      <div className="mt-2 pt-1.5 border-t border-[#222] flex justify-between items-center">
+        <span className="text-[8px] text-[#555]">Total due</span>
+        <span className="text-[9px] font-bold text-white">$65.88</span>
+      </div>
     </div>
   </Card>
 );

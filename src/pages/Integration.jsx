@@ -7,6 +7,7 @@ import IntegrationsSection from '../components/Integration/IntegrationDetails'
 export default function Integration() {
   return (
     <div className='bg-black'>
+      
     <IntegrationHero/>
     <IntegrationsSection/>
     <IntegrationsLogoSection/>
