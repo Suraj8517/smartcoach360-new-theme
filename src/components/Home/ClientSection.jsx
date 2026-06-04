@@ -22,7 +22,7 @@ const LogoItem = ({ alt, className, src }) => (
   <img
     src={src}
     alt={alt}
-    className={`${className} object-contain opacity-[0.98] grayscale`}
+    className={`${className} object-contain opacity-[0.98]`}
   />
 );
 
