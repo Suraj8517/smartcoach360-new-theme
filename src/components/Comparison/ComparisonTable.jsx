@@ -1,5 +1,6 @@
 import { useState } from "react";
-
+import CheckIcon from "../UI/CheckIcon"
+import CrossIcon from "../UI/CrossIcon"
 const features = [
   { name: "Custom workout programs", sc360: true, truecoach: true, mindbody: false, ptdistinction: true },
   { name: "Nutrition & macro tracking", sc360: true, truecoach: false, mindbody: false, ptdistinction: true },
@@ -29,21 +30,7 @@ const columns = [
   { key: "ptdistinction", label: "PTDistinction", highlight: false, shortLabel: "PTD"},
 ];
 
-const CheckIcon = () => (
-  <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-[#EEEDFE]">
-    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#534AB7" strokeWidth={2.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-    </svg>
-  </span>
-);
 
-const CrossIcon = () => (
-  <span className="inline-flex items-center justify-center w-[22px] h-[22px] rounded-full bg-gray-100">
-    <svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="#d1d5db" strokeWidth={2.5}>
-      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-    </svg>
-  </span>
-);
 
 
 
@@ -105,8 +92,10 @@ export default function ComparisonTable() {
                 </div>
               </td>
               {columns.map((col) => (
-                <td key={col.key} className="py-3 px-1.5 text-center align-middle">
-                  {feature[col.key] ? <CheckIcon /> : <CrossIcon />}
+                <td key={col.key} className="py-3 px-1.5 text-center align-middle justify-center">
+                   <div className="flex justify-center items-center">
+    {feature[col.key] ? <CheckIcon /> : <CrossIcon />}
+  </div>
                 </td>
               ))}
             </tr>
