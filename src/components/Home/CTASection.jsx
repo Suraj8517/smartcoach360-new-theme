@@ -2,7 +2,7 @@ import img from "../../assets/ctasection/cta.png"
 const url = import.meta.env.VITE_CALENDLY_LINK;
 export default function CTASection() {
   return (
-    <section className="xl:min-h-screen flex flex-col items-center justify-center text-center bg-white px-6 md:py-20 py-14">
+    <section className="xl:min-h-[70vhD] flex flex-col items-center justify-center text-center bg-white px-6 md:py-20 py-14">
       <p className="text-sm text-gray-400 tracking-widest uppercase mb-4">
        Get Started Today
       </p>
