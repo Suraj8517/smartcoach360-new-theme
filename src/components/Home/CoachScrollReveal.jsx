@@ -10,7 +10,7 @@ import whatsapp from "../../assets/integrations/integration-logos/whatsapp.png";
 import zoom from "../../assets/integrations/integration-logos/zoom.png";
 import teams from "../../assets/integrations/integration-logos/teams.png";
 import call from "../../assets/integrations/integration-logos/call.png";
-import sheets from "../../assets/integrations/integration-logos/stripe.png";
+import sheets from "../../assets/integrations/integration-logos/Stripe.png";
 import gform from "../../assets/integrations/integration-logos/unlimit.jpeg";
 import { motion } from "framer-motion";
 import DetailedFeatures from "./DetailedFeature";
