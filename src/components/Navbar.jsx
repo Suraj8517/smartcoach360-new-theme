@@ -80,7 +80,7 @@ function ResourcesDropdown({ currentPath, navigate }) {
 
   return (
     <div className="relative" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <button className={`flex items-center gap-[5px] px-[13px]  py-2.5 rounded-full text-[15px] font-normal border-none cursor-pointer whitespace-nowrap transition-colors duration-150 font-[Poppins] ${isResourcesActive ? "text-[#6E0ACE] bg-[#EFE0FE]" : "text-[#323338] bg-transparent hover:text-[#6E0ACE] hover:bg-[#f9f5ff]"}`}>
+      <button className={`flex items-center gap-[5px] px-[13px] py-2.5 rounded-full text-[15px] font-normal border-none cursor-pointer whitespace-nowrap transition-colors duration-150 font-[Poppins] ${isResourcesActive ? "text-[#6E0ACE] bg-[#EFE0FE]" : "text-[#323338] bg-transparent hover:text-[#6E0ACE] hover:bg-[#f9f5ff]"}`}>
         Resources
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className={`transition-transform duration-200 ${resourcesOpen ? "rotate-180" : "rotate-0"} ${isResourcesActive ? "text-[#6E0ACE]" : "text-[#888]"}`}>
           <path d="M6 9l6 6 6-6" />
@@ -94,7 +94,7 @@ function ResourcesDropdown({ currentPath, navigate }) {
         {RESOURCES_SUBMENU.map((item) => {
           const isSubActive = currentPath === item.route;
           return (
-            <button key={item.label} onClick={() => {navigate(item.route); setResourcesOpen(false);}} className={`flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border-none cursor-pointer text-left transition-colors duration-[120ms] font-[Poppins] ${isSubActive ? "bg-[#EFE0FE]" : "bg-transparent hover:bg-[#f9f5ff]"}`}>
+            <button key={item.label} onClick={() => { navigate(item.route); setResourcesOpen(false); }} className={`flex items-start gap-2.5 px-3 py-2.5 rounded-[10px] border-none cursor-pointer text-left transition-colors duration-[120ms] font-[Poppins] ${isSubActive ? "bg-[#EFE0FE]" : "bg-transparent hover:bg-[#f9f5ff]"}`}>
               <span className={`mt-[1px] flex-shrink-0 ${isSubActive ? "text-[#6E0ACE]" : "text-[#888]"}`}>{item.icon}</span>
               <span className="flex flex-col gap-0.5">
                 <span className={`text-sm font-medium leading-[1.3] ${isSubActive ? "text-[#6E0ACE]" : "text-[#323338]"}`}>{item.label}</span>
@@ -127,7 +127,6 @@ function NavLinks({ currentPath, navigate }) {
 // ─── Desktop Morphing Navbar ───────────────────────────────────────────────────
 
 const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
-  // Measure viewport width so we can compute the pill width in px
   const [vw, setVw] = useState(typeof window !== "undefined" ? window.innerWidth : 1440);
 
   useEffect(() => {
@@ -136,15 +135,14 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
-  // Pill width = viewport minus the two CTA pill groups (approx 300px) minus gap
-  // We want the nav links pill to be wide enough to show all links comfortably
-  const PILL_WIDTH = Math.min(780, vw - 340);
+  // Pill wide enough for links + CTAs comfortably
+  const PILL_WIDTH = Math.min(1060, vw - 80);
   const BAR_WIDTH = vw;
 
   const currentWidth = scrolled ? PILL_WIDTH : BAR_WIDTH;
   const currentRadius = scrolled ? 9999 : 0;
   const currentTop = scrolled ? 10 : 0;
-  const currentPadding = scrolled ? "5px" : "0 64px";
+  const currentPadding = scrolled ? "5px 10px" : "0 64px";
   const currentShadow = scrolled
     ? "0 4px 32px rgba(0,0,0,0.10), 0 1.5px 6px rgba(0,0,0,0.06)"
     : "none";
@@ -163,12 +161,12 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
           background: white;
           will-change: width, border-radius, top, padding, box-shadow;
           transition:
-            width       0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            width         0.5s cubic-bezier(0.4, 0, 0.2, 1),
             border-radius 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            top         0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            padding     0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            box-shadow  0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            border      0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            top           0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            padding       0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow    0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            border        0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .morph-inner {
@@ -180,53 +178,24 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
           overflow: visible;
         }
 
-        /* Bar state: fixed 68px height */
         .morph-nav.bar .morph-inner { height: 68px; }
-        /* Pill state: auto height with padding from container */
-        .morph-nav.pill .morph-inner { height: auto; }
+        .morph-nav.pill .morph-inner { height: auto; padding: 4px 0; }
 
-        /* Logo text collapses smoothly */
         .morph-logo-text {
           overflow: hidden;
           white-space: nowrap;
           transition:
-            max-width  0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            opacity    0.3s ease,
+            max-width   0.5s cubic-bezier(0.4, 0, 0.2, 1),
+            opacity     0.3s ease,
             margin-left 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .morph-nav.bar  .morph-logo-text { max-width: 220px; opacity: 1; margin-left: 8px; }
         .morph-nav.pill .morph-logo-text { max-width: 0px;   opacity: 0; margin-left: 0px; }
 
-        /* Bar CTAs collapse smoothly */
-        .morph-ctas {
-          overflow: hidden;
-          transition:
-            max-width 0.5s cubic-bezier(0.4, 0, 0.2, 1),
-            opacity   0.25s ease;
-          flex-shrink: 0;
-        }
-        .morph-nav.bar  .morph-ctas { max-width: 320px; opacity: 1; }
-        .morph-nav.pill .morph-ctas { max-width: 0px;   opacity: 0; }
-
-        /* Pill CTAs fade in from right */
-        .pill-ctas {
-          position: fixed;
-          z-index: 9999;
-          top: 10px;
-          right: 24px;
-          display: flex;
-          align-items: center;
-          gap: 6px;
-          font-family: 'Poppins', sans-serif;
-          transition:
-            opacity   0.35s ease 0.18s,
-            transform 0.5s  cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .pill-ctas.visible   { opacity: 1; transform: translateY(0px);  pointer-events: auto; }
-        .pill-ctas.invisible { opacity: 0; transform: translateY(-10px); pointer-events: none; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
 
-      {/* ── Single morphing element ── */}
       <div
         className={`morph-nav ${scrolled ? "pill" : "bar"}`}
         style={{
@@ -242,7 +211,11 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
         <div className="morph-inner">
 
           {/* Logo */}
-          <button onClick={() => navigate("/")} className="flex items-center bg-transparent border-none cursor-pointer flex-shrink-0" aria-label="Home">
+          <button
+            onClick={() => navigate("/")}
+            className="flex items-center bg-transparent border-none cursor-pointer flex-shrink-0"
+            aria-label="Home"
+          >
             <div className="w-[38px] h-[38px] rounded-full bg-[#f3f0ff] flex items-center justify-center flex-shrink-0">
               <img src={logo} alt="Logo" className="w-6 h-6 object-contain" />
             </div>
@@ -252,17 +225,33 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
             </div>
           </button>
 
-          {/* Nav links — always visible */}
+          {/* Nav links — always visible, centered */}
           <div className="flex items-center gap-1 px-1 flex-1 justify-center">
             <NavLinks currentPath={currentPath} navigate={navigate} />
           </div>
 
-          {/* CTAs — only in bar mode, collapse away in pill mode */}
-          <div className="morph-ctas flex items-center gap-2">
-            <button onClick={() => navigate("/contact-us")} className="px-[13px] py-2.5 rounded-full text-[15px] font-medium text-[#6E0ACE] bg-white border border-[#e8d5fc] cursor-pointer whitespace-nowrap font-[Poppins] transition-colors duration-150 hover:bg-[#EFE0FE]">
+          {/* CTAs — always in the same pill, style adapts */}
+          <div className="flex items-center gap-2 flex-shrink-0">
+            <button
+              onClick={() => navigate("/contact-us")}
+              className="px-[13px] py-2.5 rounded-full text-[15px] font-medium cursor-pointer whitespace-nowrap font-[Poppins] transition-all duration-300 hover:bg-[#EFE0FE]"
+              style={{
+                color: "#6E0ACE",
+                background: "white",
+                border: scrolled ? "1px solid #e2e8f0" : "1px solid #e8d5fc",
+                boxShadow: scrolled ? "0 2px 12px rgba(0,0,0,0.07)" : "none",
+              }}
+            >
               Contact Us
             </button>
-            <button onClick={() => window.open(url, "_blank")} className="flex items-center gap-1.5 px-[15px] py-2.5 rounded-full text-[15px] font-medium text-white bg-[#6E0ACE] border-none cursor-pointer whitespace-nowrap font-[Poppins] transition-colors duration-150 hover:bg-[#9631F5]">
+            <button
+              onClick={() => window.open(url, "_blank")}
+              className="flex items-center gap-1.5 px-[15px] py-2.5 rounded-full text-[15px] font-medium text-white border-none cursor-pointer whitespace-nowrap font-[Poppins] transition-all duration-150 hover:bg-[#9631F5]"
+              style={{
+                background: "#6E0ACE",
+                boxShadow: scrolled ? "0 4px 16px rgba(110,10,206,0.25)" : "none",
+              }}
+            >
               Book a Demo
               <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
                 <path d="M3 8h10M9 4l4 4-4 4" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
@@ -272,28 +261,11 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
 
         </div>
       </div>
-
-      {/* ── Pill-mode CTAs (fixed right, fade in after pill forms) ── */}
-      <div className={`pill-ctas ${scrolled ? "visible" : "invisible"}`}>
-        <div className="bg-white border border-gray-200 rounded-full shadow-[0_4px_24px_rgba(0,0,0,0.08)] flex items-center px-2 py-2">
-          <button onClick={() => navigate("/contact-us")} className="px-[13px] py-2.5 rounded-full text-[15px] font-medium text-[#6E0ACE] bg-white border-none cursor-pointer whitespace-nowrap font-[Poppins] transition-colors duration-150 hover:bg-[#EFE0FE]">
-            Contact Us
-          </button>
-        </div>
-        <div className="bg-[#6E0ACE] rounded-full shadow-[0_4px_24px_rgba(110,10,206,0.25)] flex items-center px-2 py-2">
-          <button onClick={() => window.open(url, "_blank")} className="flex items-center gap-1.5 px-[13px] py-2.5 rounded-full text-[15px] font-medium text-white bg-[#6E0ACE] border-none cursor-pointer whitespace-nowrap font-[Poppins] transition-colors duration-150 hover:bg-[#9631F5]">
-            Book a Demo
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-              <path d="M3 8h10M9 4l4 4-4 4" stroke="#ffffff" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
-          </button>
-        </div>
-      </div>
     </>
   );
 };
 
-// ─── Mobile Menu (unchanged) ───────────────────────────────────────────────────
+// ─── Mobile Menu ───────────────────────────────────────────────────────────────
 
 const MobileMenu = ({ open, navigate, onClose, currentPath }) => {
   const [resourcesExpanded, setResourcesExpanded] = useState(false);
@@ -399,7 +371,7 @@ export default function Navbar() {
 
   return (
     <>
-      {/* ── Mobile (unchanged) ── */}
+      {/* ── Mobile ── */}
       <nav className={`fixed left-0 right-0 z-[200] w-full bg-white xl:hidden top-0 ${scrolled ? "shadow-[0_2px_20px_rgba(0,0,0,0.12)]" : ""}`}>
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <div className="flex items-center justify-between h-16">

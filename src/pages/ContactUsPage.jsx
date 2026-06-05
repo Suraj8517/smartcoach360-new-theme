@@ -39,7 +39,7 @@ export default function ContactUsPage() {
         <div className='mx-auto hidden md:flex items-center justify-center gap-6'>
           {
             logos.map(({ alt, className, src }, i) => (
-              <img key={`${alt}-${i}`} src={src} alt={alt} className={`${className} object-contain opacity-[0.98] grayscale inline-block mx-2 my-2`} />
+              <img key={`${alt}-${i}`} src={src} alt={alt} className={`${className} object-contain opacity-[0.98] inline-block mx-2 my-2`} />
             ))
           }
         </div>

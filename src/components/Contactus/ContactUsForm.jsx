@@ -221,7 +221,7 @@ export default function ContactForm() {
         ) : (
           <>
             <h2 className="text-[17px] font-bold text-gray-900 text-center mb-6">
-              Contact our sales team
+              Contact our team
             </h2>
 
             {errors._global && (

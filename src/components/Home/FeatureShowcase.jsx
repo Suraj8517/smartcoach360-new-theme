@@ -27,12 +27,11 @@ import {
   Users2,
 Smartphone
 } from "lucide-react";
-import { FEATURES } from "./featureShowcase/constants/features";
+import { NAV_FEATURES } from "./featureShowcase/constants/topfeatures";
 import { Shimmer } from "../UI/Shimmer";
 import { ExplorePanel } from "./featureShowcase/Explorepanel";
 import { SkeletonProgramManagement } from "./featureShowcase/skeletons/SkeletonProgramManagement";
 import { SkeletonNutrition } from "./featureShowcase/skeletons/SkeletonNutrition";
-import { SkeletonDashboards } from "./featureShowcase/skeletons/SkeletonDashboard";
 import { SkeletonPayments } from "./featureShowcase/skeletons/SkeletonPayments";
 import { AgentBadge } from "../UI/AgentBadge";
 import {SkeletonClientEngagement} from "./featureShowcase/skeletons/SkeletonClientengagement";
@@ -40,6 +39,10 @@ import { SkeletonTeamManagement } from "./featureShowcase/skeletons/SkeletonTeam
 import {SkeletonMobileApp} from "./featureShowcase/skeletons/SkeletonApp";
 import { SkeletonSecurity } from "./featureShowcase/skeletons/SkeletonSecurity";
 import { SkeletonWorkflows } from "./featureShowcase/skeletons/SkeletonWorkflow";
+import { SkeletonClientProfile } from "./featureShowcase/skeletons/SkeletonClientProfile";
+import  SkeletonCoachProfile  from "./featureShowcase/skeletons/SkeletonCoachProfile";
+import {SkeletonExerciseLibrary} from "./featureShowcase/skeletons/SkeletonDashboard";
+
 // ── Skeleton Default ─────────────────────────────────────────
 const SkeletonDefault = () => (
   <>
@@ -75,15 +78,15 @@ const SkeletonDefault = () => (
 );
 
 const SKELETON_MAP = {
-  0: SkeletonProgramManagement,
-  1: SkeletonNutrition,
-  2: SkeletonDashboards,
-  3: SkeletonPayments,
-  4: SkeletonClientEngagement,
+  0: SkeletonNutrition,
+  1: SkeletonClientEngagement ,
+  2: SkeletonExerciseLibrary,
+  3: SkeletonMobileApp,
+  4:  SkeletonWorkflows,
   5: SkeletonTeamManagement,
-  6: SkeletonMobileApp,
-  7: SkeletonSecurity,
-  8: SkeletonWorkflows,
+  6:  SkeletonProgramManagement,
+  7: SkeletonClientProfile,
+  8: SkeletonCoachProfile,
 };
 
 // ── Mobile skeleton map ──────────────────────────────────────
@@ -188,7 +191,7 @@ export default function FeatureShowcase() {
   const [mobIndex, setMobIndex] = useState(0);
 const url =import.meta.env.VITE_CALENDLY_LINK;
 
-  const displayFeature = active !== null ? FEATURES[active] : FEATURES[0];
+  const displayFeature = active !== null ? NAV_FEATURES[active] : NAV_FEATURES[0];
   const isBlurred = active === null;
 
   const handleSelect = (id) => {
@@ -202,8 +205,8 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
     setImgFailed(false);
   };
 
-  const mobNext = () => setMobIndex((i) => (i + 1) % FEATURES.length);
-  const mobFeature = FEATURES[mobIndex];
+  const mobNext = () => setMobIndex((i) => (i + 1) % NAV_FEATURES.length);
+  const mobFeature = NAV_FEATURES[mobIndex];
 
   const ActiveDesktopSkeleton = active !== null ? SKELETON_MAP[active] : null;
   const MobSkeletonComp = MOBILE_SKELETON_MAP[mobIndex] || MOBILE_SKELETON_MAP.default;
@@ -480,9 +483,15 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
               </div>
 
               {/* Explore panel */}
-              <div className="absolute -top-14 -right-20 z-30 desk-panel">
-                <ExplorePanel active={active} onSelect={handleSelect} />
-              </div>
+             <div
+  className="
+    absolute -top-20 z-30 desk-panel
+    xl:left-1/2 xl:-translate-x-1/2
+    2xl:left-auto 2xl:right-0 2xl:translate-x-0
+  "
+>
+  <ExplorePanel active={active} onSelect={handleSelect} />
+</div>
             </div>
           </div>
 
@@ -531,7 +540,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
 
     {/* Dot indicators — bottom right */}
     <div className="absolute bottom-3.5 right-3 flex gap-1 items-center">
-      {FEATURES.map((_, i) => (
+      {NAV_FEATURES.map((_, i) => (
         <div
           key={i}
           onClick={(e) => { e.stopPropagation(); setMobIndex(i); }}
@@ -549,7 +558,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
 
   {/* ── Feature tabs ── */}
   <div className="flex gap-1.5 overflow-x-auto pb-0.5 scrollbar-hide -mx-4 px-4">
-    {FEATURES.map((f, i) => (
+    {NAV_FEATURES.map((f, i) => (
       <button
         key={i}
         onClick={() => setMobIndex(i)}
