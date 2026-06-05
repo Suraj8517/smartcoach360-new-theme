@@ -17,10 +17,12 @@ import Blogs from './pages/blogs';
 import BlogPosts from './pages/blogPosts';
 import Security from './pages/Security';
 import ScrollToTop from './components/Helper/ScrollToTop';
+import SmartCoach360Loader from './components/Loader';
 export default function LandingPage() {
   return (
     <>
      <Router>
+      <SmartCoach360Loader/>
       <ScrollToTop/>
     <Navbar/>
     <main>
