@@ -97,7 +97,7 @@ export const SkeletonClientEngagement = () => (
     <div
       className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
       style={{
-        bottom: 100, right: -255, width: 165,
+        bottom: 100, right: -205, width: 165,
         boxShadow: "0 4px 16px rgba(0,0,0,0.08)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.25s both",
       }}

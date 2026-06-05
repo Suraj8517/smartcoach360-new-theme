@@ -18,8 +18,8 @@ const programFeatures = [
   },
   {
     avatar: avatar2,
-    right: "-450%",
-    bottom: 0,
+    right: "-420%",
+    bottom: 200,
     barColor: "linear-gradient(90deg, #ec4899 0%, #f472b6 100%)",
     barBg: "#fdf2f8",
     barWidth: "58%",
@@ -46,7 +46,7 @@ export const SkeletonNutrition = () => (
     <div
       className="absolute bg-white rounded-2xl border border-gray-100 p-4"
       style={{
-        bottom: -50,
+        bottom: 100,
         right: -155,
         width: 210,
         boxShadow:

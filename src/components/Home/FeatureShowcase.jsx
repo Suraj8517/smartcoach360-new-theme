@@ -214,9 +214,7 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
   return (
     <>
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
-        .fs-root * { font-family: 'Poppins', sans-serif; box-sizing: border-box; }
-        .fs-root { font-family: 'Poppins', sans-serif; }
+      
 
         /* ── Shared keyframes ── */
         @keyframes slideUp {
@@ -404,96 +402,101 @@ const url =import.meta.env.VITE_CALENDLY_LINK;
         }
       `}</style>
 
-      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-x-hidden lg:pt-30 md:pb-40">
+      <section className="fs-root w-full bg-white px-4 sm:px-6 lg:px-10 relative overflow-hidden lg:pt-10 md:pb-40">
         <div className="fs-grid-bg" />
 
         <div className="2xl:max-w-5xl max-w-4xl mx-auto relative z-10">
 
           {/* ══ DESKTOP ══════════════════════════════════════════════ */}
-          <div className="hidden lg:block">
-            <div className="relative" style={{ minHeight: "600px" }}>
+<div className="hidden lg:block">
 
-              {/* Main screenshot */}
-              <div
-                key={`img-wrap-${animKey}`}
-                className={`absolute left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100 ${active !== null ? "desk-img-glow" : ""}`}
-                style={{ width: "100%", boxShadow: "0 16px 60px rgba(0,0,0,0.10)" }}
-              >
-                {/* Ripple on select */}
-                {active !== null && (
-                  <div
-                    key={`ripple-${animKey}`}
-                    className="desk-ripple absolute inset-0 z-20 pointer-events-none rounded-xl"
-                    style={{
-                      background: "radial-gradient(ellipse at center, rgba(91,94,244,0.18) 0%, transparent 70%)",
-                    }}
-                  />
-                )}
+  {/* Pills row — above screenshot */}
+  <div className="mb-3 2xl:mb-14 desk-panel">
+    <ExplorePanel active={active} onSelect={handleSelect} />
+  </div>
 
-                {!imgFailed ? (
-                  <img
-                    key={`img-${animKey}`}
-                    src={displayFeature.screenshotImage}
-                    alt={displayFeature.label}
-                    className="desk-img w-full h-full object-cover object-top-left"
-                    style={{ minHeight: "560px" }}
-                    onError={() => setImgFailed(true)}
-                  />
-                ) : (
-                  <SkeletonScreen />
-                )}
+  <div
+    className="relative
+      lg:max-w-[85%] lg:mx-auto lg:min-h-125
+      xl:max-w-[92%] xl:mx-auto xl:min-h-125
+      2xl:max-w-none 2xl:mx-0 2xl:min-h-[600px]"
+  >
 
-                {/* Blur overlay */}
-                {isBlurred && (
-                  <div
-                    key={`blur-${animKey}`}
-                    className="desk-blur-in absolute inset-0 z-10"
-                    style={{
-                      backdropFilter: "blur(10px)",
-                      WebkitBackdropFilter: "blur(10px)",
-                      background: "rgba(245,245,255,0.50)",
-                    }}
-                  />
-                )}
-              </div>
+    {/* Main screenshot */}
+    <div
+      key={`img-wrap-${animKey}`}
+      className={`absolute left-0 bottom-0 rounded-xl overflow-hidden border border-gray-100 ${active !== null ? "desk-img-glow" : ""}`}
+      style={{ width: "100%", boxShadow: "0 16px 60px rgba(0,0,0,0.10)" }}
+    >
+      {active !== null && (
+        <div
+          key={`ripple-${animKey}`}
+          className="desk-ripple absolute inset-0 z-20 pointer-events-none rounded-xl"
+          style={{
+            background: "radial-gradient(ellipse at center, rgba(91,94,244,0.18) 0%, transparent 70%)",
+          }}
+        />
+      )}
 
-              {/* Skeleton cards */}
-              <div
-                key={`skeletons-${animKey}`}
-                className="absolute inset-0 pointer-events-none desk-card"
-                style={{ top: 72, zIndex: 15 }}
-              >
-                {isBlurred ? <SkeletonDefault /> : (ActiveDesktopSkeleton && <ActiveDesktopSkeleton />)}
-              </div>
+      {!imgFailed ? (
+        <img
+          key={`img-${animKey}`}
+          src={displayFeature.screenshotImage}
+          alt={displayFeature.label}
+          className="desk-img w-full h-full object-cover
+            lg:min-h-[380px]
+            xl:min-h-[460px]
+            2xl:min-h-[560px]"
+          style={{
+            objectPosition:
+              displayFeature.id === 3 || displayFeature.id === 6 ? "center" : "left top",
+          }}
+          onError={() => setImgFailed(true)}
+        />
+      ) : (
+        <SkeletonScreen />
+      )}
 
-              {/* Agent badge */}
-              <div
-                key={`badge-${animKey}`}
-                className="absolute z-20 desk-badge"
-                style={{
-                  bottom: "-30px",
-                  left: "-60px",
-                  opacity: isBlurred ? 0.35 : 1,
-                  filter: isBlurred ? "blur(4px)" : "none",
-                  pointerEvents: isBlurred ? "none" : "auto",
-                  transition: "opacity 0.3s ease, filter 0.3s ease",
-                }}
-              >
-                <AgentBadge feature={displayFeature} animKey={animKey} />
-              </div>
+      {isBlurred && (
+        <div
+          key={`blur-${animKey}`}
+          className="desk-blur-in absolute inset-0 z-10"
+          style={{
+            backdropFilter: "blur(10px)",
+            WebkitBackdropFilter: "blur(10px)",
+            background: "rgba(245,245,255,0.50)",
+          }}
+        />
+      )}
+    </div>
 
-              {/* Explore panel */}
-             <div
-  className="
-    absolute -top-20 z-30 desk-panel
-    xl:left-1/2 xl:-translate-x-1/2
-    2xl:left-auto 2xl:right-0 2xl:translate-x-0
-  "
->
-  <ExplorePanel active={active} onSelect={handleSelect} />
+    {/* Skeleton cards */}
+    <div
+      key={`skeletons-${animKey}`}
+      className="absolute inset-0 pointer-events-none desk-card"
+      style={{ top: 72, zIndex: 15 }}
+    >
+      {isBlurred ? <SkeletonDefault /> : (ActiveDesktopSkeleton && <ActiveDesktopSkeleton />)}
+    </div>
+
+    {/* Agent badge */}
+    <div
+      key={`badge-${animKey}`}
+      className="absolute z-20 desk-badge"
+      style={{
+        bottom: "-30px",
+        left: "-60px",
+        opacity: isBlurred ? 0.35 : 1,
+        filter: isBlurred ? "blur(4px)" : "none",
+        pointerEvents: isBlurred ? "none" : "auto",
+        transition: "opacity 0.3s ease, filter 0.3s ease",
+      }}
+    >
+      <AgentBadge feature={displayFeature} animKey={animKey} />
+    </div>
+
+  </div>
 </div>
-            </div>
-          </div>
 
           {/* ══ MOBILE ═══════════════════════════════════════════════ */}
 <div className="lg:hidden flex flex-col gap-3">

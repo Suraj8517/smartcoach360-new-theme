@@ -35,7 +35,7 @@ const programFeatures = [
   },
   {
     avatar: avatar3,
-    bottom: "-90%",
+    bottom: "-85%",
     right: -530,
     barColor: "linear-gradient(90deg, #9333ea 0%, #d8b4fe 100%)",
     barBg: "#faf5ff",

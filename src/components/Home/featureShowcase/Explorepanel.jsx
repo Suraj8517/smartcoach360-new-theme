@@ -8,7 +8,6 @@ export const ExplorePanel = ({ active, onSelect }) => {
       <button
         key={f.id}
         onClick={() => onSelect(f.id)}
-        onMouseEnter={() => onSelect(f.id)}
         className="flex items-center gap-1.5 rounded-full px-4 py-2 whitespace-nowrap transition-all duration-150 text-[12px] 2xl:text-[13.5px]"
         style={{
           background: "#fff",

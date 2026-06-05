@@ -106,23 +106,7 @@ export const SkeletonClientProfile = () => (
         </div>
       </div>
 
-      {/* Stats row */}
-      <div
-        className="grid grid-cols-3 gap-1.5 mb-3 rounded-xl p-2"
-        style={{ background: "#faf5ff" }}
-      >
-        {[
-          [Activity,   "#8b5cf6", "Sessions"],
-          [TrendingUp, "#a78bfa", "Progress"],
-          [Zap,        "#c084fc", "Streak"],
-        ].map(([Icon, color, label], i) => (
-          <div key={i} className="flex flex-col items-center gap-1">
-            <Icon size={10} color={color} />
-            <Shimmer w={24} h={7} rounded="rounded-md" />
-            <span className="text-[7px] text-gray-400">{label}</span>
-          </div>
-        ))}
-      </div>
+      
 
       {/* Goal bar */}
       <div className="mb-3">

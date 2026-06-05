@@ -29,7 +29,7 @@ const programFeatures = [
   },
   {
     avatar: avatar3,
-    bottom: "-95%",
+    bottom: "-85%",
     left: 400,
     barColor: "linear-gradient(90deg, #059669 0%, #34d399 100%)",
     barBg: "#ecfdf5",
@@ -53,7 +53,7 @@ export const SkeletonProgramManagement = () => (
       className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-4"
       style={{
         top: 90,
-        left: -250,
+        left: -200,
         width: 220,
         boxShadow:
           "0 0 0 1px rgba(124,58,237,0.06), 0 8px 32px rgba(124,58,237,0.10)",

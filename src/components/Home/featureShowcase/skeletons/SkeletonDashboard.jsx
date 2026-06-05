@@ -136,7 +136,7 @@ export const SkeletonExerciseLibrary = () => (
       className="absolute z-10 bg-white rounded-xl border border-violet-100 px-3 py-2.5"
       style={{
         top: 195,
-        right: -250,
+        right: -240,
         width: 162,
         boxShadow: "0 4px 16px rgba(124,58,237,0.09)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.32s both",

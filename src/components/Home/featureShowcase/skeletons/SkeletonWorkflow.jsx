@@ -20,7 +20,7 @@ const programFeatures = [
   {
     avatar: avatar2,
     right: "-440%",
-    bottom: 200,
+    bottom: 150,
     barColor: "linear-gradient(90deg, #8b5cf6 0%, #c084fc 100%)",
     barBg: "#f5f3ff",
     barWidth: "58%",
@@ -30,7 +30,7 @@ const programFeatures = [
   },
   {
     avatar: avatar3,
-    bottom: "-90%",
+    bottom: "-80%",
     right: -530,
     barColor: "linear-gradient(90deg, #9333ea 0%, #d8b4fe 100%)",
     barBg: "#faf5ff",
@@ -70,7 +70,7 @@ export const SkeletonWorkflows = () => (
       className="absolute z-10 p-4"
       style={{
         bottom: -85,
-        right: -550,
+        right: -450,
         width: "90%",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
       }}
