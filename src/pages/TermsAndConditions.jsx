@@ -173,7 +173,7 @@ export default function TermsAndConditions() {
 
         {/* Content */}
         <main ref={contentRef} className="flex-1 overflow-y-auto bg-white">
-          <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-10 pb-20">
+          <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-20 pb-20">
             
             {/* Breadcrumb */}
             <div className="flex items-center justify-between flex-wrap gap-2 text-[13px] text-zinc-400 mb-5">

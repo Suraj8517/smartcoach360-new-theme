@@ -79,7 +79,7 @@ export default function PrivacyPolicy() {
   };
 
   return (
-    <div className="font-poppins flex flex-col h-screen overflow-hidden pt-16 xl:pt-4">
+    <div className="font-poppins flex flex-col h-screen overflow-hidden pt-20 xl:pt-4">
 
       {/* Mobile menu bar */}
       <div className="flex md:hidden items-center px-4 py-2.5 border-b border-zinc-200 bg-white gap-2.5">
@@ -167,7 +167,7 @@ export default function PrivacyPolicy() {
 
         {/* Content */}
         <main ref={contentRef} className="flex-1 overflow-y-auto bg-white">
-          <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-10 pb-20">
+          <div className="font-poppins max-w-3xl mx-auto px-6 md:px-8 pt-20 pb-20">
 
             {/* Breadcrumb */}
             <div className="flex items-center justify-between flex-wrap gap-2 text-[13px] text-zinc-400 mb-5">
