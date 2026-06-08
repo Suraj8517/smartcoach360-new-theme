@@ -174,7 +174,6 @@ export default function SmartCoach360Loader({ children }) {
           `}
           
         >
-          {/* Radial glow — Tailwind doesn't have these exact radial stops so inline */}
           <div
             className="absolute inset-0 pointer-events-none"
             style={{

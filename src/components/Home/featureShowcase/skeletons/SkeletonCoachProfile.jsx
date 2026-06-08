@@ -58,8 +58,8 @@ const SkeletonCoachProfile = () => (
     <div
       className="absolute bg-white rounded-2xl border border-gray-100 p-4"
       style={{
-        top: -80,
-        left: -215,
+        top: -20,
+        left: -235,
         width: 225,
         boxShadow: "0 0 0 1px rgba(139,92,246,0.07), 0 10px 36px rgba(139,92,246,0.13)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
@@ -182,8 +182,8 @@ const SkeletonCoachProfile = () => (
     <div
       className="absolute z-10 bg-white rounded-2xl border border-gray-100 p-3"
       style={{
-        top: 420,
-        right: -185,
+        top: 120,
+        right: -205,
         width: 200,
         boxShadow: "0 0 0 1px rgba(139,92,246,0.07), 0 8px 28px rgba(139,92,246,0.10)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.18s both",

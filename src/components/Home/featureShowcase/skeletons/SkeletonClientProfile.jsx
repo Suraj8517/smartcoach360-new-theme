@@ -62,8 +62,8 @@ export const SkeletonClientProfile = () => (
     <div
       className="absolute bg-white rounded-2xl border border-gray-100 p-4"
       style={{
-        top: -60,
-        left: -200,
+        top: 100,
+        left: -210,
         width: 220,
         boxShadow: "0 0 0 1px rgba(139,92,246,0.07), 0 10px 36px rgba(139,92,246,0.13)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.05s both",
@@ -203,7 +203,7 @@ export const SkeletonClientProfile = () => (
       className="absolute z-20 bg-white rounded-full border border-gray-100 px-3 py-2 flex items-center gap-2"
       style={{
         bottom: -55,
-        left: -100,
+        right: 250,
         boxShadow: "0 4px 20px rgba(139,92,246,0.18)",
         animation: "floatIn 0.45s cubic-bezier(.22,1,.36,1) 0.28s both",
       }}
