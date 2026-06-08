@@ -23,6 +23,7 @@ export default function LandingPage() {
     <>
      <Router>
       <ScrollToTop/>
+      <SmartCoach360Loader/>
     <Navbar/>
     <main>
       <Routes>
