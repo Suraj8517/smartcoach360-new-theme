@@ -12,7 +12,7 @@ import PricingPage from './pages/Pricing';
 import SuccessStories from './pages/SuccessStories';
 import ComparisonPage from './pages/ComparisonPage';
 import TermsAndConditions from './pages/TermsAndConditions';
-import PrivacyPolicy from './pages/PrivacyPolicy';
+import PrivacyPolicy from './pages/PrivacyPage';
 import Blogs from './pages/blogs';
 import BlogPosts from './pages/blogPosts';
 import Security from './pages/Security';

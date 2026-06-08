@@ -48,9 +48,11 @@ export default function SmartCoachFooter() {
 
       {/* ── Top info grid ── */}
       <div className="px-5 sm:px-10 pt-10 pb-8">
-        {/* Mobile: single column stack | sm: 2-col | lg: 3-col */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 justify-items-center">
 
+        {/* Mobile: right-aligned column | sm+: unchanged grid */}
+        <div className="flex flex-col items-end gap-5 sm:grid sm:grid-cols-2 sm:items-start sm:justify-items-center lg:grid-cols-3 sm:gap-6">
+
+          {/* Email */}
           {contactItems.map((item) => (
             <div key={item.label} className="flex items-start gap-3">
               <div className="w-10 h-10 rounded-xl bg-[#f3f0ff] flex items-center justify-center flex-shrink-0 text-[#7c5cfc]">
@@ -76,10 +78,12 @@ export default function SmartCoachFooter() {
             </div>
           ))}
 
-          {/* Follow us on */}
-          <p className="flex items-center gap-2">
-  Built with ❤️ in Coimbatore, India
-</p>
+          {/* Built with ❤️ */}
+          <p className="flex items-center gap-2 text-[13.5px] text-[#333]">
+            Built with ❤️ in Coimbatore, India
+          </p>
+
+          {/* Follow us */}
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#f3f0ff] flex items-center justify-center flex-shrink-0 text-[#7c5cfc]">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">

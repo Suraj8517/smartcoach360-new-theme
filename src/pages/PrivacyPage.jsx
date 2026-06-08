@@ -42,7 +42,7 @@ const sections = [
   { id: "contact",        num: "11", label: "Contact & Updates",      icon: Phone       },
 ];
 
-export default function PrivacyPolicy() {
+export default function PrivacyPage() {
   const [activeSection, setActiveSection] = useState("introduction");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const contentRef = useRef(null);

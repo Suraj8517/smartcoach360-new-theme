@@ -206,6 +206,7 @@ const DesktopMorphNav = ({ navigate, currentPath, scrolled }) => {
           boxShadow: currentShadow,
           border: currentBorder,
           borderBottom: currentBorderBottom,
+        
         }}
       >
         <div className="morph-inner">
